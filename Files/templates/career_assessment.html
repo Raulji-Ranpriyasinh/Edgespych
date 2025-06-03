@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Career Questions</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8fbfd;
+        }
+
+.navbar {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+
+    /* background images */
+    background-image: url('/static/nav-img1.png'), url('/static/nav-img2.png');
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, contain; /* make sure both fit naturally */
+    background-position: center left, center right; /* place left and right */
+}
+
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #001e4d;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+
+
+        .dropdown {
+            position: relative;
+        }
+
+        .profile-btn {
+            background-color: #296eff;
+            color: white;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .user-icon {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            margin-right: 8px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 48px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+            z-index: 1;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .dropdown-content p {
+            margin: 8px 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .container h2 {
+            font-size: 26px;
+            margin-bottom: 30px;
+            color: #393939;
+        }
+
+        .nav-images {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-img {
+            height: 40px;
+            /* Adjust as needed */
+            width: auto;
+        }
+
+.question-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px 30px;
+    max-width: 600px;
+    margin: 60px auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.card-heading {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 18px;
+}
+
+.button-wrapper {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: static;
+    transform: none;
+}
+.btn {
+    padding: 10px 28px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+    color: #fff;
+    box-shadow: none;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: scale(1.04);
+}
+
+.btn.yes {
+    background-color: #4CAF50;
+}
+
+.btn.maybe {
+    background-color: #666666;
+}
+
+.btn.no {
+    background-color: #e74c3c;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <!-- Optional icon next to text -->
+            <img src="/static/image-removebg edge.png" class="logo-icon" alt="logo" />
+        </div>
+        <!-- <div class="nav-images">
+    <img src="/static/nav-img1.png" class="nav-img" alt="Image 1" />
+    <img src="/static/nav-img2.png" class="nav-img" alt="Image 2" />
+  </div> -->
+        <div class="dropdown">
+            <button onclick="toggleDropdown()" class="profile-btn">
+                <span class="user-icon"><img src="/static/profile-icon.png" alt=""></span> {{ first_name }} ▼
+            </button>
+            <div class="dropdown-content" id="dropdownMenu">
+                <p>ID: {{ user_id }}</p>
+                <p>{{ email }}</p>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Career Question Container -->
+<div class="container">
+    <div class="question-card">
+        <h3 class="card-heading">Career Questions</h3>
+        <p class="question" id="question">Loading...</p>
+        <div class="button-wrapper">
+            <button class="btn yes" onclick="nextQuestion(2)">YES</button>
+            <button class="btn maybe" onclick="nextQuestion(1)">MAYBE</button>
+            <button class="btn no" onclick="nextQuestion(0)">NO</button>
+        </div>
+    </div>
+</div>
+
+
+
+    <script>
+
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+            var dropdown = document.getElementById("dropdownMenu");
+            var button = document.querySelector(".dropdown-btn");
+            if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+
+        let currentQuestion = null;  // Stores the current question
+
+        function loadQuestion() {
+            fetch('/career_questions')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        currentQuestion = data;  // Store the question
+                        updateQuestion();
+                    } else {
+                        document.getElementById("question").innerText = "Thank you";
+                        window.location.href = '/programmes';
+
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById("question").innerText = "Error fetching questions.";
+                });
+        }
+
+        function updateQuestion() {
+            if (currentQuestion) {
+                let questionElement = document.getElementById("question");
+                questionElement.innerText = `Q${currentQuestion.question_number}: ${currentQuestion.question_text}`;
+            } else {
+                document.getElementById("question").innerText = "No questions available.";
+            }
+        }
+
+        function nextQuestion(weight) {
+            if (!currentQuestion) return;
+
+            let questionId = currentQuestion.question_number;  // Use question_number instead of id
+
+            fetch('/submit_response', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    question_id: questionId,
+                    response_weight: weight
+                })
+            }).then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        loadQuestion();  // Load the next question from the API
+                    } else {
+                        document.getElementById("question").innerText = "Error submitting response.";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById("question").innerText = "Error submitting response.";
+                });
+        }
+
+        window.onload = loadQuestion;
+
+    </script>
+
+</body>
+
+</html>

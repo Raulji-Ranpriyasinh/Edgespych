@@ -1,0 +1,2461 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MYCAREERCHOICES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.min.js"></script>
+
+
+    <style>
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        /*
+        <!-- .container {
+            text-align: center;
+            margin: 20px;
+        } -->*/
+
+        .page {
+            width: 21cm;
+            height: 29.7cm;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 2cm;
+            box-sizing: border-box;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            text-align: right;
+            margin-bottom: 15px;
+            color: #4682B4;
+            font-size: 12pt;
+        }
+
+        .logo {
+            text-align: left;
+            margin-bottom: 25px;
+            color: #4682B4;
+            font-size: 11pt;
+        }
+
+        .section {
+            margin-bottom: 15px;
+            padding: 12mm;
+            background-color: #f9f2f9;
+            border-radius: 8px;
+        }
+
+        .section-title {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+
+            display: flex;
+            justify-content: start;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            width: 100%;
+        }
+
+
+        .item span {
+            margin-left: 12px;
+            font-size: 15pt;
+            color: #555;
+
+        }
+
+        .item span.right-aligned {
+            margin-left: auto;
+            /* Aligns the span to the right */
+        }
+
+        .circle {
+            width: 20pt;
+            height: 20pt;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9pt;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+
+        .circle.a {
+            background-color: #2980b9;
+        }
+
+        .circle.b {
+            background-color: #79C388;
+        }
+
+        .circle.c {
+            background-color: #af7ac5;
+        }
+
+        .circle.d {
+            background-color: #f4d03f;
+        }
+
+        .circle.e {
+            background-color: #51d8de;
+        }
+
+        .circle.f {
+            background-color: #0b9347;
+        }
+
+        .circle.g {
+            background-color: #d65612;
+        }
+
+        .circle.h {
+            background-color: #EE82EE;
+        }
+
+        .circle.i {
+            background-color: #ff94cd;
+        }
+
+        h1 {
+            color: #DAA520;
+            font-size: 22pt;
+            margin-bottom: 5px;
+        }
+
+        p {
+            /*color: #4682B4;
+            font-size: 14pt;*/
+            margin-top: 0;
+        }
+
+        .dashed-line {
+            border-bottom: 1px dashed #999;
+            flex-grow: 1;
+            margin: 0 10px;
+            min-width: 120px;
+            /* Ensuring it doesn't shrink */
+        }
+
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #4682B4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #315a8a;
+        }
+
+        /* Ensure a new page when printing */
+        .page+.page {
+            page-break-before: always;
+        }
+
+
+        @media print {
+            body {
+                background-color: #fff;
+            }
+
+            .page {
+                margin: 0;
+                padding: 2cm;
+                box-shadow: none;
+            }
+
+            .button-container {
+                display: none;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background: white;
+            padding: 30px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            position: relative;
+
+
+
+
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 18px;
+
+            text-align: center;
+            flex: 1;
+        }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            text-align: center;
+            line-height: 38px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .user-info {
+            margin-top: 10px;
+        }
+
+        .name {
+            font-weight: bold;
+            color: #c00;
+            font-size: 16px;
+        }
+
+        .designation {
+            font-size: 14px;
+            color: gray;
+        }
+
+        .main-heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .highlight {
+            color: #67a2c9;
+            font-weight: bold;
+        }
+
+        .description {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .factor {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .number-circle {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #b0c4de;
+            border-radius: 50%;
+            font-size: 28px;
+            text-align: center;
+            line-height: 56px;
+            color: #6c8fbf;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .factor-content {
+            flex: 1;
+        }
+
+        .factor-content h3 {
+            color: #6c8fbf;
+            margin: 0;
+        }
+
+        .factor-content p {
+            background: #c0d6eb;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .goal-text {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 12px;
+        }
+
+        .red {
+            color: #c00;
+        }
+
+        .page-number {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #666;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 38px;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 10px auto;
+        }
+
+        .container {
+            display: none;
+            border: none;
+            page-break-before: always;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <script>
+
+
+
+        // Function to get query or path param from URL
+        function getStudentIdFromURL() {
+            const urlParts = window.location.pathname.split('/');
+            const studentId = urlParts[urlParts.length - 1]; // Assuming /download_career/<student_id>
+            return studentId;
+        }
+
+        // Set student_id to a global variable or assign it to any hidden field if needed
+        const student_id = getStudentIdFromURL();
+
+        // Automatically call your functions once page loads
+        window.onload = function () {
+            if (student_id) {
+                // Optionally set it to a hidden input if any function relies on document.getElementById('student_id').value
+                const hiddenInput = document.createElement("input");
+                hiddenInput.type = "hidden";
+                hiddenInput.id = "student_id";
+                hiddenInput.value = student_id;
+                document.body.appendChild(hiddenInput);
+
+                // Call all necessary functions
+                loadData();
+                fetchReport();
+                generate();
+                ibgenerate();
+                loadOverallOnlyChart()
+            }
+        };
+
+
+    </script>
+
+
+    <div id="student-form">
+        <label for="student-input">Generate Career Report:</label>
+        <!-- <input type="number" id="student_id" placeholder="Student ID"> -->
+        <button onclick="loadData(),fetchReport(),generate(),ibgenerate()" id="submit-btn">Generate Report</button>
+    </div>
+
+
+
+    <div class="button-container">
+
+
+        <!-- <button id="generate-pdf-btn">Download PDF</button> -->
+        <button onclick="downloadPDF()">Download PDF</button>
+        <!-- <button onclick="window.location.href='/download-pdf?student_id=12345'">Download Report</button> -->
+        <!-- <button onclick="downloadPDF()">Download as PDF</button> -->
+        <!-- <button onclick="window.location.href='/download-pdf'">Download as PDF</button> -->
+    </div>
+    <div class="container">
+        <!-- First Page -->
+<!-- below index -->
+
+        <div class="page">
+
+  <!-- Header -->
+<div style="width: 100%; display: flex; justify-content: flex-start;  ">
+  <img src="/static/imglogopdf.png" alt="Logo" style="width: 209px; height: 73px; margin-bottom: 40px;">
+</div>
+
+
+
+  <!-- Your Feedback -->
+  <div style="display: flex; margin-bottom: 40px; color :#112A4D; ">
+    <div style="width: 40%; font-weight: bold; color: #1f2d5d; font-size: 16px;">Your Feedback</div>
+    <div style="width: 60%;">
+      <div style="display: flex; align-items: center; margin-bottom: 8px; background-color: #EFD8DE;padding-right: 12px; ">
+        <span style="background-color: #A31C3E; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">I</span>
+        The Career Navigator Pathways
+        <span style="margin-left: auto;">1</span>
+      </div>
+      <div style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E4DDFD;padding-right: 12px; ">
+        <span style="background-color: #592BF1; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">II</span>
+        Interest Profile and Overall Match
+        <span style="margin-left: auto;">2</span>
+      </div>
+      <div style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E5DEE5;padding-right: 12px; ">
+        <span style="background-color: #360335; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">III</span>
+        Careers Selection Worksheets
+        <span style="margin-left: auto;">4</span>
+      </div>
+      <div style="display: flex; align-items: center; margin-bottom: 8px;background-color: #E2F8F5; padding-right: 12px;">
+        <span style="background-color: #0FC8A9; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">IV</span>
+        Subject Selection Worksheets
+        <span style="margin-left: auto;">7</span>
+      </div>
+      <div style="display: flex; align-items: center; margin-bottom: 8px;background-color: #DAECE8; padding-right: 12px;">
+        <span style="background-color: #329681; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">V</span>
+        Aptitude Results
+        <span style="margin-left: auto;">10</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pink dashed line -->
+  <hr style="border: 1px dashed #FFD9E0; margin: 30px 0;">
+
+  <!-- How to Use -->
+  <div style="display: flex; margin-bottom: 40px;">
+    <div style="width: 40%; font-weight: bold; color: #1f2d5d; font-size: 16px;">How to use your <br> Career <br> Navigator <br> Feedback</div>
+    <div style="width: 60%;">
+      <div style="display: flex; align-items: center; margin-bottom: 8px;background-color: #E6E0EF; padding-right: 12px;">
+        <span style="background-color: #400E86; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">VI</span>
+        The Mind Map
+        <span style="margin-left: auto;">12</span>
+      </div>
+      <div style="display: flex; align-items: center; margin-bottom: 8px;background-color: #E8F0E8; padding-right: 12px;">
+        <span style="background-color: #0D610D; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">VII</span>
+        Career Action Plan
+        <span style="margin-left: auto;">15</span>
+      </div>
+      <div style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E6E2DC ;padding-right: 12px; ">
+        <span style="background-color: #6C552F; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">VIII</span>
+        Careers Analysis Forms
+        <span style="margin-left: auto;">17</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blue dashed line -->
+  <hr style="border: 1px dashed #CAE0F8; margin: 30px 0;">
+
+  <!-- Appendices -->
+  <div style="display: flex; margin-bottom: 40px;">
+    <div style="width: 40%; font-weight: bold; color: #1f2d5d; font-size: 16px;">Appendices</div>
+    <div style="width: 60%;">
+      <div style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E2EBF3;padding-right: 12px;   " >
+        <span style="background-color: #1C62A3; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">IX</span>
+        School Leaver Program
+        <span style="margin-left: auto;">20</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+<div style="display: flex; justify-content: flex-end; align-items: center; margin-top: 60px;">
+  <div style="text-align: right; margin-right: 10px;">
+    <strong style="color: #1f2d5d;"><span id="student-name"></span></strong><br>
+    <span style="color: #7f8c8d;">Admission Consulting</span>
+  </div>
+  <div style="width: 26px; height: 42px; background-color: #FC234E;"></div>
+</div>
+
+
+</div>
+
+<!-- above index -->
+        <!-- 4 Page -->
+        <div class="page" style="text-align: left;">
+            <div class="header"></div>
+
+            <header>
+                <h2 class="title"
+                    style="text-align: right;border-bottom: 2px solid #2980b9; padding-bottom: 10px; font-size: 30px;color: #2980b9;">
+                    The EDGEPSYCH Programme </h2>
+                <div class="circle"
+                    style="width: 50px; height: 50px; border: 2px solid #2980b9; border-radius: 50%; text-align: center; 
+                font-size: 30px; font-weight: bold; color: #2980b9; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    A</div>
+            </header>
+
+
+
+            <h1 class="main-heading" style="font-size: 20px;">The <span class="highlight">EDGEPSYCH Programme</span>
+            </h1>
+            <p class="description" style="font-size: 18px;">
+                The <span class="highlight">EDGEPSYCH programme</span> has been designed to help you consider and
+                explore in greater detail your future career possibilities, as well as A Levels / IB subjects, which
+                will meet the requirements for higher education or other routes into your lifelong career path.
+            </p>
+            <p class="description" style="font-size: 18px;">
+                A number of different personal factors are considered when focusing on future careers. <span
+                    class="highlight">EDGEPSYCH</span> looks in particular at three.
+            </p>
+
+            <div class="factor">
+                <div class="number-circle">1</div>
+                <div class="factor-content">
+                    <h3>Your Interests</h3>
+                    <p>Offers guidance towards career fields that align with your interests and passions. The tasks and
+                        responsibilities in these areas are likely to be engaging, rewarding, and fulfilling for you.
+                    </p>
+                </div>
+            </div>
+
+            <div class="factor">
+                <div class="number-circle">2</div>
+                <div class="factor-content">
+                    <h3>Overall Match</h3>
+                    <p>Considers a wider range of interests that are also important when evaluating the specific demands
+                        a particular job will require.</p>
+                </div>
+            </div>
+
+            <div class="factor">
+                <div class="number-circle">3</div>
+                <div class="factor-content">
+                    <h3>Your Abilities</h3>
+                    <p>Will help you assess whether you currently have or can acquire the qualifications necessary to
+                        train and develop the skills required for the job.</p>
+                </div>
+            </div>
+
+            <p class="goal-text" style="font-size: 18px;">
+                The goal of this workbook is to integrate these three aspects as you choose your A Levels/IB subjects.
+                The insights you gain about your interests and strengths will provide a solid foundation for making
+                informed choices regarding future careers and courses, offering you clearer focus and direction.
+            </p>
+
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #2980b9; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+                1
+            </div>
+
+            <!-- <footer>
+                <hr>
+                <p class="footer-text">
+                    kanaiya bhatt, <span class="red">Education</span> Consulting - <span
+                        class="red">MyCareerChoices</span>
+                </p>
+                <div class="page-number">1</div>
+            </footer> -->
+
+
+        </div>
+        <!-- 5 page -->
+        <div class="page">
+            <div class="header" style="font-size: 8.5pt;"></div>
+
+            <!-- Page Header -->
+            <div style="border-bottom: 2px solid #79C388; padding-bottom: 10px; display: flex; align-items: center;">
+                <div
+                    style="width: 50px; height: 50px; border: 2px solid #79C388; border-radius: 50%; text-align: center; 
+                    font-size: 30px; font-weight: bold; color: #79C388; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    B
+                </div>
+                <h2 style="color: #79C388; margin: 0; font-size: 30px; ">INTEREST PROFILE </h2>
+            </div>
+
+            <!-- Main Content -->
+            <h3 style="color: #79C388; margin-top: 20px; font-size: 15pt; text-align: left;">What is the Interest
+                Profile</h3>
+            <p style="text-align: justify; font-size: 10pt;">
+                Your interest Profile, which appears on the following page, is derived from your responses to the
+                questionnaire and lists
+                your primary occupational and academic interests in order of significance. By focusing on your stronger
+                interests when
+                making choices, you are more likely to find fulfillment and enjoyment in both your education and career.
+            </p>
+            <p style="text-align: justify; font-size: 10pt;">
+                The Profile reflects your current interests, which may continue to evolve over time, especially through
+                work experience or
+                exposure to career talks or visits. However, many of these interests are likely to remain prominent in
+                your Profile
+                throughout your life. Some may change or diminish based on your final A Levels/IB subject selections.
+            </p>
+
+            <h3 style="color: #79C388; font-size: 15pt;text-align: left;">How are Interest Level and Overall Match
+                measured</h3>
+
+            <!-- Table -->
+            <table style="  width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <tr style="background-color: #D3D3D3; text-align: left;">
+                    <th style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">Interest Level or Overall Match
+                    </th>
+                    <th style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">Scores</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">‘Very high’</td>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">90% - 100%</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">‘High’</td>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">70% - 89%</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">‘Moderate’</td>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">50% - 69%</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">‘Marginal’</td>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">30% - 49%</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">‘Low’</td>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">10% - 29%</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">‘Very Low’</td>
+                    <td style="padding: 10px; border: 1px solid #ccc; font-size: 8.5pt;">0% - 9%</td>
+                </tr>
+            </table>
+
+            <h3 style="color: #79C388; font-size: 15pt;text-align: left;">How can I use it?</h3>
+            <p style="text-align: justify; font-size: 10pt;">
+                Strong interests can serve as valuable "building blocks" for selecting future educational courses and
+                careers. You can use these
+                interests individually or combine them, and they can also drive your decisions for higher education
+                courses. It’s important that your interests
+                align with your skills, academic abilities, and personal qualities.
+            </p>
+
+            <h3 style="color: #79C388; font-size: 15pt;text-align: left;">Are all the top career areas realistic options
+                for me?</h3>
+            <p style="text-align: justify; font-size: 10pt;">
+                Not all strong career interests are practical or suitable as a foundation for your career. Some may be
+                better suited as hobbies or
+                activities. Others may be unrealistic due to a lack of necessary skills in key subjects, health
+                concerns, lifestyle requirements, intense
+                competition for jobs, or limited job opportunities in that field.
+            </p>
+
+
+
+            <h3 style="color: #79C388; font-size: 15pt;text-align: left;">Disclaimer</h3>
+            <p style="text-align: justify; font-size: 10pt;">
+                The careers listed in the <span style="color: 79C388; font-size: 10pt;">EDGEPSYCH </span> workbook
+                are based on the way you completed the questionnaire. The goal is to present a
+                range of career options aligned with your stronger interests.
+            </p>
+
+            <!-- Footer -->
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #79C388; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+                2
+            </div>
+        </div>
+        <!-- 6 page -->
+        <div class="page">
+            <div class="header"></div>
+
+            <style>
+                .sixchart-container {
+                    width: 100%;
+                    height: 2500px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            </style>
+
+
+
+            <div style="border-bottom: 2px solid #79C388; padding-bottom: 10px; display: flex; align-items: center;">
+                <div
+                    style="width: 50px; height: 50px; border: 2px solid #79C388; border-radius: 50%; text-align: center; 
+                    font-size: 30px; font-weight: bold; color: #79C388; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    B
+                </div>
+                <h2 style="color: #79C388; margin: 0; font-size: 30px; ">INTEREST PROFILE </h2>
+            </div>
+
+            <p style="text-align: justify; font-size: 10pt;">
+                This profile offers a summary of your interests.
+                The 51 occupational or academic interest areas are ranked in order of importance.
+                The top nine areas have been selected to guide the career area worksheets for review in Section C.
+            </p>
+
+            <!-- <div class="sixchart-container" id="sixchart-container">
+                <canvas style="width: 50%;" id="careerChart"></canvas>
+                <canvas style="width: 50%;" id="overallcareerChart"></canvas>
+                
+                
+
+
+            </div> -->
+            <style>
+                .sixchart-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    justify-content: center;
+                    gap: 20px;
+                }
+
+                .chart-box {
+                    height: 23cm;
+                    position: relative;
+                }
+
+                .chart-box:first-child {
+                    flex: 1 1 55%;
+                    /* More room for Y-axis labels */
+                    max-width: 55%;
+                    min-width: 400px;
+                }
+
+                .chart-box:last-child {
+                    flex: 1 1 40%;
+                    /* Less room needed as no Y labels */
+                    max-width: 40%;
+                    min-width: 300px;
+                }
+            </style>
+
+            <div class="sixchart-container" id="sixchart-container">
+                <div class="chart-box">
+                    <canvas id="careerChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <canvas id="overallcareerChart"></canvas>
+                </div>
+            </div>
+
+
+            <script>
+
+                let interestChart = null;
+                let overallChart = null;
+                function loadData() {
+                    const studentId = getStudentIdFromUrl();
+                    console.log(studentId);
+                    //const studentId = document.getElementById("student_id").value;
+                    if (!studentId) {
+                        alert("Please enter a student ID.");
+                        return;
+                    }
+
+                    //document.getElementById("student_id").style.display = "none";
+
+                    fetch(`/get_career_scores/${studentId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.error) {
+                                alert(data.error);
+                                //document.getElementById("student_id").style.display = "block";
+                                return;
+                            }
+
+                            let subjects = data.subjects;
+
+                            // Sort by interest score
+                            subjects.sort((a, b) => b.score - a.score);
+
+                            const labels = subjects.map(s => s.name);
+                            const interestScores = subjects.map(s => s.score);
+
+                            // Set colors for interest scores
+                            const interestColors = subjects.map((_, i) => {
+                                if (i < 9) return 'rgba(255, 99, 132, 1)';
+                                if (i < 30) return 'rgba(255, 99, 132, 0.6)';
+                                return 'rgba(255, 99, 132, 0.2)';
+                            });
+
+                            const ctx = document.getElementById('careerChart').getContext('2d');
+                            if (interestChart) {
+                                interestChart.destroy();
+                            }
+
+                            interestChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: labels,
+                                    datasets: [
+                                        {
+                                            label: 'Interest Level (%)',
+                                            data: interestScores,
+                                            backgroundColor: interestColors,
+                                            categoryPercentage: 0.6,
+                                            barPercentage: 0.9
+                                        }
+                                    ]
+                                },
+                                options: {
+                                    indexAxis: 'y',
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    devicePixelRatio: 4,
+                                    scales: {
+                                        x: {
+                                            beginAtZero: true,
+                                            max: 100,
+                                            ticks: {
+                                                stepSize: 20,
+                                                callback: value => value + '%',
+                                                font: { size: 10 }
+                                            },
+                                            title: { display: true, text: 'Intrest level (%)' },
+                                            grid: {
+                                                display: false // ❌ Hide Y-axis grid
+                                            }
+                                        },
+                                        y: {
+                                            title: { display: true, text: 'Career Fields' },
+                                            ticks: {
+                                                align: 'start',
+
+                                                autoSkip: false,
+                                                font: { size: 8 }
+                                            },
+                                            grid: {
+                                                display: true // ❌ Hide Y-axis grid
+                                            }
+                                        }
+                                    },
+                                    plugins: {
+                                        legend: {
+                                            display: true,
+                                            position: 'top'
+                                        },
+                                        tooltip: {
+                                            enabled: true
+                                        },
+                                        datalabels: {
+                                            display: function (context) {
+                                                return context.dataset.data[context.dataIndex] > 0;
+                                            },
+                                            anchor: 'centre',
+                                            align: 'centre',
+                                            color: 'black',
+                                            padding: 10,
+                                            font: {
+                                                size: 7
+                                            },
+                                            formatter: function (value) {
+                                                return value.toFixed(1) + '%';
+                                            }
+                                        }
+                                    }
+                                },
+                                plugins: [ChartDataLabels]
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            //document.getElementById("student_id").style.display = "block";
+                        });
+                    loadOverallOnlyChart()
+                }
+
+                function loadOverallOnlyChart() {
+                    const studentId = getStudentIdFromUrl();
+                    //const studentId = document.getElementById("student_id").value;
+                    if (!studentId) {
+                        alert("Please enter a student ID.");
+                        return;
+                    }
+
+                    //document.getElementById("student_id").style.display = "none";
+
+                    fetch(`/get_career_scores/${studentId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.error) {
+                                alert(data.error);
+                                //document.getElementById("student_id").style.display = "block";
+                                return;
+                            }
+
+                            let subjects = data.subjects;
+
+                            // Sort subjects by overall match score
+                            //subjects.sort((a, b) => b.overall_match_score - a.overall_match_score);
+                            subjects.sort((a, b) => b.score - a.score);
+                            const labels = subjects.map(s => s.name);
+                            const overallScores = subjects.map(s => s.overall_match_score);
+                            const overallColors = subjects.map((_, i) => {
+                                if (i < 9) return 'rgba(54, 162, 235, 1)';
+                                if (i < 30) return 'rgba(54, 162, 235, 0.6)';
+                                return 'rgba(54, 162, 235, 0.2)';
+                            });
+
+                            const ctx = document.getElementById('overallcareerChart').getContext('2d');
+                            if (overallChart) {
+                                overallChart.destroy();
+                            }
+
+                            overallChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: labels,
+                                    datasets: [
+                                        {
+                                            label: 'Overall Match (%)',
+                                            data: overallScores,
+                                            backgroundColor: overallColors,
+                                            categoryPercentage: 0.6,
+                                            barPercentage: 0.9
+                                        }
+                                    ]
+                                },
+                                options: {
+                                    indexAxis: 'y',
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    devicePixelRatio: 4,
+                                    scales: {
+                                        x: {
+                                            beginAtZero: true,
+                                            max: 100,
+                                            ticks: {
+                                                stepSize: 20,
+                                                callback: value => value + '%',
+                                                font: { size: 10 }
+                                            },
+                                            title: { display: true, text: 'Overall Match (%)' },
+                                            grid: {
+                                                display: false // Optional: hide grid lines if you want a cleaner look
+                                            }
+                                        },
+                                        y: {
+                                            title: {
+                                                title: { display: true, text: 'Career Fields' },  // Hide the "Career Fields" title
+                                            },
+                                            ticks: {
+                                                display: false,
+                                                align: 'start',
+                                                padding: 40,
+                                                autoSkip: false,
+                                                font: { size: 10 },
+                                                color: 'white'
+
+                                            },
+                                            grid: {
+                                                display: true // Optional: hide grid lines if you want a cleaner look
+                                            }
+                                        }
+                                    },
+                                    plugins: {
+                                        legend: {
+                                            display: true,
+                                            position: 'top'
+                                        },
+                                        tooltip: {
+                                            enabled: true
+                                        },
+                                        datalabels: {
+                                            display: context => context.dataset.data[context.dataIndex] > 0,
+                                            anchor: 'centre',
+                                            align: 'centre',
+                                            color: 'black',
+                                            padding: 10,
+                                            font: { size: 7 },
+                                            formatter: value => value.toFixed(1) + '%'
+                                        }
+                                    }
+                                }
+                                ,
+                                plugins: [ChartDataLabels]
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            //document.getElementById("student_id").style.display = "block";
+                        });
+                }
+                console.log(studentId);
+
+
+            </script>
+
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #79C388; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+                3
+            </div>
+        </div>
+
+        <!-- career selection worksheet page 7 -->
+        <div class="page">
+            <div class="header" style="font-size: 8.5pt;"></div>
+
+            <!-- Page Header -->
+
+
+            <div style="border-bottom: 2px solid #af7ac5; padding-bottom: 10px; display: flex; align-items: center;">
+                <div
+                    style="width: 50px; height: 50px; border: 2px solid #af7ac5; border-radius: 50%; text-align: center; 
+                    font-size: 30px; font-weight: bold; color: #af7ac5; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    C
+                </div>
+                <h2 style="color: #af7ac5; margin: 0; font-size: 30px; ">CAREERS SELECTION WORKSHEETS </h2>
+            </div>
+
+
+            <!-- Main Content -->
+            <h3 style="color: #af7ac5; margin-top: 20px; font-size: 15pt;text-align: left; ">What is the Interest
+                Profile</h3>
+            <p style="text-align: justify; font-size: 10pt;">
+                The upcoming Careers Selection Worksheets form the
+                basis for your career exploration. Each worksheet is made up of two pages and is structured as follows:
+            </p>
+            <p style="text-align: justify; font-size: 10pt;">
+                The Profile reflects your current interests, which may continue to evolve over time, especially through
+                work experience or
+                exposure to career talks or visits. However, many of these interests are likely to remain prominent in
+                your Profile
+                throughout your life. Some may change or diminish based on your final A Levels/IB subject selections.
+            </p>
+
+            <h3 style="color: #af7ac5; font-size: 15pt;text-align: left;">Purpose</h3>
+
+            <!-- Table -->
+            <p style="text-align: justify; font-size: 10pt;text-align: left;">
+                This web page template is designed to visually present career guidance reports tailored to an
+                individual's
+                strengths and interests across various career fields (e.g., Mathematics, Medicine, Engineering, Arts).
+            </p>
+
+            <h3 style="color: #af7ac5; font-size: 15pt;text-align: left;">Supporting Subjects</h3>
+            <p style="text-align: justify; font-size: 10pt;">
+                Here, students can see which academic subjects are most relevant to the career
+                field and how well they align with each based on their performance or interests. Each subject is listed
+                along with a match percentage and a short explanation of its importance. This helps students understand
+                the
+                foundational knowledge areas they should strengthen for success in this domain.
+            </p>
+
+            <h3 style="color: #af7ac5; font-size: 15pt;text-align: left;">Career Suggestions</h3>
+            <p style="text-align: justify; font-size: 10pt;">
+                This section presents a curated list of potential careers related to the chosen field.
+                Each suggestion includes a brief description of the role, its responsibilities, and how it ties back to
+                the student’s strengths or academic interests.
+                It helps students explore real-world job options that reflect their profile and inspires further
+                research or planning.
+            </p>
+
+
+
+            <h3 style="color: #af7ac5; font-size: 15pt;text-align: left;">Overall Match</h3>
+            <p style="text-align: justify; font-size: 10pt;">
+                This provides a broader assessment of your suitability for a career, considering more than just the main
+                interest. The bar graphs assess
+                the impact of specific supporting interests and skills important for each career field. These are
+                displayed as percentages and explained in terms
+                of their relevance to the careers. The average of the main interest and these supporting skills or
+                interests gives your personal Overall Match
+                score. The bars are color-coded: green - high score - proceed; amber - moderate score - proceed with
+                caution; red - low score - stop and
+                reassess.
+            </p>
+            <h3 style="color: #af7ac5; font-size: 15pt;text-align: left;"> Checklist</h3>
+            <p style="text-align: justify; font-size: 10pt;">
+                The checklist highlights common traits, skills, and interests often found in individuals who excel in
+                this career path.
+                Students can use it as a self-assessment tool to reflect on their own personality and capabilities.
+                It helps confirm whether the career field resonates with their natural inclinations, goals, and
+                long-term aspirations.
+            </p>
+
+
+            <!-- Footer -->
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #af7ac5; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+                4
+            </div>
+        </div>
+
+        <div class="page">
+            <div style="border-bottom: 2px solid #af7ac5; padding-bottom: 10px; display: flex; align-items: center;">
+                <div
+                    style="width: 50px; height: 50px; border: 2px solid #af7ac5; border-radius: 50%; text-align: center; 
+                    font-size: 30px; font-weight: bold; color: #af7ac5; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    C
+                </div>
+                <h2 style="color: #af7ac5; margin: 0; font-size: 30px; ">CAREERS SELECTION WORKSHEETS </h2>
+            </div>
+
+
+            <h3 style="color: #af7ac5; font-size: 15pt;text-align: left;"> Subject Selection</h3>
+            <p style="text-align: justify; font-size: 10pt;">
+                A key task ahead is choosing appropriate subjects for the next academic year (A Level/IB).
+                It’s essential to review the full range of subjects offered at your school or college for the upcoming
+                year and to identify
+                those that may be critical for the courses and careers you plan to pursue. The Subject Selection and
+                Availability Charts
+                (Section D) are designed to help you select the best possible subject combinations to align with the
+                majority of your future
+                career and higher education aspirations. Ideally, focus on subjects that genuinely interest you and
+                where you are likely to
+                achieve strong results.
+            </p>
+
+            <h3 style="color: #af7ac5; font-size: 15pt;text-align: left;">How do I use all this information</h3>
+            <p style="text-align: justify; font-size: 10pt;">
+                This information is available to you both online and in this report. The report includes a Mind Map in
+                Section F, which
+                illustrates how all the details interconnect, and a Career Analysis Form in Section H, where you can
+                document notes on the
+                jobs you are researching. Online, through your Student Portal, you can access your Interest Profile of
+                Career Areas, ranked
+                by interest level. You can delve into any career area to evaluate your suitability by reviewing the
+                Overall Match, Cautionary
+                Notes, and Career Check. Additionally, you can explore specific job options within broader career fields
+                and use the Career
+                Descriptions (WORKBRIEF) to ask relevant questions and gather more information. Once you have conducted
+                your initial
+                research, you can complete a Personal Reflection to record your thoughts, preferences, reasons for your
+                choices, and
+                potential course ideas. This document can be particularly useful for preparing for guidance interviews.
+                The Action Plan
+                allows you to outline the steps you intend to take or actions agreed upon during a guidance session.
+            </p>
+
+
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #af7ac5; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+                5
+            </div>
+        </div>
+
+        <!--  page -->
+        <!-- -------------------reeport------------------------------------------ -->
+        <style>
+            .field-report ul {
+                list-style: none;
+                padding-left: 0;
+                margin: 0 0 15px 0;
+            }
+
+            .field-report li {
+                text-align: left;
+                margin-bottom: 6px;
+            }
+
+            .field-report {
+                text-align: left;
+            }
+        </style>
+
+        <div class="report-container" id="reportContainer">
+
+
+            <!-- Report will be inserted here -->
+        </div>
+
+        <script>
+
+            async function fetchReport() {
+                const studentId = getStudentIdFromUrl();
+                //const studentId = document.getElementById("student_id").value;
+                const reportContainer = document.getElementById("reportContainer");
+                reportContainer.innerHTML = ""; // Clear previous report
+
+                if (!studentId) return alert("Please enter a student ID.");
+
+                try {
+                    // Fetch the report data from your original route
+                    const response = await fetch(`/career_report/${studentId}`);
+                    const data = await response.json();
+
+                    if (response.status !== 200) {
+                        reportContainer.innerHTML = `<p style="color:red;">${data.error}</p>`;
+                        return;
+                    }
+
+                    // Fetch career scores (which should include the overall_match_score)
+                    const careerScoreResponse = await fetch(`/get_career_scores/${studentId}`);
+                    const careerScoreData = await careerScoreResponse.json();
+
+                    // Ensure that the response includes overall_match_score for each subject
+                    const overallMatchScores = careerScoreData.subjects;
+
+                    let pageCounter = 6; // Start from Page 6
+
+                    data.top_fields.forEach((field) => {
+                        // ----- Page 1 -----
+                        const page1 = document.createElement("div");
+                        page1.className = "page";
+
+                        const header1 = document.createElement("div");
+                        header1.className = "header";
+
+                        const content1 = document.createElement("div");
+                        content1.className = "field-report";
+
+                        let supportingSubjectsHTML = "";
+                        if (field.supporting_subjects.length) {
+                            supportingSubjectsHTML += `
+                                <h3 style="color: #af7ac5; font-size: 15px; ">Supporting Subjects:<span style="font-weight: normal; font-size: 13px; color: #555;">
+       ${field.supporting_subjects.map(sub => sub.name).join(', ')}
+        </span  </h3>
+                                
+                            `;
+                        }
+
+                        let careerSuggestionsHTML = "";
+                        if (field.careers && field.careers.length) {
+                            careerSuggestionsHTML = `
+                                    <h3 style="color: #af7ac5;font-size: 15px;text-align: justify;">Career Suggestions: <span style="font-weight: normal; font-size: 13px; color: #555;">
+        The following careers are some you might like to consider specifically within this area.
+        </span></h3>
+<ul style="list-style-type: none; padding-left: 0;">
+    <table style="width: 100%; border-collapse: collapse;">
+        <tbody>
+            ${field.careers.map(career => `
+                <tr style="border-top: 2px solid #2980b9; border-bottom: 2px solid #2980b9;">
+                    <td style="padding: 8px; width: 30%; vertical-align: top; border-left: none; border-right: none;">
+                        <input type="checkbox" style="margin-right: 5px;">
+                        <strong style="color: #000000;">${career.career}</strong>
+                    </td>
+                    <td style="padding: 8px; width: 70%; vertical-align: top; border-left: none; border-right: none;text-align: left;">
+                        ${career.description}
+                    </td>
+                </tr>
+            `).join('')}
+        </tbody>
+    </table>
+</ul>
+
+
+                            `;
+                        }
+
+                        const highScoreParagraphHTML = `
+
+
+                        <h3 style="color: #af7ac5;font-size: 15px;">Review: <span style="font-weight: normal; font-size: 13px; color: #555;text-align: justify;">
+    Your very high score of <strong>${field.score}%</strong> indicates a very strong interest in careers in <strong>${field.field}</strong>. These could open up opportunities like <strong>${field.careers.slice(0, 3).map(career => career.career).join(', ')}</strong>, and many other exciting roles.
+        </span></h3>
+
+
+
+
+                          
+                        `;
+
+                        content1.innerHTML = `
+                            <div style="border-bottom: 2px solid #af7ac5; padding-bottom: 10px; display: flex; align-items: center;">
+                                <div style="width: 50px; height: 50px; border: 2px solid #af7ac5; border-radius: 50%; text-align: center; 
+                                    font-size: 30px; font-weight: bold; color: #af7ac5; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                                    C
+                                </div>
+                                <h2 style="color: #af7ac5; margin: 0; font-size: 30px;">${field.field}</h2>
+                            </div>
+                            ${highScoreParagraphHTML}
+                            ${supportingSubjectsHTML}
+                            ${careerSuggestionsHTML}
+                        `;
+
+                        const footer1 = document.createElement("div");
+                        footer1.style = "border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #af7ac5; position: absolute; bottom: 30px; left: 30px; right: 30px;";
+                        footer1.textContent = ` ${pageCounter}`;
+
+                        page1.appendChild(header1);
+                        page1.appendChild(content1);
+                        page1.appendChild(footer1);
+                        reportContainer.appendChild(page1);
+
+                        pageCounter++;
+
+                        // ----- Page 2 -----
+                        const page2 = document.createElement("div");
+                        page2.className = "page";
+
+                        const header2 = document.createElement("div");
+                        header2.className = "header";
+
+                        const content2 = document.createElement("div");
+                        content2.className = "field-report";
+
+                        // Field Score Graph
+                        const fieldScoreGraphHTML = `
+                        <h3 style="color: #af7ac5; font-size: 15px; margin-bottom: 10px;">
+                            Overall Match: 
+                            <span style="font-weight: normal; font-size: 13px; color: #555;">
+                                The bar graphs display the Interest Level for this career area along with the relevant
+                                supporting interests associated with careers in this field.
+                            </span>
+                        </h3>
+                    
+                        <div style="display: flex; align-items: stretch; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 10px 0; max-width: 100%;">
+                            
+                            <!-- Interest Graph -->
+                            <div style="flex: 0 0 300px; padding-right: 15px;">
+                                <div style="font-weight: 600; font-size: 13px; margin-bottom: 5px; color: #2980b9;">
+                                    Interest Level (${field.score}%)
+                                </div>
+                                <div style="background-color: #e0e0e0; border-radius: 6px; height: 10px; width: 100%;">
+                                    <div style="
+                                        width: ${field.score}%;
+                                        background-color: ${field.score >= 75 ? '#4CAF50' : field.score >= 50 ? '#FFC107' : '#F44336'};
+                                        height: 100%;
+                                        border-radius: 6px;">
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <!-- Vertical Divider -->
+                            <div style="width: 1px; background-color: #bbb; min-height: 40px; margin: 0 15px;"></div>
+                    
+                            <!-- Description -->
+                            <div style="flex: 1; font-size: 11px; color: #555;">
+                                Your <strong>Interest Level</strong> in <strong>${field.field}</strong> is represented by the bar on the left. 
+                                This score reflects how well your preferences align with careers in this area.
+                            </div>
+                        </div>
+                    `;
+                    
+
+                        // Supporting Subjects Graph
+                        let supportingSubjectsGraphHTML = "";
+                        if (field.supporting_subjects.length) {
+                            supportingSubjectsGraphHTML = `
+                                ${field.supporting_subjects.map(sub => `
+                                    <div style="display: flex; align-items: stretch; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 10px 0; max-width: 100%;">
+                                        
+                                        <!-- Subject & Graph -->
+                                        <div style="flex: 0 0 300px; padding-right: 15px;">
+                                            <div style="font-weight: 600; font-size: 13px; margin-bottom: 5px; color: #000000;">
+                                                ${sub.name} (${sub.score}%)
+                                            </div>
+                                            <div style="background-color: #e0e0e0; border-radius: 6px; height: 10px; width: 100%;">
+                                                <div style="
+                                                    width: ${sub.score}%;
+                                                    background-color: ${sub.score >= 75 ? '#4CAF50' : sub.score >= 50 ? '#FFC107' : '#F44336'};
+                                                    height: 100%;
+                                                    border-radius: 6px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- Vertical Divider -->
+                                        <div style="width: 1px; background-color: #bbb; min-height: 40px; margin: 0 15px;"></div>
+                        
+                                        <!-- Description -->
+                                        <div style="flex: 1; font-size: 11px; color: #555;">
+                                            ${sub.description}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            `;
+                        }
+                        
+                        
+                        
+
+                        // Overall Match Score
+                        const matchScore = overallMatchScores.find(sub => sub.name === field.field)?.overall_match_score || 0;
+                        const overallMatchScoreHTML = `
+                            
+                            <div style="margin-bottom: 10px; max-width: 300px;">
+                                <div style="font-weight: 600; font-size: 13px; margin-bottom: 3px; color: #2980b9;">
+                                    Overall Match  (${matchScore}%)
+                                </div>
+                                <div style="background-color: #e0e0e0; border-radius: 6px; height: 10px; width: 100%;">
+                                    <div style="
+                                        width: ${matchScore}%;
+                                        background-color: ${matchScore >= 75 ? '#4CAF50' : matchScore >= 50 ? '#FFC107' : '#F44336'};
+                                        height: 100%;
+                                        border-radius: 6px;
+                                        text-align: right;
+                                        padding-right: 4px;
+                                        color: white;
+                                        font-size: 5px;
+                                        line-height: 16px;">
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+
+                        // Checklist
+                        let checklistHTMLForPage2 = "";
+                        if (field.checklist && field.checklist.length) {
+                            checklistHTMLForPage2 = `
+
+                             <h3 style="color: #af7ac5;font-size: 15px;">Checklist: : <span style="font-weight: normal; font-size: 13px; color: #555;">
+    Please check this list of important qualities which are likely to
+be required in these careers. Tick to see how well you match these.
+        </span></h3>
+
+
+
+
+                                
+                                <div style="display: flex; justify-content: space-between;">
+                                    <ul style="width: 48%; list-style-type: none; padding-left: 0; font-size: 10px;">
+                                        ${field.checklist.slice(0, Math.ceil(field.checklist.length / 2)).map((item, i) => `
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" id="check-${field.field}-${i}"> ${item}
+                                                </label>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                    <ul style="width: 48%; list-style-type: none; padding-left: 0; font-size: 10px;">
+                                        ${field.checklist.slice(Math.ceil(field.checklist.length / 2)).map((item, i) => `
+                                            <li>
+                                                <label>
+                                                    <input type="checkbox" id="check-${field.field}-${i + Math.ceil(field.checklist.length / 2)}"> ${item}
+                                                </label>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            `;
+                        }
+
+                        // Final HTML for page 2
+                        content2.innerHTML = `
+                            <div style="border-bottom: 2px solid #af7ac5; padding-bottom: 10px; display: flex; align-items: center;">
+                                <div style="width: 50px; height: 50px; border: 2px solid #af7ac5; border-radius: 50%; text-align: center; 
+                                    font-size: 30px; font-weight: bold; color: #af7ac5; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                                    C
+                                </div>
+                                <h2 style="color: #af7ac5; margin: 0; font-size: 30px;">${field.field}</h2>
+                            </div>
+                            ${fieldScoreGraphHTML}
+                            ${supportingSubjectsGraphHTML}
+                            ${overallMatchScoreHTML}
+                            ${checklistHTMLForPage2}
+                        `;
+
+                        const footer2 = document.createElement("div");
+                        footer2.style = "border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #af7ac5; position: absolute; bottom: 30px; left: 30px; right: 30px;";
+                        footer2.textContent = ` ${pageCounter}`;
+
+                        page2.appendChild(header2);
+                        page2.appendChild(content2);
+                        page2.appendChild(footer2);
+                        reportContainer.appendChild(page2);
+
+                        pageCounter++;
+                    });
+
+                } catch (error) {
+                    console.error(error);
+                    reportContainer.innerHTML = `<p style="color:red;">Failed to fetch report. Please try again later.</p>`;
+                }
+            }
+
+
+        </script>
+
+        <!-- -------------------reeport------------------------------------------ done-->
+        <!-- page A level Subject Availabilite -->
+        <div class="page">
+            <style>
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 15px;
+                    table-layout: fixed;
+                    font-size: 11px;
+                }
+
+                th,
+                td {
+                    border: 1px solid #ccc;
+                    padding: 4px;
+                    text-align: center;
+                    word-wrap: break-word;
+                }
+
+                th {
+                    background-color: #f2f2f2;
+                }
+
+                tr:nth-child(even) {
+                    background-color: #fafafa;
+                }
+
+                /*
+                .vertical-header {
+                    width: 30px;
+                    padding: 0;
+                    text-align: left;
+                    vertical-align: middle;
+                    writing-mode: vertical-rl;
+                    transform: rotate(180deg);
+                    font-size: 10px;
+                
+            }*/
+                .vertical-header {
+                    width: 30px;
+                    padding: 0;
+                    text-align: center;
+                    vertical-align: middle;
+                    font-size: 10px;
+                    line-height: 1.2;
+                    white-space: wrap;
+                }
+
+
+
+                th:first-child,
+                td:first-child {
+                    width: 80px;
+                    max-width: 80px;
+                    white-space: normal;
+                    font-size: 10px;
+                    text-align: left;
+                    vertical-align: top;
+                }
+
+                #crosstabContainer {
+                    overflow-x: auto;
+                }
+
+                /* Initially hide dcontent */
+                #dcontent {
+                    display: none;
+                }
+            </style>
+
+            <div style="border-bottom: 2px solid #f4d03f; padding-bottom: 10px; display: flex; align-items: center;">
+                <div
+                    style="width: 50px; height: 50px; border: 2px solid #f4d03f; border-radius: 50%; text-align: center; 
+                    font-size: 30px; font-weight: bold; color: #f4d03f; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    D
+                </div>
+                <h2 style="color: #f4d03f; margin: 0; font-size: 30px; ">SUBJECT SELECTION CHART </h2>
+            </div>
+
+
+            <div id="dcontent">
+                <p style="text-align: justify;font-size: 10pt;">
+                    This chart is intended to assist you in selecting A Level subject combinations that align best
+                    with your potential future career paths or higher education courses. Your A Level choices should be
+                    guided by:
+                </p>
+                <ul>
+                    <li style="text-align: left;font-size: 10pt;">Your strongest interests in school subjects.</li>
+                    <li style="text-align: left;font-size: 10pt;">The subjects in which you are most likely to achieve
+                        high results.
+                    </li>
+                    <li style="text-align: left;font-size: 10pt;">Subjects required for specific courses and careers,
+                        such as
+                        mathematics for engineering. </li>
+                    <li style="text-align: left;font-size: 10pt;">The importance of maintaining a broad range of career
+                        and degree
+                        options at this stage.</li>
+                </ul>
+                <p style="text-align: justify; font-size: 10pt;">
+                    The left-hand column of the subject selection chart lists the top career areas highlighted in your
+                    profile from Section B.
+                    Subject groups and areas are arranged across the top columns. The symbols used are explained in the
+                    top left corner of the chart.
+                    Priority should be given to subject areas marked with a solid circle, followed by those with a
+                    hollow circle, and so on.
+                    Interest levels for each subject area are also indicated to help guide your selection.
+                    Ideally, you should choose subjects that match your high-interest areas.
+                </p>
+            </div>
+            <p style="text-align: right;font-weight: bold;">A Levels Subject Groups
+            </p>
+            <div id="crosstabContainer">
+
+            </div>
+            <div id="error" style="color: red; margin-top: 10px;"></div>
+
+
+            <!-- Footer -->
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #f4d03f; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+24
+            </div>
+
+            <script>
+                function generate() {
+                    const studentId = getStudentIdFromUrl();
+                    //const studentId = document.getElementById('student_id').value;
+                    const errorEl = document.getElementById('error');
+                    const container = document.getElementById('crosstabContainer');
+                    const dcontent = document.getElementById('dcontent');
+                    errorEl.textContent = '';
+                    container.innerHTML = '';
+                    dcontent.style.display = 'none';
+
+                    if (!studentId) {
+                        errorEl.textContent = 'Please enter a valid student ID.';
+                        return;
+                    }
+
+                    fetch(`/career_report/${studentId}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.error) {
+                                errorEl.textContent = data.error;
+                                return;
+                            }
+
+                            const fields = data.top_fields;
+                            if (!fields || fields.length === 0) {
+                                errorEl.textContent = 'No data found for this student.';
+                                return;
+                            }
+
+                            dcontent.style.display = 'block';
+
+                            const aLevelSubjects = Object.keys(fields[0].a_level_subjects || {}).filter(k => k !== 'Career Area');
+
+                            let table = '<table><thead><tr><th>Career Field</th>';
+                            aLevelSubjects.forEach(subj => {
+                                table += `<th class="vertical-header">${subj}</th>`;
+                                // table += `<th class="vertical-header">${subj.split('').join('<br>')}</th>`;
+
+                            });
+                            table += '</tr></thead><tbody>';
+
+                            fields.forEach(field => {
+                                table += `<tr><td>${field.field}</td>`;
+                                aLevelSubjects.forEach(subj => {
+                                    const val = field.a_level_subjects[subj] || '';
+                                    let symbol = '';
+                                    switch (val) {
+                                        case 1:
+                                        case '1':
+                                            symbol = '⭐';
+                                            break;
+                                        case 2:
+                                        case '2':
+                                            symbol = '✔️';
+                                            break;
+                                        case 3:
+                                        case '3':
+                                            symbol = '📘';
+                                            break;
+                                        case 4:
+                                        case '4':
+                                            symbol = '🌱';
+                                            break;
+                                        default:
+                                            symbol = '';
+                                    }
+                                    table += `<td>${symbol}</td>`;
+                                });
+                                table += '</tr>';
+                            });
+
+                            table += '</tbody></table>';
+                            container.innerHTML = table;
+
+                            container.innerHTML += `
+                        <div style="margin-top: 20px;">
+                         
+                          <ul>
+                            <li style="text-align: left;font-size: 8pt;list-style-type: none;" >⭐ Required for admission to most university courses</li>
+                            <li style="text-align: left;font-size: 8pt;list-style-type: none;" >✔️ May improve your chances for admission to some courses</li>
+                            <li style="text-align: left;font-size: 8pt;list-style-type: none;" >📘 Valuable but not essential at this stage</li>
+                            <li style="text-align: left;font-size: 8pt;list-style-type: none;" >🌱 Subjects that enhance overall educational base</li>
+                          </ul>
+                        </div>
+                      `;
+                        })
+                        .catch(err => {
+                            console.error(err);
+                            errorEl.textContent = 'Something went wrong while fetching data.';
+                        });
+                }
+                window.onload = function () {
+                    loadOverallOnlyChart();
+                    fetchReport();
+                    generate();
+                    ibgenerate();
+                    loadOverallOnlyChart()
+                };
+
+            </script>
+        </div>
+
+
+
+
+
+        <!-- page d a availability-->
+        <div class="page">
+
+
+            <div style="border-bottom: 2px solid #f4d03f; padding-bottom: 10px; display: flex; align-items: center;">
+                <div
+                    style="width: 50px; height: 50px; border: 2px solid #f4d03f; border-radius: 50%; text-align: center; 
+                    font-size: 30px; font-weight: bold; color: #f4d03f; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    D
+                </div>
+                <h2 style="color: #f4d03f; margin: 0; font-size: 30px; ">SUBJECT AVAILABILITY CHART </h2>
+            </div>
+
+            <h3 style="font-size: 15py; color: #006699; margin-bottom: 10px; text-align: left; ">A Levels Subjects
+                Available at EDGEPSYCH Consulting</h3>
+
+            <div style="font-size: 10pt.5px; margin-bottom: 20px; line-height: 1.5;text-align: justify;">
+                The subject groups listed in the columns of the Subject Selection Chart, typically offered at your
+                school or college for A Levels, are
+                shown below. It may be helpful to highlight the subjects you selected for your combinations on the
+                previous page. This is especially
+                important when multiple subjects fall under the same subject group. For example, in Group 2, you could
+                highlight 'History,' and in
+                Group 3, you might highlight 'French' or 'German
+                .
+            </div>
+
+            <div style="display: flex; justify-content: space-between; gap: 20px;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                    <thead>
+                        <tr>
+                            <th
+                                style="background-color: #f2f2f2; text-align: left; padding: 8px; border-bottom: 2px solid #ccc;">
+                                Subject Group</th>
+                            <th
+                                style="background-color: #f2f2f2; text-align: left; padding: 8px; border-bottom: 2px solid #ccc;">
+                                Subjects Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top ;">1.
+                                Literary Subjects</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                English Language<br>English Literature</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">2. History
+                                Related</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                Classical Civilisation<br>History<br>History of Art</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">3.
+                                Languages - Modern/Classical</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                French<br>German<br>Classical Greek<br>Latin<br>Spanish</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">4.
+                                Miscellaneous Arts/Humanities</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                Media Studies<br>Psychology<br>Religious Studies<br>Sociology</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">5.
+                                Economics/Business</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                Business<br>Economics<br>Law</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 8px;">6. Music/Drama/Theatre Studies</td>
+                            <td style="padding: 6px 8px;text-align: left;">Drama and Theatre<br>Music<br>Theatre Studies
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">7.
+                                Art/Design/Craft</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                Art and Design</td>
+                        </tr>
+
+ 
+
+                    </tbody>
+                </table>
+
+                <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                    <thead>
+                       
+
+    
+
+                        <tr>
+                            <th
+                                style="background-color: #f2f2f2; text-align: left; padding: 8px; border-bottom: 2px solid #ccc;">
+                                Subject Group</th>
+                            <th
+                                style="background-color: #f2f2f2; text-align: left; padding: 8px; border-bottom: 2px solid #ccc;">
+                                Subjects Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">8.
+                                Computer/IT</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                Computer Science<br>Information Technology</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">9.
+                                Mathematics</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                Further Mathematics</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">10.
+                                Chemistry</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                Chemistry (Single Subject)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">11.
+                                Biology</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                Biology (Single Subject)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">12.
+                                Physics</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                Physics (Single Subject)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">13.
+                                Geography/Geology</td>
+                            <td
+                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
+                                Geography</td>
+                        </tr>
+
+
+
+       
+                        <tr>
+                            <td style="padding: 6px 8px;">15. Sport Related</td>
+                            <td style="padding: 6px 8px;text-align: left;">Sports Studies</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+            <!-- Footer -->
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #f4d03f; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+25
+            </div>
+
+        </div>
+
+
+
+        <!-- page ib crosstab -->
+
+        <div class="page">
+
+            <div style="border-bottom: 2px solid #f4d03f; padding-bottom: 10px; display: flex; align-items: center;">
+                <div
+                    style="width: 50px; height: 50px; border: 2px solid #f4d03f; border-radius: 50%; text-align: center; 
+                    font-size: 30px; font-weight: bold; color: #f4d03f; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    D
+                </div>
+                <h2 style="color: #f4d03f; margin: 0; font-size: 30px; ">SUBJECT SELECTION CHART </h2>
+            </div>
+            <p id="error"></p>
+
+
+
+
+            <div id="ibcontent">
+                <p style="text-align: left;font-size: 10pt;">
+                    This chart is designed to help you choose the subject combinations of IB subjects, that are most
+                    appropriate for your potential future careers or higher education courses.
+                </p>
+                <ul>
+                    <li style="text-align: left;font-size: 10pt;">Your strongest interests in school subjects.</li>
+                    <li style="text-align: left;font-size: 10pt;">The subjects in which you are most likely to achieve
+                        high results.
+                    </li>
+                    <li style="text-align: left;font-size: 10pt;">Subjects required for specific courses and careers,
+                        such as
+                        mathematics for engineering. </li>
+                    <li style="text-align: left;font-size: 10pt;">The importance of maintaining a broad range of career
+                        and degree
+                        options at this stage.</li>
+                </ul>
+                <p style="text-align: left;font-size: 10pt;">
+                    The left hand column of the subject selection chart below lists the top career areas that appear in
+                    your profile in Section B. Subject groups and areas are arranged along the top columns. The symbols
+                    used are explained at the top left hand corner of the chart below. Priority should be given whenever
+                    possible to subject areas marked with a solid circle, followed by those with a hollow circle, etc.
+                    An interest level for each of the subject areas is also shown and should help you to select your
+                    subjects. Ideally you should choose subject which also have high interest levels.
+                </p>
+            </div>
+            <p style="text-align: right;font-weight: bold; ">IB Subject Groups
+
+            </p>
+            <div id="ibCrosstabContainer"></div>
+            <!-- Footer -->
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #f4d03f; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+26
+            </div>
+        </div>
+
+        <script>
+            function ibgenerate() {
+                const studentId = getStudentIdFromUrl();
+                //const studentId = document.getElementById('student_id').value;
+                const errorEl = document.getElementById('error');
+                const ibContainer = document.getElementById('ibCrosstabContainer');
+
+                errorEl.textContent = '';
+                ibContainer.innerHTML = '';
+
+                if (!studentId) {
+                    errorEl.textContent = 'Please enter a valid student ID.';
+                    return;
+                }
+
+                fetch(`/career_report/${studentId}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.error) {
+                            errorEl.textContent = data.error;
+                            return;
+                        }
+
+                        const fields = data.top_fields;
+                        if (!fields || fields.length === 0) {
+                            errorEl.textContent = 'No data found for this student.';
+                            return;
+                        }
+
+                        // === IB Level Table Only ===
+                        const ibSubjects = Object.keys(fields[0].ib_level_subjects || {}).filter(k => k !== 'Career Area');
+                        let ibTable = '<table><thead><tr><th>Career Field</th>';
+                        ibSubjects.forEach(subj => {
+                            ibTable += `<th class="vertical-header">${subj}</th>`;
+                        });
+                        ibTable += '</tr></thead><tbody>';
+
+                        fields.forEach(field => {
+                            ibTable += `<tr><td>${field.field}</td>`;
+                            ibSubjects.forEach(subj => {
+                                const val = field.ib_level_subjects[subj] || '';
+                                let symbol = '';
+                                switch (val) {
+                                    case 1:
+                                    case '1': symbol = '⭐'; break;
+                                    case 2:
+                                    case '2': symbol = '✔️'; break;
+                                    case 3:
+                                    case '3': symbol = '📘'; break;
+                                    case 4:
+                                    case '4': symbol = '🌱'; break;
+                                    default: symbol = '';
+                                }
+                                ibTable += `<td>${symbol}</td>`;
+                            });
+                            ibTable += '</tr>';
+                        });
+
+                        ibTable += '</tbody></table>';
+                        ibContainer.innerHTML = ibTable;
+
+                        ibContainer.innerHTML += `
+                  <div style="margin-top: 20px;">
+                      <ul>
+                          <li style="text-align: left;font-size: 8pt;list-style-type: none;">⭐ Required for admission to most university courses</li>
+                          <li style="text-align: left;font-size: 8pt;list-style-type: none;">✔️ May improve your chances for admission to some courses</li>
+                          <li style="text-align: left;font-size: 8pt;list-style-type: none;">📘 Valuable but not essential at this stage</li>
+                          <li style="text-align: left;font-size: 8pt;list-style-type: none;">🌱 Subjects that enhance overall educational base</li>
+                      </ul>
+                  </div>
+              `;
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        errorEl.textContent = 'Something went wrong while fetching data.';
+                    });
+            }
+
+        </script>
+
+
+
+
+        <div class="page">
+
+
+
+
+
+            <div style="border-bottom: 2px solid #f4d03f; padding-bottom: 10px; display: flex; align-items: center;">
+                <div
+                    style="width: 50px; height: 50px; border: 2px solid #f4d03f; border-radius: 50%; text-align: center; 
+            font-size: 30px; font-weight: bold; color: #f4d03f; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    D
+                </div>
+                <h2 style="color: #f4d03f; margin: 0; font-size: 30px; ">SUBJECT AVAILABILITY CHART </h2>
+            </div>
+
+            <h3 style="font-size: 15pt; color: #006699; margin-bottom: 10px; text-align: left; ">IB Levels Subjects
+                Available at EDGEPSYCH Consulting</h3>
+            <p style="text-align: justify; line-height: 1.5;font-size: 10pt;">
+                Subject groups shown in the columns of the Subject Selection Chart, and which are
+                normally available to you at school or college for IB subjects are shown below. It may help to highlight
+                those subjects which you chose for your subject combinations on the opposite page. This is important
+                when several different subjects are available under
+                the same subject group. Thus in Group 2 you might highlight 'History', and in Group 3 'French' or
+                'German'.
+            </p>
+
+            <div style="display: flex; gap: 30px; margin-top: 30px;">
+
+                <!-- Left Table -->
+                <table cellspacing="0" cellpadding="8" style="border-collapse: collapse; width: 47%;">
+                    <thead>
+                        <tr style="background: #f4f4f4; border-bottom: 2px solid #7cbb00;">
+                            <th style="text-align: left;">Subject Group</th>
+                            <th style="text-align: left;">Subjects Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1. Studies in Language and Literature</td>
+                            <td style="text-align: left;" >
+                                English Language and Literature<br>
+                                English Literature<br>
+                                German Literature<br>
+                                Mother Tongue Language and Literature<br>
+                                Mother Tongue Literature<br>
+                                Hindi Literature<br>
+                                Hindi Language and Literature
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  >2. Language Acquisition</td>
+                            <td style="text-align: left;" >
+                                French<br>
+                                German<br>
+                                German ab initio (SL)<br>
+                                German Language and Literature<br>
+                                Language A: language &amp; literature<br>
+                                Language A: literature<br>
+                                Language ab initio (SL only)<br>
+                                Language B<br>
+                                Mother Tongue Language<br>
+                                Spanish
+                            </td>
+                        </tr>
+        
+                        <tr>
+                            <td  >3. Individuals and Societies</td>
+                            <td style="text-align: left;" >
+                                Business &amp; Management<br>
+                                Economics<br>
+                                Geography<br>
+                                Global Politics<br>
+                                History<br>
+                                Psychology
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <!-- Right Table -->
+                <table border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse; width: 47%;">
+                    <thead>
+                        <tr style="background: #f4f4f4; border-bottom: 2px solid #7cbb00;">
+                            <th style="text-align: left;">Subject Group</th>
+                            <th style="text-align: left;">Subjects Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>4. Sciences</td>
+                            <td style="text-align: left;" >
+                                Biology<br>
+                                Chemistry<br>
+                                Computer Science<br>
+                                Design Technology<br>
+                                Physics
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5. Mathematics</td>
+                            <td style="text-align: left;" >
+                                Mathematics: Analysis and Approaches (HL)<br>
+                                Mathematics: Analysis and Approaches (SL)<br>
+                                Mathematics: Applications and Interpretation (HL)<br>
+                                Mathematics: Applications and Interpretation (SL)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  >6. The Arts</td>
+                            <td style="text-align: left;" >
+                                Dance<br>
+                                Film<br>
+                                Music<br>
+                                Theatre<br>
+                                Visual Arts
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- Footer -->
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #f4d03f; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+27
+            </div>
+        </div>
+
+        <!-- e -->
+        <div class="page">
+
+
+
+
+            <div style="border-bottom: 2px solid #0b9347; padding-bottom: 10px; display: flex; align-items: center;">
+                <div
+                    style="width: 50px; height: 50px; border: 2px solid #0b9347; border-radius: 50%; text-align: center; 
+            font-size: 30px; font-weight: bold; color: #0b9347; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    E
+                </div>
+                <h2 style="color: #0b9347; margin: 0; font-size: 30px; ">The Mind Map</h2>
+            </div>
+
+            <div style="font-size: 15pt; margin-bottom: 20px; line-height: 1.5;text-align: left;">
+                We hope you find the feedback.Here are some tips to help you make the most of it.
+            </div>
+            <img src="{{ url_for('static', filename='F_C_MINDMAP.png') }}" alt="Example Image">
+            <!-- Footer -->
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #79C388; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+28
+            </div>
+        </div>
+
+        <div class="page">
+
+            <div style="border-bottom: 2px solid #0b9347; padding-bottom: 10px; display: flex; align-items: center;">
+                <div
+                    style="width: 50px; height: 50px; border: 2px solid #0b9347; border-radius: 50%; text-align: center; 
+            font-size: 30px; font-weight: bold; color: #0b9347; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    E
+                </div>
+                <h2 style="color: #0b9347; margin: 0; font-size: 30px; ">The Mind Map</h2>
+            </div>
+
+
+            <div style="font-size: 12.10pt; margin-bottom: 20px; line-height: 1.5;text-align: left;">
+                We hope you find the feedback.Here are some tips to help you make the most of it.
+            </div>
+            <img src="{{ url_for('static', filename='F2_C_MINDMAP.png') }}" alt="Example Image">
+            <!-- Footer -->
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #79C388; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+29
+            </div>
+      </div>
+
+
+
+
+
+
+        <div class="page">
+            <div style="border-bottom: 2px solid #d65612; padding-bottom: 10px; display: flex; align-items: center;">
+                <div
+                    style="width: 50px; height: 50px; border: 2px solid #d65612; border-radius: 50%; text-align: center; 
+            font-size: 30px; font-weight: bold; color: #d65612; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                    F
+                </div>
+                <h2 style="color: #d65612; margin: 0; font-size: 30px; ">Career Mapping </h2>
+            </div>
+
+           
+
+            
+
+
+
+            <!-- Footer -->
+            <div
+                style="border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #d65612; position: absolute; bottom: 30px; left: 30px; right: 30px;">
+30
+            </div>
+
+
+
+<img src="{{ url_for('static', filename='last page.png') }}" alt="Logo">
+
+
+
+
+
+
+        </div>
+
+
+
+        
+
+       
+
+
+       
+
+    </div>
+
+
+
+
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("submit-btn").addEventListener("click", function () {
+                const studentId = getStudentIdFromUrl(); // Get student ID from URL
+
+                if (!studentId) {
+                    alert("Invalid or missing Student ID in URL.");
+                    return;
+                }
+
+                fetch("/get_student_dataa", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ student_id: studentId })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            alert("Student not found!");
+                            return;
+                        }
+
+                        document.getElementById("student-name").innerText = data.name;
+                        // ✅ Make the container visible
+                        document.querySelector(".container").style.display = "block";
+                    })
+                    .catch(error => console.error("Error fetching data:", error));
+            });
+        });
+
+        // Function to get the student ID from the URL
+        function getStudentIdFromUrl() {
+            const path = window.location.pathname;
+            const parts = path.split('/');
+            const id = parts[parts.length - 1];  // Get the last part of the URL
+            return isNaN(id) ? null : parseInt(id); // Return the student ID or null if invalid
+        }
+        generate()
+    </script>
+
+
+
+    <script>
+
+
+        /*
+        
+                async function downloadPDF() {
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+        
+                    const pages = document.querySelectorAll('.page');
+        
+                    for (let i = 0; i < pages.length; i++) {
+                        const canvas = await html2canvas(pages[i], {
+                            scale: 1.5, // lower scale = smaller size but still readable
+                            backgroundColor: '#ffffff',
+                            useCORS: true
+                        });
+        
+                        const imgData = canvas.toDataURL('image/jpeg', 0.7); // Use JPEG + compression
+        
+                        if (i > 0) pdf.addPage();
+        
+                        pdf.addImage(imgData, 'JPEG', 10, 10, 190, 277); // A4 size content
+                    }
+        
+                    pdf.save('MYCAREERCHOICES.pdf');
+                }
+        */
+
+
+
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: 'p',
+                unit: 'mm',
+                format: 'a4',
+                compress: true,
+            });
+
+            const pages = document.querySelectorAll('.page');
+            const page = document.querySelector('.page');  // Make sure '.page' exists in your HTML
+
+            if (!page) {
+                console.error('Page element not found!');
+                return;
+            }
+
+            // Apply manual styles if needed (like vertical-header)
+            const verticalHeaders = page.querySelectorAll('.vertical-header');
+            verticalHeaders.forEach(header => {
+                header.style.transform = 'rotate(180deg)';
+                header.style.writingMode = 'vertical-rl';
+                header.style.fontSize = '10px';
+                header.style.width = '30px';
+                header.style.padding = '0';
+                header.style.textAlign = 'left';
+                header.style.verticalAlign = 'middle';
+            });
+
+
+
+            for (let i = 0; i < pages.length; i++) {
+                const canvas = await html2canvas(pages[i], {
+                    scale: 3.5, // high but not huge
+                    backgroundColor: '#ffffff',
+                    useCORS: true,
+                });
+
+                const imgData = canvas.toDataURL('image/jpeg', 0.85); // compression level
+
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = 210;
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                if (i > 0) pdf.addPage();
+
+                pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+            }
+
+            pdf.save('MYCAREERCHOICES.pdf');
+        }
+
+
+        /*
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: 'p',
+                unit: 'mm',
+                format: 'a4',
+                compress: true,
+            });
+        
+            const pages = document.querySelectorAll('.page');
+        
+            if (!pages.length) {
+                console.error('No .page elements found!');
+                return;
+            }
+        
+            // Apply manual styles to all .vertical-header elements on all pages
+            pages.forEach(page => {
+                const verticalHeaders = page.querySelectorAll('.vertical-header');
+                verticalHeaders.forEach(header => {
+                    header.style.width = '30px';
+                    header.style.padding = '0';
+                    header.style.textAlign = 'left';
+                    header.style.verticalAlign = 'middle';
+                    header.style.writingMode = 'vertical-rl';
+                    header.style.transform = 'rotate(180deg)';
+                    header.style.fontSize = '10px';
+                });
+            });
+        
+            for (let i = 0; i < pages.length; i++) {
+                const canvas = await html2canvas(pages[i], {
+                    scale: 3.5,
+                    backgroundColor: '#ffffff',
+                    useCORS: true,
+                });
+        
+                const imgData = canvas.toDataURL('image/jpeg', 0.85);
+        
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = 210;
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        
+                if (i > 0) pdf.addPage();
+        
+                pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+            }
+        
+            pdf.save('MYCAREERCHOICES.pdf');
+        }
+        */
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

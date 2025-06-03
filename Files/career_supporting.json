@@ -1,0 +1,379 @@
+{
+    "Manufacturing & Production": {
+      "Physics": "Careers involve applying physical principles to develop and improve products and processes.",
+      "Chemistry": "Essential for roles in materials science, quality control, and chemical manufacturing.",
+      "Mathematics": "Problem-solving and optimization are central to production management.",
+      "Computer Science": "Crucial for automation, data analysis, and production technologies.",
+      "Business Studies": "Supports roles in operations, marketing, and managerial decision-making.",
+      "Economics": "Informs financial planning and market strategy within production industries.",
+      "Design and Technology": "Facilitates innovation in product development and process design.",
+      "Information Technology in a Global Society": "Provides insights into global technological integration in manufacturing."
+    },
+    "Management: Organization & Planning": {
+      "Economics": "Essential for strategic decision-making and understanding market dynamics.",
+      "Business Studies": "Provides foundational knowledge for planning and operational management.",
+      "Mathematics": "Supports financial modeling and resource optimization.",
+      "Psychology": "Helps in understanding team dynamics and improving organizational behavior.",
+      "Sociology": "Offers insights into social structures and organizational culture.",
+      "Computer Science": "Enables data analysis and the use of technology in management.",
+      "English": "Essential for effective communication and documentation in management roles.",
+      "Information Technology": "Critical for streamlining planning processes and managing data."
+    },
+    "Electronics/Electrical Engineering": {
+        "Physics": "Core to understanding electrical principles and developing systems.",
+        "Chemistry": "Supports material science and development of semiconductors.",
+        "Mathematics": "Crucial for circuit design and electrical calculations.",
+        "Computer Science": "Key for integrating electronics with software systems.",
+        "Design and Technology": "Vital for prototyping and product design.",
+        "Information Technology in a Global Society": "Explores the societal impact of electronic innovations."
+      },
+      "Computing/IT": {
+        "Mathematics": "Foundational for algorithms, programming, and computational modeling.",
+        "Computer Science": "Core for developing software, hardware, and IT systems.",
+        "Physics": "Supports understanding of hardware and computational physics.",
+        "Information Technology": "Key for database management and networking.",
+        "Economics": "Relevant for understanding tech markets and resource management.",
+        "Business Studies": "Prepares for IT roles in business strategy and operations."
+      },
+      "Mechanical & Related Engineering": {
+    "Physics": "Fundamental for understanding mechanics and material behavior.",
+    "Chemistry": "Supports knowledge of materials and processes in manufacturing.",
+    "Mathematics": "Crucial for modeling, design, and analysis.",
+    "Computer Science": "Key for CAD and automation in mechanical engineering.",
+    "Design and Technology": "Encourages innovation in engineering solutions.",
+    "Economics": "Aids in cost optimization and project management."
+  },
+  "Physics": {
+    "Physics": "Core for careers in research, engineering, and applied sciences.",
+    "Chemistry": "Supports interdisciplinary applications in material and energy sciences.",
+    "Mathematics": "Essential for theoretical modeling and data analysis.",
+    "Computer Science": "Important for simulations and computational physics.",
+    "Environmental Science": "Addresses applications in energy and sustainability."
+  },
+  "Creative Arts and Crafts": {
+    "Fine Arts": "Encourages expression through painting, drawing, and sculpture.",
+    "Design": "Supports careers in product and graphic design.",
+    "Textiles": "Offers pathways in fabric design and craft production.",
+    "English": "Essential for documentation and presentation of creative projects.",
+    "Graphic Design": "Prepares for digital and print media design roles.",
+    "Psychology": "Helps in understanding audience preferences and user experience."
+  },
+  "Performing Arts Related": {
+    "Drama": "Central to acting and theatrical performance.",
+    "Music": "Prepares for careers in musical composition and performance.",
+    "Dance": "Provides a foundation for choreography and performance arts.",
+    "English": "Vital for scriptwriting and communication.",
+    "Fine Arts": "Supports stage design and artistic direction.",
+    "Psychology": "Enhances understanding of audience engagement and performance impact."
+  },
+  "Public Protection & Security": {
+    "Psychology": "Key for understanding criminal behavior and improving public safety initiatives.",
+    "Sociology": "Offers insights into social structures and their impact on law enforcement.",
+    "Chemistry": "Essential for forensic analysis and investigations.",
+    "Biology": "Supports careers in biosecurity and emergency medical response.",
+    "Mathematics": "Critical for data analysis in public protection systems.",
+    "Physical Education": "Prepares for roles requiring physical training, such as law enforcement."
+  },
+  "Sports/Leisure/Recreation": {
+    "Physical Education": "Core for fitness training and sports coaching roles.",
+    "Biology": "Provides an understanding of human anatomy and physiology.",
+    "Psychology": "Aids in understanding team dynamics and motivation.",
+    "Mathematics": "Useful for data analysis in sports performance metrics.",
+    "Business Studies": "Essential for sports management and event planning."
+  },
+  "Nursing and Allied Health Protection": {
+    "Biology": "Core for understanding human anatomy and healthcare sciences.",
+    "Chemistry": "Critical for understanding pharmaceuticals and treatment development.",
+    "Psychology": "Provides a foundation for patient care and mental health support.",
+    "Sociology": "Offers insights into societal impacts on health and care systems.",
+    "Physics": "Supports medical imaging and healthcare technology.",
+    "Mathematics": "Necessary for medication dosage calculations and data analysis."
+  },
+  "Psychology": {
+    "Psychology": "Central for understanding human behavior and mental health.",
+    "Sociology": "Provides insights into societal influences on behavior.",
+    "Biology": "Supports careers in neuropsychology and behavioral science.",
+    "Mathematics": "Necessary for statistical analysis in psychological research.",
+    "English": "Essential for effective communication and report writing.",
+    "Economics": "Relevant for understanding economic influences on mental health."
+  },
+  "Theatrical Support": {
+    "Drama": "Key for understanding stage performance and production needs.",
+    "Fine Arts": "Supports set and costume design.",
+    "Graphic Design": "Essential for visual storytelling and marketing materials.",
+    "Computer Science": "Vital for lighting, sound systems, and special effects.",
+    "Physics": "Helps in sound engineering and technical production design."
+  },
+"Fashion/Clothing/Textile": {
+    "Textiles": "Core for understanding fabric properties and design techniques.",
+    "Fine Arts": "Encourages creativity and visual aesthetics in design.",
+    "Design": "Supports innovation in fashion and product development.",
+    "Business Studies": "Provides knowledge for entrepreneurship and brand management.",
+    "Economics": "Relevant for understanding market trends in the fashion industry.",
+    "Graphic Design": "Essential for visual marketing and branding."
+  },
+  "Graphic Design": {
+    "Fine Arts": "Provides foundational skills in visual creativity.",
+    "Design": "Supports innovation in product and interface design.",
+    "Computer Science": "Vital for digital tools and design software proficiency.",
+    "Graphic Design": "Central for branding, UI/UX design, and illustration.",
+    "English": "Essential for clear communication in visual storytelling."
+  },
+  "Commercial Art/Antiques": {
+    "Fine Arts": "Key for artistic appraisal and restoration.",
+    "History": "Offers context for understanding antique value and significance.",
+    "Business Studies": "Essential for careers in auctions and art dealerships.",
+    "Graphic Design": "Useful for marketing and presentation of art.",
+    "English": "Supports documentation and cataloging of collections."
+  },
+  "Academic Art": {
+    "Fine Arts": "Central for developing skills in traditional and modern art.",
+    "History": "Provides insight into art movements and cultural significance.",
+    "English": "Essential for teaching, research, and academic writing.",
+    "Sociology": "Supports understanding of art’s social impact.",
+    "Psychology": "Aids in studying art’s influence on human behavior."
+  },
+  "Musical Performing Art": {
+    "Music": "Fundamental for composition and performance careers.",
+    "Drama": "Provides skills for stage presence and live performances.",
+    "Fine Arts": "Supports set and costume design for performances.",
+    "Physics": "Crucial for understanding acoustics and sound systems.",
+    "English": "Essential for lyrical writing and effective communication."
+  },
+  "Teaching/Advisory": {
+    "English": "Essential for clear communication and effective teaching methods.",
+    "Psychology": "Provides insights into learning behaviors and developmental stages.",
+    "Sociology": "Helps in understanding diverse classroom dynamics.",
+    "Mathematics": "Important for teaching quantitative subjects and logical reasoning.",
+    "Education": "Supports modern teaching techniques and digital tools."
+  },
+  "Mathematics Based Careers": {
+    "Mathematics": "Central for problem-solving and data analysis.",
+    "Physics": "Supports understanding of applied mathematics in sciences.",
+    "Economics": "Offers insight into statistical modeling and financial systems.",
+    "Computer Science": "Key for algorithm design and computational mathematics.",
+    "Statistics": "Essential for data interpretation and research."
+  },
+  "Social care, religion, guidance and recruitment": {
+    "Psychology": "Aids in understanding human behavior for counseling and guidance.",
+    "Sociology": "Supports understanding of social structures and their impact.",
+    "English": "Crucial for effective communication and documentation.",
+    "Economics": "Relevant for understanding economic challenges in social work.",
+    "History": "Provides context for cultural and religious studies."
+  },
+  "Charity/Fundraising/Voluntary Work": {
+    "Economics": "Helps in managing funds and understanding financial planning.",
+    "Business Studies": "Provides strategies for managing nonprofit organizations.",
+    "Sociology": "Offers insights into societal needs and effective outreach.",
+    "Psychology": "Supports understanding of donor behavior and motivation.",
+    "English": "Critical for persuasive communication and proposal writing."
+  },
+"Advertising/Marketing/PR": {
+    "Economics": "Provides insights into market trends and consumer behavior.",
+    "Business Studies": "Supports strategies for branding and campaign management.",
+    "English": "Essential for creating engaging content and effective communication.",
+    "Psychology": "Aids in understanding audience behavior and preferences.",
+    "Sociology": "Offers perspectives on cultural and social influences on marketing.",
+    "Information Technology": "Supports digital marketing and analytics."
+  },
+  "Landscape Design/Surveying": {
+    "Geography": "Key for understanding land use and environmental planning.",
+    "Biology": "Supports knowledge of plant systems and ecosystems.",
+    "Physics": "Essential for structural analysis in surveying.",
+    "Design and Technology": "Encourages innovation in landscape planning.",
+    "Environmental Science": "Provides insights into sustainability and conservation.",
+    "Mathematics": "Crucial for spatial analysis and calculations."
+  },
+  "Politics and Government": {
+    "Political Science": "Core for understanding governance and policy-making.",
+    "History": "Offers context for political systems and historical decisions.",
+    "Sociology": "Aids in understanding societal dynamics and their political implications.",
+    "Economics": "Essential for economic policy analysis and planning.",
+    "English": "Important for effective communication and speechwriting.",
+    "Psychology": "Provides insights into voter behavior and leadership."
+  },
+  "Publishing": {
+    "English": "Critical for editing, writing, and communication.",
+    "Literature": "Supports deep understanding of texts and genres.",
+    "Business Studies": "Offers strategies for managing publishing houses and sales.",
+    "Fine Arts": "Helps in book design and illustrations.",
+    "Information Technology": "Essential for digital publishing and content management."
+  },
+  "Environmental": {
+    "Biology": "Provides knowledge of ecosystems and biodiversity.",
+    "Chemistry": "Key for understanding pollution and environmental chemistry.",
+    "Environmental Science": "Central for sustainability studies and conservation efforts.",
+    "Geography": "Supports knowledge of land use and natural resources.",
+    "Physics": "Helps in renewable energy and environmental technology.",
+    "Mathematics": "Necessary for data analysis and research modeling."
+  },
+  "Information Management": {
+    "Mathematics": "Essential for data organization and statistical analysis.",
+    "Computer Science": "Vital for database design and digital information systems.",
+    "Business Studies": "Supports management strategies for data handling.",
+    "Economics": "Relevant for understanding information flow in organizations.",
+    "English": "Necessary for clear communication and documentation."
+  },
+  "History Related": {
+    "History": "Core for understanding past events and their implications.",
+    "Sociology": "Provides context for historical societal structures.",
+    "English": "Important for research and academic writing.",
+    "Political Science": "Supports analysis of historical governance systems.",
+    "Geography": "Offers spatial perspectives on historical developments."
+  },
+  "Chemical Technologies": {
+    "Chemistry": "Core subject for understanding chemical processes and applications.",
+    "Physics": "Supports principles like thermodynamics and material properties.",
+    "Biology": "Essential for biochemistry and pharmaceutical applications.",
+    "Mathematics": "Key for modeling chemical reactions and statistical analysis.",
+    "Computer Science": "Useful for computational chemistry and simulation tools."
+  },
+  "Complementary Therapies": {
+    "Biology": "Fundamental for understanding human anatomy and physiology.",
+    "Psychology": "Important for understanding mental well-being and client needs.",
+    "Chemistry": "Supports knowledge of natural compounds used in therapies.",
+    "Physical Education": "Helps in understanding movement and physical therapy techniques.",
+    "Sociology": "Provides insights into cultural and societal perceptions of therapies."
+  },
+  "Transport/Travel/Logistics/Distribution": {
+    "Mathematics": "Essential for route planning and logistical calculations.",
+    "Business Studies": "Supports understanding of supply chain and management practices.",
+    "Geography": "Provides insights into global transport systems and infrastructure.",
+    "Economics": "Relevant for cost management and trade analysis.",
+    "Information Technology": "Key for tracking systems and logistical software."
+  },
+  "Structural Engineering": {
+    "Physics": "Fundamental for understanding forces and material properties.",
+    "Mathematics": "Crucial for structural analysis and calculations.",
+    "Design and Technology": "Encourages innovation in structural solutions.",
+    "Computer Science": "Important for using design software and simulations.",
+    "Chemistry": "Useful for understanding material compositions and properties."
+  },
+  "Administrative": {
+    "Business Studies": "Core for operations management and organizational strategies.",
+    "Economics": "Relevant for financial management and resource allocation.",
+    "English": "Necessary for communication and documentation.",
+    "Sociology": "Helps in understanding workplace dynamics.",
+    "Information Technology": "Essential for office management and digital tools."
+  },
+  "Structural Design": {
+    "Mathematics": "Key for precise measurements and structural calculations.",
+    "Physics": "Supports understanding of material strength and load dynamics.",
+    "Fine Arts": "Encourages creativity in design aesthetics.",
+    "Design and Technology": "Fundamental for innovative structural ideas.",
+    "Computer Science": "Vital for 3D modeling and design software."
+  },
+  "Financial": {
+    "Mathematics": "Core for calculations, analytics, and financial modeling.",
+    "Economics": "Important for understanding market trends and policies.",
+    "Business Studies": "Supports financial management and strategic planning.",
+    "Statistics": "Essential for interpreting financial data.",
+    "Computer Science": "Useful for financial software and data analysis."
+  },
+  "Surveying": {
+    "Mathematics": "Crucial for measurements and spatial analysis.",
+    "Physics": "Important for understanding land and material properties.",
+    "Geography": "Provides knowledge of landforms and mapping techniques.",
+    "Design and Technology": "Supports use of tools for precision surveying.",
+    "Computer Science": "Vital for GIS software and digital mapping."
+  },
+  "Biology Based": {
+    "Biology": "Central for understanding living organisms and ecosystems.",
+    "Chemistry": "Supports biochemical applications and lab techniques.",
+    "Physics": "Relevant for understanding biophysical processes.",
+    "Mathematics": "Necessary for research modeling and data analysis.",
+    "Environmental Science": "Important for ecological studies and conservation efforts."
+  },
+  "Construction and Property Related": {
+    "Mathematics": "Essential for calculations in construction planning.",
+    "Physics": "Key for understanding material strength and environmental forces.",
+    "Business Studies": "Supports project management and budgeting.",
+    "Design and Technology": "Encourages innovative construction designs.",
+    "Geography": "Useful for understanding site location and urban planning."
+  },
+  "Hospitality and Events Management": {
+    "Business Studies": "Core for operations and strategic management.",
+    "Economics": "Provides insights into market trends and financial planning.",
+    "Sociology": "Relevant for understanding customer needs and cultural diversity.",
+    "English": "Essential for effective communication and promotional material.",
+    "Psychology": "Helps in managing customer experiences and team dynamics."
+  },
+  "Law-Related": {
+    "Political Science": "Core for understanding legal systems and governance.",
+    "Sociology": "Supports analysis of social issues and their legal implications.",
+    "History": "Offers context for the evolution of legal systems.",
+    "English": "Important for articulating arguments and legal writing.",
+    "Economics": "Relevant for understanding economic policies and legal frameworks."
+  },
+  "Commercial and Financial Dealing/Advice": {
+    "Mathematics": "Fundamental for financial analysis and investment strategies.",
+    "Economics": "Provides insights into market behaviors and economic policies.",
+    "Business Studies": "Supports understanding of organizational finance and commerce.",
+    "Statistics": "Essential for interpreting financial data and forecasting trends.",
+    "English": "Important for clear communication with clients and stakeholders."
+  },
+  "Retail Buying and Selling": {
+    "Business Studies": "Core for understanding retail management and merchandising.",
+    "Economics": "Relevant for analyzing consumer trends and market dynamics.",
+    "Mathematics": "Essential for pricing strategies and inventory management.",
+    "Psychology": "Provides insights into consumer behavior and marketing techniques.",
+    "Information Technology": "Useful for e-commerce platforms and retail software."
+  },
+  "Chemistry Based": {
+    "Chemistry": "Central for research and applications in various industries.",
+    "Physics": "Supports understanding of physical and chemical properties.",
+    "Biology": "Relevant for biochemical and pharmaceutical applications.",
+    "Mathematics": "Necessary for chemical modeling and quantitative analysis.",
+    "Computer Science": "Useful for simulations and computational chemistry."
+  },
+  "English/Literary Related": {
+    "English": "Core for writing, editing, and literary analysis.",
+    "Literature": "Provides deep insights into cultural and historical contexts of texts.",
+    "History": "Relevant for understanding the evolution of language and themes.",
+    "Sociology": "Supports analysis of societal influences on literature.",
+    "Psychology": "Useful for exploring character development and narrative themes."
+  },
+  "Media and Journalism": {
+    "English": "Essential for writing and reporting.",
+    "Sociology": "Provides context for social issues and audience analysis.",
+    "Psychology": "Helps understand audience behavior and media effects.",
+    "Business Studies": "Relevant for managing media organizations and marketing.",
+    "Fine Arts": "Useful for visual storytelling and graphic content creation."
+  },
+  "Agricultural Sciences": {
+    "Biology": "Core for understanding plant and animal sciences.",
+    "Chemistry": "Supports knowledge of soil chemistry and fertilizers.",
+    "Physics": "Relevant for understanding agricultural machinery and systems.",
+    "Environmental Science": "Provides insights into sustainable practices.",
+    "Mathematics": "Necessary for data analysis in crop yield and resource management."
+  },
+  "Medicine/Dentistry/Veterinary": {
+    "Biology": "Central for understanding human and animal physiology.",
+    "Chemistry": "Essential for pharmaceutical studies and biochemistry.",
+    "Physics": "Supports diagnostic techniques like imaging and radiation.",
+    "Mathematics": "Useful for medical research and data interpretation.",
+    "Psychology": "Relevant for understanding patient behavior and mental health."
+  },
+  "Agriculture and Land-Based": {
+    "Biology": "Core for understanding ecosystems and biodiversity.",
+    "Chemistry": "Important for analyzing soil and agricultural products.",
+    "Environmental Science": "Supports knowledge of sustainable practices.",
+    "Geography": "Relevant for land-use planning and conservation.",
+    "Mathematics": "Necessary for resource management and yield calculations."
+  },
+  "Language-Related": {
+    "English": "Core for linguistic analysis and communication skills.",
+    "Literature": "Provides cultural and historical context for language use.",
+    "Sociology": "Relevant for understanding language in societal contexts.",
+    "Psychology": "Useful for studying language acquisition and cognition.",
+    "History": "Supports understanding of the evolution of languages."
+  },
+  "Geography & Geology Related": {
+    "Geography": "Central for understanding landforms and spatial analysis.",
+    "Environmental Science": "Relevant for sustainability and ecological studies.",
+    "Physics": "Supports understanding of natural processes like earthquakes.",
+    "Chemistry": "Useful for analyzing minerals and soil composition.",
+    "Mathematics": "Essential for geological modeling and data analysis."
+  }
+
+  }

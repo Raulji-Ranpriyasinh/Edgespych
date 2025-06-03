@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e3ebef;
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .toggle-group {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .toggle-group button {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #28a745;
+            background: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .toggle-group .active {
+            background: #28a745;
+            color: white;
+        }
+
+/* Add this inside your <style> tag */
+
+input,
+select {
+    width: 100%;           /* Make them fill the container width */
+    box-sizing: border-box; /* Include padding and border in width */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+
+        button {
+            width: 95%;
+            padding: 12px;
+            background: #28a745;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+
+        }
+        .register {
+            width: 95%;
+            padding: 12px;
+            background: linear-gradient(90deg, #015FFF, #3B72D0);
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+
+        }
+        
+
+        button:hover {
+            background: linear-gradient(90deg, #015FFF, #3B72D0);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .toggle-link {
+            display: block;
+            margin-top: 15px;
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" width="250px">
+        <h2>Register</h2>
+
+        <div class="toggle-group hidden" id="toggleGroup">
+            <button id="studentBtn" class="active" onclick="toggleRole('student')">Student</button>
+            <button id="adminBtn" onclick="toggleRole('admin')">Admin</button>
+        </div>
+
+        <div id="studentForm" class="hidden">
+            <input type="text" id="studentEmail" placeholder="Enter Student ID or Email">
+            <input type="password" id="studentPassword" placeholder="Enter Password">
+            <button onclick="loginStudent()">Login</button>
+            <span class="toggle-link" onclick="toggleForms()">Don't have an account? Register here</span>
+        </div>
+
+        <div id="adminForm" class="hidden">
+            <input type="text" placeholder="Enter Admin Username">
+            <input type="password" placeholder="Enter Password">
+            <button onclick="loginAdmin()">Login</button>
+        </div>
+
+        <div id="registerForm">
+            <form>
+                <input type="text" placeholder="First Name *" required>
+                <input type="text" placeholder="Last Name *" required>
+                <input type="email" placeholder="Email *" required>
+                <input type="text" placeholder="Mobile Number with Country Code *" required>
+                <input type="text" placeholder="Country *" required>
+                <!-- <select required>
+                    <option value="">Select Country *</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="Canada">Canada</option>
+                </select> -->
+
+                <select required>
+                    <option value="">Select Curriculum *</option>
+                    <option value="IB">IB</option>
+                    <option value="Cambridge">Cambridge</option>
+                    <option value="American">American</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <input type="text" placeholder="School Name *" required>
+
+                <!-- <input type="text" placeholder="Grade *" required> -->
+
+                <select name="grade" required>
+                    <option value="">Grade *</option>
+                    <option value="VIII/Year-09">VIII/Year-09</option>
+                    <option value="IX/Year-10/Freshmen">IX/Year-10/Freshmen</option>
+                    <option value="X/Year-11/Sophomore">X/Year-11/Sophomore</option>
+                    <option value="XI/Year-12/Jr. High">XI/Year-12/Jr. High</option>
+                    <option value="XII/Year-13/High">XII/Year-13/High</option>
+                </select>
+
+                <select required>
+                    <option value="">How did you know about us? *</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Friends/Family">Friends/Family</option>
+                    <option value="Advertisements">Advertisements</option>
+                </select>
+
+                <input type="password" placeholder="Password *" required>
+                <input type="password" placeholder="Confirm Password *" required>
+
+                <button class="register" type="submit">Register</button>
+                <span class="toggle-link" onclick="toggleForms()">Already registered? Login here</span>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleRole(role) {
+            document.getElementById("studentForm").classList.toggle("hidden", role !== 'student');
+            document.getElementById("adminForm").classList.toggle("hidden", role !== 'admin');
+            document.getElementById("studentBtn").classList.toggle("active", role === 'student');
+            document.getElementById("adminBtn").classList.toggle("active", role === 'admin');
+        }
+
+        function toggleForms() {
+            const studentForm = document.getElementById("studentForm");
+            const adminForm = document.getElementById("adminForm");
+            const registerForm = document.getElementById("registerForm");
+            const toggleGroup = document.getElementById("toggleGroup");
+
+            if (!registerForm.classList.contains("hidden")) {
+                registerForm.classList.add("hidden");
+                studentForm.classList.remove("hidden");
+                toggleGroup.classList.remove("hidden");
+            } else {
+                registerForm.classList.remove("hidden");
+                studentForm.classList.add("hidden");
+                adminForm.classList.add("hidden");
+                toggleGroup.classList.add("hidden");
+            }
+        }
+
+        function loginStudent() {
+            const email = document.getElementById("studentEmail").value;
+            const password = document.getElementById("studentPassword").value;
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email, password: password })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Login successful!");
+                        window.location.href = "/dashboard";
+                    } else {
+                        alert("Invalid credentials");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        document.querySelector("#registerForm form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const formData = {
+                first_name: document.querySelector("#registerForm input:nth-child(1)").value,
+                last_name: document.querySelector("#registerForm input:nth-child(2)").value,
+                email: document.querySelector("#registerForm input:nth-child(3)").value,
+                mobile_number: document.querySelector("#registerForm input:nth-child(4)").value,
+                country: document.querySelector("#registerForm input:nth-child(5)").value,
+                curriculum: document.querySelector("#registerForm select:nth-child(6)").value,
+                school_name: document.querySelector("#registerForm input:nth-child(7)").value,
+                grade: document.querySelector("#registerForm select:nth-child(8)").value,
+                referral_source: document.querySelector("#registerForm select:nth-child(9)").value,
+                password: document.querySelector("#registerForm input:nth-child(10)").value,
+            };
+
+            fetch('/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    if (data.success) toggleForms(); // Go to login after success
+                })
+                .catch(error => console.error("Error:", error));
+        });
+
+        function loginAdmin() {
+            const username = document.querySelector("#adminForm input:nth-child(1)").value;
+            const password = document.querySelector("#adminForm input:nth-child(2)").value;
+
+            fetch('/admin_login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: username, password: password })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Admin Login successful!");
+                        window.location.href = "/admin_dashboard";
+                    } else {
+                        alert("Invalid admin credentials");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+
+</html>

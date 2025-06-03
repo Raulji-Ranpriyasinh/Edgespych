@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3ebef;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #008080;
+            color: white;
+            padding: 15px;
+            font-size: 24px;
+        }
+        .logout {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            background-color: red;
+            border-radius: 5px;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #008080;
+            color: white;
+        }
+        .btn {
+            display: block;
+            text-decoration: none;
+            padding: 8px 12px;
+            color: white;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .aptitude-btn {
+            background-color: blue;
+        }
+        .career-btn {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h2>Admin Dashboard</h2>
+    <a href="/admin_logout" class="logout">Logout</a>
+</div>
+
+
+<div style="margin: 20px auto; text-align: center;">
+    <input 
+        type="text" 
+        id="searchFirstName" 
+        placeholder="Search by First Name" 
+        onkeyup="filterTable()" 
+        style="padding: 10px; margin: 5px; width: 250px; border: 1px solid #ccc; border-radius: 5px;"
+    />
+    <input 
+        type="text" 
+        id="searchLastName" 
+        placeholder="Search by Last Name" 
+        onkeyup="filterTable()" 
+        style="padding: 10px; margin: 5px; width: 250px; border: 1px solid #ccc; border-radius: 5px;"
+    />
+    <input 
+        type="text" 
+        id="searchMobile" 
+        placeholder="Search by Mobile Number" 
+        onkeyup="filterTable()" 
+        style="padding: 10px; margin: 5px; width: 250px; border: 1px solid #ccc; border-radius: 5px;"
+    />
+</div>
+
+<div class="filters" style="margin: 20px auto; text-align: center;" >
+    <select id="countryFilter" onchange="filterTable()" style="padding: 10px; margin: 5px; width: 250px; border:
+     1px solid #ccc; border-radius: 5px; 
+    -webkit-appearance: none; /* Remove default Safari styling */
+    -moz-appearance: none; /* Remove default Firefox styling */
+    appearance: none;" >
+        <option value="">Select Country</option>
+        {% for country in unique_countries %}
+        <option value="{{ country }}">{{ country }}</option>
+        {% endfor %}
+    </select>
+
+    <select id="countryFilter" onchange="filterTable()" style="padding: 10px; margin: 5px; width: 250px; border:
+     1px solid #ccc; border-radius: 5px; 
+    -webkit-appearance: none; /* Remove default Safari styling */
+    -moz-appearance: none; /* Remove default Firefox styling */
+    appearance: none;" >
+        <option value="">Select Curriculum</option>
+        {% for curriculum in unique_curriculums %}
+        <option value="{{ curriculum }}">{{ curriculum }}</option>
+        {% endfor %}
+    </select>
+
+    <select id="countryFilter" onchange="filterTable()" style="padding: 10px; margin: 5px; width: 250px; border:
+     1px solid #ccc; border-radius: 5px; 
+    -webkit-appearance: none; /* Remove default Safari styling */
+    -moz-appearance: none; /* Remove default Firefox styling */
+    appearance: none;" >
+        <option value="">Select Referral Source</option>
+        {% for referral in unique_referrals %}
+        <option value="{{ referral }}">{{ referral }}</option>
+        {% endfor %}
+    </select>
+
+    <select id="countryFilter" onchange="filterTable()" style="padding: 10px; margin: 5px; width: 250px; border:
+     1px solid #ccc; border-radius: 5px; 
+    -webkit-appearance: none; /* Remove default Safari styling */
+    -moz-appearance: none; /* Remove default Firefox styling */
+    appearance: none;" >
+        <option value="">Select School</option>
+        {% for school in unique_schools %}
+        <option value="{{ school }}">{{ school }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+
+
+
+<div class="container">
+    <h2>Registered Students</h2>
+    <table id="studentsTable">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Country</th>
+            <th>Curriculum</th>
+            <th>School Name</th>
+            <th>class</th>
+            <th>Referral Source</th>
+            <th>Registration Date</th>
+            <th>Actions</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.first_name }}</td>
+            <td>{{ student.last_name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.mobile_number }}</td>
+            <td>{{ student.country }}</td>
+            <td>{{ student.curriculum }}</td>
+            <td>{{ student.school_name }}</td>
+            <td>{{ student.grade }}</td>
+            <td>{{ student.referral_source }}</td>
+            <td>{{ student.created_at }}</td>
+            <!-- <td>
+                <a href="{{ url_for('download_aptitude', student_id=student.id) }}" class="btn aptitude-btn">Download Aptitude</a>
+                <a href="{{ url_for('download_career', student_id=student.id) }}" class="btn career-btn">Download Career</a>
+            </td> -->
+
+            <td>
+                {% if student.aptitude_test_completed %}
+                    <a href="{{ url_for('download_aptitude', student_id=student.id) }}" class="btn aptitude-btn">Download Aptitude</a>
+                {% endif %}
+            
+                {% if student.career_test_completed %}
+                    <a href="{{ url_for('download_career', student_id=student.id) }}" class="btn career-btn">Download Career</a>
+                {% endif %}
+            </td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<script>
+    function filterTable() {
+        // Get dropdown filter values
+        const country = document.getElementById("countryFilter").value.toLowerCase();
+        const curriculum = document.getElementById("curriculumFilter").value.toLowerCase();
+        const referral = document.getElementById("referralFilter").value.toLowerCase();
+        const school = document.getElementById("schoolFilter").value.toLowerCase();
+    
+        // Get text input filter values
+        const firstNameInput = document.getElementById("searchFirstName").value.toLowerCase();
+        const lastNameInput = document.getElementById("searchLastName").value.toLowerCase();
+        const mobileInput = document.getElementById("searchMobile").value.toLowerCase();
+    
+        // Get all table rows
+        const table = document.getElementById("studentsTable");
+        const rows = table.querySelectorAll("tbody tr");
+    
+        rows.forEach(row => {
+            // Get the necessary cells
+            const firstName = row.cells[1]?.textContent.toLowerCase() || "";
+            const lastName = row.cells[2]?.textContent.toLowerCase() || "";
+            const mobile = row.cells[4]?.textContent.toLowerCase() || "";
+            const countryText = row.cells[5]?.textContent.toLowerCase() || "";
+            const curriculumText = row.cells[6]?.textContent.toLowerCase() || "";
+            const schoolText = row.cells[7]?.textContent.toLowerCase() || "";
+            const referralText = row.cells[9]?.textContent.toLowerCase() || "";
+    
+            // Check matches
+            const matchesFirstName = firstName.includes(firstNameInput);
+            const matchesLastName = lastName.includes(lastNameInput);
+            const matchesMobile = mobile.includes(mobileInput);
+            const matchesCountry = country === "" || countryText.includes(country);
+            const matchesCurriculum = curriculum === "" || curriculumText.includes(curriculum);
+            const matchesSchool = school === "" || schoolText.includes(school);
+            const matchesReferral = referral === "" || referralText.includes(referral);
+    
+            // Show row only if all conditions are matched
+            if (matchesFirstName && matchesLastName && matchesMobile && matchesCountry && matchesCurriculum && matchesSchool && matchesReferral) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+    
+    </script>
+
+</body>
+</html>

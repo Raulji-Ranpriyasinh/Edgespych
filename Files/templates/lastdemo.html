@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>A4 Timeline with Pie Chart</title>
+  <style>
+        .page {
+            width: 21cm;
+            height: 29.7cm;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 2cm;
+            box-sizing: border-box;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    
+
+    <!-- Month Header Row -->
+    <table style="width: 100%; border-collapse: collapse; text-align: center; font-size: 14px; margin-bottom: 20px;">
+      <tr>
+        <th>Jan</th>
+        <th>Feb</th>
+        <th>Mar</th>
+        <th>Apr</th>
+        <th>May</th>
+        <th>Jun</th>
+        <th>Jul</th>
+        <th>Aug</th>
+        <th>Sep</th>
+        <th>Oct</th>
+        <th>Nov</th>
+        <th>Dec</th>
+      </tr>
+      <!-- 6 Rows of Dots -->
+      <tr>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+      </tr>
+      <tr>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+      </tr>
+      <tr>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+      </tr>
+      <tr>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+      </tr>
+      <tr>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+      </tr>
+      <tr>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+        <td>•</td>
+      </tr>
+    </table>
+
+    <!-- Labels -->
+<!-- Labels with padding for write space -->
+<div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 30px;">
+  <div style="text-align: left; padding-right: 20px; min-width: 45%;">
+    <p>School Selection :</p>
+    <p>Essay :</p>
+    <p>Bank Letter :</p>
+    <p>Transcript :</p>
+    <p>Visa :</p>
+  </div>
+  <div style="text-align: left; padding-right: 20px; min-width: 45%;">
+    <p>Application :</p>
+    <p>Recommendations :</p>
+    <p>Mark Sheets :</p>
+    <p>Resume :</p>
+  </div>
+</div>
+
+
+    <!-- Blue Divider -->
+    <hr style="border: none; border-top: 2px solid #007bff; margin: 30px 0;">
+
+    <!-- Pie Chart -->
+<div class="pie-chart" style="align-self: flex-start;">
+      <svg width="200" height="200" viewBox="0 0 200 200" style="display: block; margin: 50px auto;">
+        <!-- Circle with black border and white fill -->
+        <circle cx="100" cy="100" r="95" fill="white" stroke="black" stroke-width="2" />
+
+        <!-- 5 slice lines (360° / 5 = 72° steps) -->
+        <!-- Calculated using center (100, 100) and radius 95 -->
+        <line x1="100" y1="100" x2="100" y2="5" stroke="black" stroke-width="2" /> <!-- 0° -->
+        <line x1="100" y1="100" x2="190.45" y2="71.31" stroke="black" stroke-width="2" /> <!-- 72° -->
+        <line x1="100" y1="100" x2="154.55" y2="181.37" stroke="black" stroke-width="2" /> <!-- 144° -->
+        <line x1="100" y1="100" x2="45.45" y2="181.37" stroke="black" stroke-width="2" /> <!-- 216° -->
+        <line x1="100" y1="100" x2="9.55" y2="71.31" stroke="black" stroke-width="2" /> <!-- 288° -->
+      </svg>
+    </div>
+
+  <div style="font-size: 14px; font-weight: bold; line-height: 1.6; margin-top: 10px;">
+    <span>AP</span><br>
+    <span>ACT/SAT</span><br>
+    <span>IELTS/TOEFL</span>
+  </div>
+</div>
+
+  </div>
+  <button onclick="downloadPDF()">Download PDF</button>
+</body>
+<script>
+          async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: 'p',
+                unit: 'mm',
+                format: 'a4',
+                compress: true,
+            });
+
+            const pages = document.querySelectorAll('.page');
+            const page = document.querySelector('.page');  // Make sure '.page' exists in your HTML
+
+            if (!page) {
+                console.error('Page element not found!');
+                return;
+            }
+
+            // Apply manual styles if needed (like vertical-header)
+            const verticalHeaders = page.querySelectorAll('.vertical-header');
+            verticalHeaders.forEach(header => {
+                header.style.transform = 'rotate(180deg)';
+                header.style.writingMode = 'vertical-rl';
+                header.style.fontSize = '10px';
+                header.style.width = '30px';
+                header.style.padding = '0';
+                header.style.textAlign = 'left';
+                header.style.verticalAlign = 'middle';
+            });
+
+
+
+            for (let i = 0; i < pages.length; i++) {
+                const canvas = await html2canvas(pages[i], {
+                    scale: 3.5, // high but not huge
+                    backgroundColor: '#ffffff',
+                    useCORS: true,
+                });
+
+                const imgData = canvas.toDataURL('image/jpeg', 0.85); // compression level
+
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = 210;
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+                if (i > 0) pdf.addPage();
+
+                pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+            }
+
+            pdf.save('MYCAREERCHOICES.pdf');
+        }
+
+
+</script>
+</html>

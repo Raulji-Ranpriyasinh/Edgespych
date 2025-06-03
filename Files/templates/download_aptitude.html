@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aptitude Report</title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+
+</head>
+
+<body style="font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; background: #f4f4f9;">
+
+
+
+    <div style="margin-top: 50px;">
+        <h2>Generate Aptitude Report</h2>
+        <button onclick="fetchStudentData(); fetchStudentScores(); fetchResults();"
+            style="padding: 10px 20px; background: #800080; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Generate Report
+        </button>
+        <button onclick="downloadPDF()"
+        style="margin-top: 20px; padding: 10px 20px; background: #800080; color: white; border: none; cursor: pointer;">
+        Download PDF
+    </button>
+    </div>
+
+    <script>
+        function getStudentIdFromUrl() {
+            const path = window.location.pathname;
+            const parts = path.split('/');
+            return parts[parts.length - 1]; // Get the last part of the URL (student ID)
+        }
+    </script>
+
+    <!-- Report Section (Initially Hidden) -->
+    <div id="report_section" style="display: none;">
+        <div id="full_report">
+
+
+            <!-- PAGE 1 -->
+            <div id="report_page1"
+                style="width: 210mm; height: 297mm; margin: auto; padding: 20mm; background: white; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; justify-content: space-between; margin-top: 50px;">
+                <div>
+                    <h2 style="color: #800080; text-align: right;">MYAPTITUDE</h2>
+                    <hr style="border: 1px solid #800080;">
+                    <h3 id="student_name" style="color: #800080;">Loading...</h3>
+                    <p style="color: #777;">Edgepsych</p>
+
+                    <h4 style="text-align: left; color: #800080; margin-top: 40px;">The Contents of Your Workbook</h4>
+                    <div style="background: #f7ebf6; padding: 20px; border-radius: 10px; text-align: left;">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <div
+                                style="background: #6b7f99; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">
+                                A</div>
+                            <div style="flex: 1; margin-left: 10px; border-bottom: 1px solid black;"></div>
+                            <span style="color: #800080; font-weight: bold;">Overview of MyAptitude</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <div
+                                style="background: #b2df8a; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">
+                                B</div>
+                            <div style="flex: 1; margin-left: 10px; border-bottom: 1px solid black;"></div>
+                            <span style="color: #800080; font-weight: bold;">MyAptitude Grades</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div
+                                style="background: #fcb0a0; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">
+                                C</div>
+                            <div style="flex: 1; margin-left: 10px; border-bottom: 1px solid black;"></div>
+                            <span style="color: #800080; font-weight: bold;">MyAptitude Upshot</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <hr style="border: 1px solid #800080; margin-top: 50px;">
+                    <p style="color: #800080;"></p>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- second page -->
+
+            <style>
+                .second-container {
+                    width: 210mm;
+                    min-height: 297mm;
+                    margin: auto;
+                    padding: 20mm;
+                    background: white;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    text-align: left;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                .second-header {
+                    color: #0080ff;
+                    text-align: center;
+                    font-size: 24px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+
+                .second-sub-header {
+                    text-align: center;
+                    color: #800080;
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin-bottom: 20px;
+                }
+
+                .second-section-title {
+                    color: #800080;
+                    font-size: 20px;
+                    margin-top: 20px;
+                    font-weight: bold;
+                }
+
+                .second-content {
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: #333;
+                    margin-top: 10px;
+                    text-align: justify;
+                }
+
+                .second-graph-container {
+                    width: 100%;
+                    height: 300px;
+                }
+
+                .second-footer-section {
+                    margin-top: auto;
+                }
+
+                .second-footer {
+                    color: #800080;
+                    font-size: 14px;
+                    text-align: center;
+                    padding-top: 5px;
+                }
+
+                .second-hr-footer {
+                    border: 1px solid #800080;
+                    width: 100%;
+                    margin-top: auto;
+                }
+            </style>
+
+            <div id="second_page" class="second-container" style="display: none;">
+
+                <div class="second-header">AN INTRODUCTION TO MYAPTITUDE</div>
+                <div class="second-sub-header">Edgepsych</div>
+
+                <div class="second-content">
+                    <p>
+                        Aptitude tests like these are increasingly utilized by employers and career counselors to gain
+                        valuable insights into an individual’s potential and likely performance in a professional
+                        setting.
+                    </p>
+                    <p>
+                        These assessments cover various areas, such as Verbal, Numerical, and Abstract Reasoning, along
+                        with Spatial Reasoning (both Two- and Three-dimensional), Spelling, Arithmetic Skills, and
+                        Clerical Speed and Accuracy. The results highlight how your performance compares to others with
+                        similar age and educational backgrounds.
+                    </p>
+                    <p>
+                        The program evaluates your scores and provides a comprehensive analysis, followed by a visual
+                        representation of the results in a bar graph format for easy understanding.
+                    </p>
+                </div>
+
+                <h4 class="second-section-title">Your Aptitude Performance</h4>
+                <canvas id="scoreChart" class="second-graph-container"></canvas>
+
+                <div class="second-content">
+                    <p><strong>This information can be useful to you in several key ways:</strong></p>
+                    <ul>
+                        <li>It will help you identify your strongest aptitudes and the careers where these skills could
+                            be particularly valuable.</li>
+                        <li>It can highlight areas where your scores are lower, indicating potential challenges in
+                            certain career paths.</li>
+                        <li>In nearly every profession, one or more of your test results can provide insights into your
+                            suitability for specific roles. This can give you a more realistic and objective
+                            perspective.</li>
+                    </ul>
+
+                    <p>
+                        For instance, the results of the Spatial Reasoning test should be considered for careers like
+                        art, architecture, civil engineering, or surveying. These tests assess your ability to think in
+                        two- and three-dimensional terms and to visualize geometric shapes or layouts. Strong Spatial
+                        Reasoning scores can enhance your prospects in these fields, as long as other relevant skills
+                        are also sufficient.
+                    </p>
+
+                </div>
+                <div class="footer">
+                    <hr style="border: 1px solid #800080; margin-top: 50px;">
+                    <p style="color: #800080; text-align: right;">1</p>
+                </div>
+
+
+            </div>
+            <style>
+                /* Print-friendly formatting */
+                @media print {
+
+
+                    body {
+                        width: 210mm;
+                        height: 297mm;
+                        margin: 0;
+                        padding: 0;
+                        font-family: Arial, sans-serif;
+                        background: white;
+                        color: black;
+                    }
+
+                    .three-container {
+                        width: 210mm !important;
+                        height: 297mm !important;
+                        padding: 20mm;
+                        margin: auto;
+                        background: white;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                        box-shadow: none;
+                        /* Remove shadow for printing */
+                    }
+
+                    .three-chart-container {
+                        width: 100%;
+                        height: 300px;
+                        width: 100%;
+                        /* height: 200mm !important; */
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    canvas {
+                        width: 180mm !important;
+                        /* Ensures the chart is stretched */
+                        height: 130mm !important;
+                        background: white;
+                        border-radius: 5px;
+                    }
+
+                    button,
+                    input {
+                        display: none !important;
+                        /* Hide buttons and input fields in print */
+                    }
+                }
+
+                /* General Styling */
+                .three-container {
+                    width: 210mm;
+                    height: 297mm;
+                    background: white;
+                    padding: 20px;
+                    margin: auto;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                h1 {
+                    font-size: 24px;
+                    text-align: center;
+                    color: #2c3e50;
+                    margin-bottom: 10px;
+                }
+
+                h2 {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                    color: #555;
+                }
+
+                .three-chart-container {
+                    width: 100%;
+                    height: 220mm;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                canvas {
+                    background: white;
+                    border-radius: 5px;
+                    padding: 10px;
+                }
+
+                .three-circle {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    border: 2px solid #666;
+                    text-align: center;
+                    line-height: 38px;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+
+                .three-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .three-title {
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-align: center;
+                    flex: 1;
+                    margin: 10px;
+                }
+
+                .three-description {
+                    font-size: 14px;
+                    text-align: justify;
+                    margin: 10px auto 20px auto;
+                    width: 90%;
+                    line-height: 1.5;
+                    color: #444;
+                }
+            </style>
+
+            <div id="third_page" class="three-container" style="display: none;">
+
+
+
+
+
+
+
+                <div>
+                    <header class="three-header">
+                        <h2 class="three-title" style="color: #800080; text-align: right;">MYAPTITUDE RESULTS</h2>
+                        <div class="three-circle">B</div>
+                    </header>
+                    <hr style="border: 1px solid #800080;">
+
+                    <p class="three-description">
+                        Your Aptitude Test results provide a detailed analysis of your performance across different
+                        categories. The bar graph visually represents three key aspects: the total number of questions
+                        per
+                        category (gray bars), the number of correct answers (purple bars), and your accuracy percentage
+                        (blue bars). Accuracy reflects the proportion of
+                        correctly answered questions out of the total attempted. This report helps assess both your
+                        knowledge and test-taking efficiency, enabling a better understanding of your strengths and
+                        areas for improvement.
+                    </p>
+
+
+                    <div class="three-chart-container">
+                        <canvas id="three-resultChart"></canvas>
+                    </div>
+
+
+
+
+                    <script>
+                        let myChart;
+
+                        function fetchResults() {
+                            const student_id = getStudentIdFromUrl();
+                            if (!student_id) {
+                                alert("Please enter a student ID");
+                                return;
+                            }
+                            console.log("Extracted Student ID:", student_id);
+                            fetch("/get_results", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({ student_id: student_id })
+                            })
+                                .then(response => response.json())
+                                .then(data => {
+                                    let categories = data.map(item => item.category);
+                                    let totalQuestions = data.map(item => item.total);
+                                    let correctAnswers = data.map(item => item.correct);
+                                    let accuracy = data.map(item => (item.correct / item.total * 100).toFixed(2)); // Accuracy %
+
+                                    let ctx = document.getElementById("three-resultChart").getContext("2d");
+
+                                    // Destroy old chart if exists
+                                    if (myChart) myChart.destroy();
+
+                                    myChart = new Chart(ctx, {
+                                        type: "bar",
+                                        data: {
+                                            labels: categories,
+                                            datasets: [
+                                                {
+                                                    label: "Total Questions",
+                                                    data: totalQuestions,
+                                                    backgroundColor: "rgba(169, 169, 169, 0.6)",
+                                                    barThickness: 20
+                                                },
+                                                {
+                                                    label: "Correct Answers",
+                                                    data: correctAnswers,
+                                                    backgroundColor: "rgba(128, 0, 128, 0.8)",
+                                                    barThickness: 20
+                                                },
+                                                {
+                                                    label: "Accuracy (%)",
+                                                    data: accuracy,
+                                                    backgroundColor: "rgba(52, 152, 219, 0.8)",  // Blue color
+                                                    barThickness: 20
+                                                }
+                                            ]
+                                        },
+                                        options: {
+                                            indexAxis: 'y',
+                                            maintainAspectRatio: false,
+                                            responsive: true,
+                                            devicePixelRatio: 4,
+                                            plugins: {
+                                                legend: { position: 'top' },
+                                                datalabels: {
+                                                    color: "white",
+                                                    font: { size: 12, weight: "bold" },
+                                                    formatter: (value, context) => {
+                                                        return context.dataset.label === "Accuracy (%)" ? value + "%" : value;
+                                                    },
+                                                    align: "center",
+                                                    anchor: "center"
+                                                }
+                                            },
+                                            scales: {
+                                                x: {
+                                                    beginAtZero: true,
+                                                    max: 100,  // ✅ Ensure the Y-axis goes up to 100
+                                                    title: { display: true, text: "Score" },
+                                                    ticks: { font: { size: 12 } }
+                                                },
+                                                y: {
+                                                    title: { display: true, text: "Category" },
+                                                    ticks: { font: { size: 12 } }
+                                                }
+                                            }
+                                        },
+                                        plugins: [ChartDataLabels]
+                                    });
+
+                                })
+                                .catch(error => console.error("Error:", error));
+                        }
+                    </script>
+                </div>
+
+                <div class="footer">
+                    <hr style="border: 1px solid #800080; margin-top: 50px;">
+                    <p style="color: #800080; text-align: right;">2</p>
+                </div>
+
+
+
+
+            </div>
+
+
+            <!-- last-page -->
+            <style>
+                /* Print-friendly formatting */
+                @media print {
+
+
+                    body {
+                        width: 210mm;
+                        height: 297mm;
+                        margin: 0;
+                        padding: 0;
+                        font-family: Arial, sans-serif;
+                        background: white;
+                        color: black;
+                    }
+
+                    .three-container {
+                        width: 210mm !important;
+                        height: 297mm !important;
+                        padding: 20mm;
+                        margin: auto;
+                        background: white;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                        box-shadow: none;
+                        /* Remove shadow for printing */
+                    }
+
+                    .three-chart-container {
+                        width: 100%;
+                        height: 300px;
+                        width: 100%;
+                        /* height: 200mm !important; */
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    canvas {
+                        width: 180mm !important;
+                        /* Ensures the chart is stretched */
+                        height: 130mm !important;
+                        background: white;
+                        border-radius: 5px;
+                    }
+
+                    button,
+                    input {
+                        display: none !important;
+                        /* Hide buttons and input fields in print */
+                    }
+                }
+
+                /* General Styling */
+                .three-container {
+                    width: 210mm;
+                    height: 297mm;
+                    background: white;
+                    padding: 20px;
+                    margin: auto;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                h1 {
+                    font-size: 24px;
+                    text-align: center;
+                    color: #2c3e50;
+                    margin-bottom: 10px;
+                }
+
+                h2 {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                    color: #555;
+                }
+
+                .three-chart-container {
+                    width: 100%;
+                    height: 220mm;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                canvas {
+                    background: white;
+                    border-radius: 5px;
+                    padding: 10px;
+                }
+
+                .three-circle {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    border: 2px solid #666;
+                    text-align: center;
+                    line-height: 38px;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+
+                .three-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .three-title {
+                    font-size: 18px;
+                    font-weight: bold;
+                    text-align: center;
+                    flex: 1;
+                    margin: 10px;
+                }
+
+                .three-description {
+                    font-size: 14px;
+                    text-align: justify;
+                    margin: 10px auto 20px auto;
+                    width: 90%;
+                    line-height: 1.5;
+                    color: #444;
+                }
+            </style>
+
+            <div id="four_page" class="three-container" style="display: none;">
+
+
+
+
+
+
+
+                <div>
+                    <header class="three-header">
+                        <h2 class="three-title" style="color: #800080; text-align: right;">MYAPTITUDE REVIEW</h2>
+                        <div class="three-circle">c</div>
+                    </header>
+                    <hr style="border: 1px solid #800080;">
+
+                    <p class="four-description" style="text-align: justify;    font-size: 14px;    margin: 10px auto 20px auto;">
+                        The following sections provide a review of your MyAptitude percentile scores for each test. If
+                        any of your scores are low, it's
+                        important to reflect on how they might impact your suitability for the careers you are seriously
+                        considering.
+                    </p>
+                    <p class="four-description" style="text-align: justify;     font-size: 14px;   margin: 10px auto 20px auto;">
+                        Abstract Reasoning – This test evaluates your ability to identify patterns and trends in shapes,
+                        angles, positions, and
+                        sequences of designs, and to predict how the next item in a series will appear. It involves
+                        non-verbal and non-numerical
+                        reasoning, which is particularly useful in fields like science, technical research, engineering,
+                        computer programming, and
+                        design. Your score was slightly below average, so it would be wise to carefully consider whether
+                        careers in these fields align
+                        with your strengths before pursuing them.
+
+                    </p>
+                    <p class="four-description" style="text-align: justify;     font-size: 14px;   margin: 10px auto 20px auto;">
+                        Numerical Reasoning – This test assesses your capacity to recognize relationships between sets
+                        of numbers, testing your
+                        numerical logic and creativity in handling numbers. These skills are crucial in fields that
+                        involve data analysis, such as
+                        scientific and engineering work, finance, accountancy, economics, and consulting. Your score
+                        suggests you may find it
+                        challenging to perform numerical reasoning tasks under time pressure, which should be taken into
+                        account for careers
+                        requiring this skill.
+                    </p>
+                    <p class="four-description" style="text-align: justify;     font-size: 14px;   margin: 10px auto 20px auto;">
+                        Verbal Reasoning (English) – This test measures your ability to understand and identify
+                        relationships between words in the
+                        English language. It gauges your aptitude for academic work, especially in verbal comprehension.
+                        Your score is slightly below
+                        average for someone with your academic background, indicating that you may face challenges in
+                        fields requiring strong
+                        verbal reasoning and language skills.
+                    </p>
+                    <p class="four-description" style="text-align: justify;     font-size: 14px;   margin: 10px auto 20px auto;">
+                        Spatial Reasoning – These tests assess your ability to visualize and manipulate two- and three-dimensional objects or plans,
+                        such as rotating shapes or re-orienting diagrams. Your score suggests some difficulty with these tasks, so careers that rely
+                        heavily on spatial reasoning, such as surveying, design, engineering, medicine, or scientific fields, may not be the best fit for
+                        you.
+                        
+                    </p>
+                    <p class="four-description" style="text-align: justify;      font-size: 14px;  margin: 10px auto 20px auto;">
+                        Spelling (English) – Your spelling score indicates average proficiency in recognizing and correcting spelling errors. While this
+skill is crucial for roles in journalism, editing, publishing, and administration, it’s valuable in almost any profession that
+involves written communication. Since spelling mistakes can be costly or embarrassing, improving your spelling could
+enhance your effectiveness in these areas.
+                    </p>
+                    <p class="four-description" style="text-align: justify;     font-size: 14px;   margin: 10px auto 20px auto;">
+                        Arithmetic Calculation – Your performance in this test places you in the above-average range for arithmetic skills, including
+basic operations like addition, subtraction, multiplication, and division. These abilities are important in fields such as
+finance, administration, banking, science, technology, and engineering. Your score provides moderate support for careers in
+these areas, though practicing further could improve your performance.
+
+                    </p>
+                    <p class="four-description" style="text-align: justify;      font-size: 14px;  margin: 10px auto 20px auto;">
+                        Working Quickly and Accurately – This test measures your ability to transfer detailed information efficiently and accurately.
+Your score suggests that your speed and accuracy may be below average for your age group, which could impact
+performance in office-based roles, particularly in areas like IT, finance, administration, and data management. Consider this
+when evaluating such career paths.
+                    </p>
+           
+
+
+                    <div class="footer" style="
+                    margin-top: 50px;
+                    padding-top: 300px;" >
+                        <hr style="border: 1px solid #800080; margin-top: 50px;">
+                        <p style="color: #800080; text-align: right;">3</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+</body>
+
+</html>
+
+
+</body>
+
+<script>
+    function fetchStudentData() {
+        const studentId = getStudentIdFromUrl();
+        if (!studentId) {
+            alert("Please enter a Student ID.");
+            return;
+        }
+
+        console.log("Fetching student data for ID:", studentId);  // Debugging log
+
+        fetch(`/get_student_data/${studentId}`)  // Updated the API endpoint
+            .then(response => {
+                console.log("Response Status:", response.status);  // Log status code
+
+                if (!response.ok) {
+                    return response.text().then(text => { throw new Error(text) });  // Capture raw error message
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.error) {
+                    alert("Error from API: " + data.error);
+                } else {
+                    console.log("Student Data Received:", data);  // Log received data
+                    document.getElementById("student_name").innerText = data.name;
+                    document.getElementById("report_section").style.display = "block"; // Show report
+                    document.getElementById("second_page").style.display = "block";
+                    document.getElementById("third_page").style.display = "block";
+                    document.getElementById("four_page").style.display = "block";
+                    fetchStudentScores(studentId);  // Fetch scores after fetching the name
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching student name:", error);
+                alert("An error occurred while fetching student data: " + error.message);
+            });
+    }
+
+    function fetchStudentScores(studentId) {
+        fetch(`/get_student_data/${studentId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                    return;
+                }
+
+                // Show the second page before rendering the chart
+                document.getElementById("second_page").style.display = "block";
+
+                let canvas = document.getElementById("scoreChart");
+                if (!canvas) {
+                    console.error("Canvas element #scoreChart not found!");
+                    return;
+                }
+
+                let ctx = canvas.getContext("2d");
+                if (!ctx) {
+                    console.error("Canvas context could not be initialized!");
+                    return;
+                }
+
+                // Destroy old chart instance if it exists
+                if (window.scoreChartInstance) {
+                    window.scoreChartInstance.destroy();
+                }
+
+                // Add a slight delay to ensure rendering after visibility
+                setTimeout(() => {
+                    window.scoreChartInstance = new Chart(ctx, {
+                        type: "bar",
+                        data: {
+                            labels: Object.keys(data.scores),
+                            datasets: [{
+                                label: "Score",
+                                data: Object.values(data.scores),
+                                backgroundColor: "rgba(128, 0, 128, 0.5)",
+                                borderColor: "#800080",
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            indexAxis: 'y',
+                            devicePixelRatio: 4,
+                            responsive: true,
+                            scales: {
+                                x: {
+                                    min: 0,
+                                    max: 100,
+                                    ticks: { stepSize: 20 }
+                                }
+                            }
+                        }
+                    });
+                }, 300); // Delay to ensure visibility before rendering
+            })
+            .catch(error => console.error("Error:", error));
+    }
+
+
+
+
+</script>
+
+<script>/*
+    async function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+        if (!jsPDF) {
+            console.error("jsPDF is not loaded.");
+            return;
+        }
+
+        const pdf = new jsPDF({ unit: "mm", format: "a4" });
+        const pages = ["report_page1", "second_page", "third_page"];
+
+        for (let i = 0; i < pages.length; i++) {
+            const element = document.getElementById(pages[i]);
+            if (!element) {
+                console.error(`Element with ID ${pages[i]} not found.`);
+                continue;
+            }
+
+            const canvas = await html2canvas(element, { scale: 3 }); // Increase scale for high resolution
+            const imgData = canvas.toDataURL("image/png");
+            const imgWidth = 210;
+            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+            if (i > 0) pdf.addPage();
+            pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+        }
+
+        pdf.save("Aptitude_Report.pdf");
+    }
+*/
+async function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+
+    if (!jsPDF) {
+        console.error("jsPDF is not loaded.");
+        return;
+    }
+
+    const pdf = new jsPDF({
+        orientation: "p",
+        unit: "mm",
+        format: "a4",
+        compress: true, // Enable PDF stream compression
+    });
+
+    const pages = ["report_page1", "second_page", "third_page", "four_page"]; // add more pages as needed
+
+    for (let i = 0; i < pages.length; i++) {
+        const element = document.getElementById(pages[i]);
+        if (!element) {
+            console.error(`Element with ID ${pages[i]} not found.`);
+            continue;
+        }
+
+        const canvas = await html2canvas(element, {
+            scale: 3.5, // higher resolution for sharp output
+            backgroundColor: '#ffffff', // make sure white bg is preserved
+            useCORS: true, // load external images if any
+        });
+
+        // JPEG gives better compression, adjust quality as needed (0.7–0.95)
+        const imgData = canvas.toDataURL("image/jpeg", 0.85); 
+
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = 210;
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+        if (i > 0) pdf.addPage();
+        pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
+
+        // Optional: Add page number
+        pdf.setFontSize(10);
+        pdf.setTextColor(128, 0, 128); // purple
+        pdf.text(`${i + 1}`, 200, 290); // bottom-right corner
+    }
+
+    pdf.save("Aptitude_Report.pdf");
+}
+
+</script>
+
+</html>

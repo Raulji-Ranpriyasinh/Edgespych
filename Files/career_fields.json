@@ -1,0 +1,2187 @@
+{
+    "career_fields": {
+      "Manufacturing & Production": [
+        {
+          "career": "Production Manager",
+          "description": "Oversees manufacturing processes, ensures efficiency, and manages resources to meet production goals."
+        },
+        {
+          "career": "Manufacturing Engineer",
+          "description": "Designs, implements, and improves manufacturing systems and processes for better efficiency and cost control."
+        },
+        {
+          "career": "Quality Control Inspector",
+          "description": "Ensures that products meet quality standards and compliance with regulations through inspection and testing."
+        },
+        {
+          "career": "Supply Chain Analyst",
+          "description": "Analyzes and optimizes supply chain processes, including procurement, production, and distribution."
+        },
+        {
+          "career": "Industrial Designer",
+          "description": "Develops concepts and designs for manufactured products, focusing on aesthetics, usability, and functionality."
+        },
+        {
+          "career": "Plant Manager",
+          "description": "Manages the day-to-day operations of a manufacturing plant, ensuring production targets and safety compliance."
+        },
+        {
+          "career": "Maintenance Engineer",
+          "description": "Responsible for maintaining and repairing equipment to ensure smooth operations in manufacturing."
+        },
+        {
+          "career": "Lean Manufacturing Specialist",
+          "description": "Implements lean production techniques to eliminate waste and improve operational efficiency."
+        },
+        {
+          "career": "Process Technician",
+          "description": "Operates and troubleshoots manufacturing equipment, ensuring processes run smoothly and efficiently."
+        },
+        {
+          "career": "Materials Planner",
+          "description": "Plans and coordinates material requirements to ensure the timely production of goods."
+        }
+      ],
+      "Management: Organization & Planning": [
+        {
+          "career": "Project Manager",
+          "description": "Plans, coordinates, and oversees projects to ensure they are completed on time and within budget."
+        },
+        {
+          "career": "Operations Manager",
+          "description": "Manages daily operations of an organization, focusing on efficiency, productivity, and resource allocation."
+        },
+        {
+          "career": "HR Manager",
+          "description": "Manages recruitment, employee relations, and organizational policies to support company goals."
+        },
+        {
+          "career": "Strategic Planner",
+          "description": "Develops long-term strategies and plans to help organizations achieve their objectives."
+        },
+        {
+          "career": "Business Analyst",
+          "description": "Analyzes business processes and provides recommendations for improving efficiency and profitability."
+        },
+        {
+          "career": "Event Planner",
+          "description": "Plans and organizes events, ensuring they align with organizational goals and client requirements."
+        },
+        {
+          "career": "Administrative Manager",
+          "description": "Oversees office and administrative functions, ensuring effective coordination and communication."
+        },
+        {
+          "career": "Change Management Consultant",
+          "description": "Guides organizations through transitions, helping to plan and implement changes effectively."
+        },
+        {
+          "career": "Training and Development Manager",
+          "description": "Develops and oversees programs to enhance employee skills and organizational capabilities."
+        },
+        {
+          "career": "Organizational Development Specialist",
+          "description": "Works on improving organizational performance and aligning people with business strategies."
+        }
+      ],
+      "Electronics/Electrical Engineering": [
+        {
+          "career": "Electrical Engineer",
+          "description": "Designs and develops electrical systems and equipment, ensuring safe and efficient operations."
+        },
+        {
+          "career": "Electronics Engineer",
+          "description": "Works on designing and developing electronic devices, circuits, and systems."
+        },
+        {
+          "career": "Control Systems Engineer",
+          "description": "Designs and maintains systems that control machinery or processes automatically."
+        },
+        {
+          "career": "Power Systems Engineer",
+          "description": "Focuses on generating, transmitting, and distributing electrical power efficiently."
+        },
+        {
+          "career": "Telecommunications Engineer",
+          "description": "Designs and manages communication systems like mobile networks and internet infrastructure."
+        },
+        {
+          "career": "Embedded Systems Developer",
+          "description": "Develops embedded software and hardware for devices such as medical equipment and consumer electronics."
+        },
+        {
+          "career": "Robotics Engineer",
+          "description": "Designs, builds, and programs robotic systems for industrial and personal use."
+        },
+        {
+          "career": "Renewable Energy Engineer",
+          "description": "Focuses on developing systems to harness renewable energy like solar, wind, and hydroelectric power."
+        },
+        {
+          "career": "Instrumentation Engineer",
+          "description": "Designs and maintains instruments used for monitoring and controlling systems in industries."
+        },
+        {
+          "career": "Maintenance Engineer",
+          "description": "Ensures electrical and electronic systems are maintained and functioning correctly."
+        }
+      ],
+      "Computing/IT": [
+        {
+          "career": "Software Developer",
+          "description": "Designs, builds, and maintains software applications for various platforms."
+        },
+        {
+          "career": "Data Scientist",
+          "description": "Analyzes and interprets complex data to provide insights and drive decision-making."
+        },
+        {
+          "career": "Cybersecurity Specialist",
+          "description": "Protects computer systems and networks from security breaches and cyberattacks."
+        },
+        {
+          "career": "Cloud Engineer",
+          "description": "Designs and maintains cloud-based solutions for businesses and organizations."
+        },
+        {
+          "career": "Web Developer",
+          "description": "Develops and maintains websites and web applications, focusing on user experience and functionality."
+        },
+        {
+          "career": "IT Support Specialist",
+          "description": "Provides technical support to individuals or organizations, troubleshooting hardware and software issues."
+        },
+        {
+          "career": "AI/Machine Learning Engineer",
+          "description": "Develops intelligent systems and algorithms for machine learning applications."
+        },
+        {
+          "career": "Database Administrator",
+          "description": "Manages and organizes data within database systems, ensuring efficiency and security."
+        },
+        {
+          "career": "System Analyst",
+          "description": "Analyzes IT systems and recommends solutions to improve performance and functionality."
+        },
+        {
+          "career": "Network Engineer",
+          "description": "Designs, implements, and manages network systems for organizations."
+        }
+      ],
+      "Mechanical & Related Engineering": [
+      {
+        "career": "Mechanical Engineer",
+        "description": "Designs, analyzes, and develops mechanical systems and devices."
+      },
+      {
+        "career": "Automotive Engineer",
+        "description": "Focuses on designing and manufacturing vehicles and automotive systems."
+      },
+      {
+        "career": "Aerospace Engineer",
+        "description": "Designs and develops aircraft, spacecraft, and associated technologies."
+      },
+      {
+        "career": "Marine Engineer",
+        "description": "Designs, constructs, and maintains ships, submarines, and marine equipment."
+      },
+      {
+        "career": "HVAC Engineer",
+        "description": "Specializes in heating, ventilation, and air conditioning systems for buildings and vehicles."
+      },
+      {
+        "career": "Mechatronics Engineer",
+        "description": "Integrates mechanical, electronic, and software engineering for automation and robotics."
+      },
+      {
+        "career": "Structural Engineer",
+        "description": "Designs and analyzes structural systems to withstand forces and environmental conditions."
+      },
+      {
+        "career": "Manufacturing Engineer",
+        "description": "Optimizes manufacturing processes for efficiency and quality."
+      },
+      {
+        "career": "Industrial Designer",
+        "description": "Develops concepts and designs for mechanical and industrial products."
+      },
+      {
+        "career": "Tooling Engineer",
+        "description": "Designs tools and equipment used in manufacturing processes."
+      }
+    ],
+    "Physics": [
+        {
+          "career": "Research Scientist",
+          "description": "Conducts experiments and research to expand knowledge in physics and related fields."
+        },
+        {
+          "career": "Physicist",
+          "description": "Studies the laws of nature and develops theories and experiments in physics."
+        },
+        {
+          "career": "Astronomer",
+          "description": "Observes celestial objects and phenomena to understand the universe."
+        },
+        {
+          "career": "Medical Physicist",
+          "description": "Applies physics in medicine, particularly in radiation therapy and imaging technologies."
+        },
+        {
+          "career": "Optical Engineer",
+          "description": "Designs and develops systems involving light, such as lenses and laser technologies."
+        },
+        {
+          "career": "Acoustics Engineer",
+          "description": "Works on sound-related technologies, such as noise control and audio equipment."
+        },
+        {
+          "career": "Data Analyst",
+          "description": "Uses physics knowledge to analyze and interpret data for various industries."
+        },
+        {
+          "career": "Nuclear Physicist",
+          "description": "Researches nuclear energy and particles for applications in energy and medicine."
+        },
+        {
+          "career": "Particle Physicist",
+          "description": "Studies the fundamental particles of matter and their interactions."
+        },
+        {
+          "career": "Meteorologist",
+          "description": "Applies physics principles to study weather patterns and atmospheric phenomena."
+        }
+      ],
+      "Creative Arts and Crafts": [
+      {
+        "career": "Graphic Designer",
+        "description": "Creates visual concepts using software or by hand for branding and communication."
+      },
+      {
+        "career": "Illustrator",
+        "description": "Produces drawings and illustrations for books, advertisements, and media."
+      },
+      {
+        "career": "Textile Designer",
+        "description": "Designs patterns and fabrics for clothing and interiors."
+      },
+      {
+        "career": "Jewelry Designer",
+        "description": "Creates designs and produces jewelry pieces using a variety of materials."
+      },
+      {
+        "career": "Art Teacher",
+        "description": "Teaches art and crafts in schools, colleges, or as a freelancer."
+      },
+      {
+        "career": "Ceramic Artist",
+        "description": "Creates artistic pottery and ceramic works."
+      },
+      {
+        "career": "Art Therapist",
+        "description": "Uses art as a medium to help people express emotions and cope with challenges."
+      },
+      {
+        "career": "Furniture Designer",
+        "description": "Designs functional and aesthetic furniture for homes and businesses."
+      },
+      {
+        "career": "Glass Artist",
+        "description": "Creates artworks using glass-blowing, staining, or other techniques."
+      },
+      {
+        "career": "Sculptor",
+        "description": "Produces three-dimensional artworks using various materials such as stone, metal, or clay."
+      }
+    ],
+    "Performing Arts Related": [
+      {
+        "career": "Actor",
+        "description": "Performs in theatre, films, television, or online productions."
+      },
+      {
+        "career": "Dancer",
+        "description": "Performs choreographed dance routines for audiences or in competitions."
+      },
+      {
+        "career": "Musician",
+        "description": "Plays, composes, or performs music using instruments or vocals."
+      },
+      {
+        "career": "Theatre Director",
+        "description": "Directs and oversees theatrical productions."
+      },
+      {
+        "career": "Choreographer",
+        "description": "Designs and teaches dance routines for performances."
+      },
+      {
+        "career": "Sound Designer",
+        "description": "Creates and edits audio for films, theatre, or music productions."
+      },
+      {
+        "career": "Lighting Designer",
+        "description": "Designs and sets up lighting for performances and productions."
+      },
+      {
+        "career": "Stage Manager",
+        "description": "Oversees all aspects of stage production during performances."
+      },
+      {
+        "career": "Drama Teacher",
+        "description": "Teaches acting and performance techniques to students."
+      },
+      {
+        "career": "Costume Designer",
+        "description": "Designs and creates costumes for actors and performers."
+      }
+    ],
+    "Public Protection & Security": [
+      {
+        "career": "Police Officer",
+        "description": "Enforces laws, maintains public order, and ensures community safety."
+      },
+      {
+        "career": "Firefighter",
+        "description": "Responds to emergencies involving fires, rescues, and hazardous materials."
+      },
+      {
+        "career": "Security Officer",
+        "description": "Protects people and property, monitors surveillance, and enforces safety protocols."
+      },
+      {
+        "career": "Emergency Manager",
+        "description": "Plans and coordinates responses to natural disasters and emergencies."
+      },
+      {
+        "career": "Criminal Investigator",
+        "description": "Investigates crimes, gathers evidence, and solves cases."
+      },
+      {
+        "career": "Border Patrol Agent",
+        "description": "Protects national borders and prevents illegal entry."
+      },
+      {
+        "career": "Corrections Officer",
+        "description": "Supervises inmates in correctional facilities."
+      },
+      {
+        "career": "Cybersecurity Analyst",
+        "description": "Protects digital systems and networks from cyber threats."
+      },
+      {
+        "career": "Forensic Scientist",
+        "description": "Analyzes evidence from crime scenes to assist in legal investigations."
+      },
+      {
+        "career": "Customs Officer",
+        "description": "Enforces regulations at borders and ensures compliance with trade laws."
+      }
+    ],
+    "Sports/Leisure/Recreation": [
+        {
+          "career": "Athlete",
+          "description": "Competes in professional or amateur sports."
+        },
+        {
+          "career": "Sports Coach",
+          "description": "Trains and develops athletes or teams to improve performance."
+        },
+        {
+          "career": "Recreation Director",
+          "description": "Plans and manages recreational activities for communities or organizations."
+        },
+        {
+          "career": "Fitness Trainer",
+          "description": "Guides clients in exercise routines to achieve fitness goals."
+        },
+        {
+          "career": "Sports Psychologist",
+          "description": "Helps athletes improve mental resilience and performance."
+        },
+        {
+          "career": "Event Coordinator",
+          "description": "Organizes sports and recreational events."
+        },
+        {
+          "career": "Sports Journalist",
+          "description": "Covers sports events and writes articles or reports on them."
+        },
+        {
+          "career": "Lifeguard",
+          "description": "Ensures water safety at pools, beaches, or water parks."
+        },
+        {
+          "career": "Sports Physiotherapist",
+          "description": "Treats and rehabilitates injuries for athletes."
+        },
+        {
+          "career": "Park Ranger",
+          "description": "Manages and protects parks, leading recreational and educational activities."
+        }
+      ],
+      "Nursing and Allied Health Protection": [
+      {
+        "career": "Registered Nurse (RN)",
+        "description": "Provides medical care, administers medication, and supports patients' recovery."
+      },
+      {
+        "career": "Physician Assistant",
+        "description": "Works under a doctor’s supervision to diagnose and treat illnesses."
+      },
+      {
+        "career": "Medical Technician",
+        "description": "Operates and maintains medical equipment for diagnostics and treatments."
+      },
+      {
+        "career": "Physical Therapist",
+        "description": "Helps patients recover mobility and manage pain after injuries or surgeries."
+      },
+      {
+        "career": "Occupational Therapist",
+        "description": "Assists patients in developing skills for daily living and work."
+      },
+      {
+        "career": "Phlebotomist",
+        "description": "Draws blood samples for medical tests, transfusions, or donations."
+      },
+      {
+        "career": "Radiologic Technologist",
+        "description": "Operates imaging equipment such as X-rays and MRIs for diagnostic purposes."
+      },
+      {
+        "career": "Paramedic/EMT",
+        "description": "Provides emergency care and transport for critically ill or injured individuals."
+      },
+      {
+        "career": "Respiratory Therapist",
+        "description": "Treats patients with breathing disorders using specialized equipment."
+      },
+      {
+        "career": "Dietitian/Nutritionist",
+        "description": "Develops and advises on dietary plans to promote health and manage conditions."
+      }
+    ],
+    "Psychology": [
+        {
+          "career": "Clinical Psychologist",
+          "description": "Diagnoses and treats mental health disorders through therapy and counseling."
+        },
+        {
+          "career": "Counseling Psychologist",
+          "description": "Supports individuals facing personal challenges to improve mental well-being."
+        },
+        {
+          "career": "School Psychologist",
+          "description": "Helps students with academic, emotional, and behavioral challenges."
+        },
+        {
+          "career": "Industrial-Organizational Psychologist",
+          "description": "Applies psychological principles to improve workplace efficiency and employee satisfaction."
+        },
+        {
+          "career": "Forensic Psychologist",
+          "description": "Works in legal settings, assessing criminal behavior and providing expert testimony."
+        },
+        {
+          "career": "Neuropsychologist",
+          "description": "Studies brain-behavior relationships and helps in treating neurological disorders."
+        },
+        {
+          "career": "Sports Psychologist",
+          "description": "Enhances athletic performance by addressing mental challenges and resilience."
+        },
+        {
+          "career": "Rehabilitation Counselor",
+          "description": "Assists individuals in overcoming physical, emotional, or mental disabilities."
+        },
+        {
+          "career": "Research Psychologist",
+          "description": "Conducts studies to explore human behavior and cognitive processes."
+        },
+        {
+          "career": "Crisis Counselor",
+          "description": "Provides immediate emotional support to individuals in distress."
+        }
+      ],
+      "Theatrical Support": [
+        {
+          "career": "Stage Manager",
+          "description": "Oversees the execution of theatrical productions during performances."
+        },
+        {
+          "career": "Lighting Designer",
+          "description": "Plans and implements lighting setups for theatre productions."
+        },
+        {
+          "career": "Sound Technician",
+          "description": "Manages and operates sound systems for live performances."
+        },
+        {
+          "career": "Set Designer",
+          "description": "Creates and constructs sets for theatre and stage productions."
+        },
+        {
+          "career": "Prop Master",
+          "description": "Sources and organizes props for use in productions."
+        },
+        {
+          "career": "Costume Designer",
+          "description": "Designs and creates costumes for characters in plays and performances."
+        },
+        {
+          "career": "Makeup Artist",
+          "description": "Applies makeup and prosthetics for actors on stage."
+        },
+        {
+          "career": "Script Supervisor",
+          "description": "Ensures continuity and accuracy of scripts during rehearsals and shows."
+        },
+        {
+          "career": "Rigger",
+          "description": "Handles the setup and operation of rigging equipment for staging effects."
+        },
+        {
+          "career": "Production Assistant",
+          "description": "Assists in various technical and administrative aspects of theatrical productions."
+        }
+      ],
+      "Fashion/Clothing/Textile": [
+      {
+        "career": "Fashion Designer",
+        "description": "Designs clothing, accessories, and footwear."
+      },
+      {
+        "career": "Textile Designer",
+        "description": "Creates patterns and fabrics for use in fashion or interior design."
+      },
+      {
+        "career": "Apparel Production Manager",
+        "description": "Oversees manufacturing and production processes in clothing industries."
+      },
+      {
+        "career": "Fashion Stylist",
+        "description": "Curates outfits and looks for individuals or fashion shoots."
+      },
+      {
+        "career": "Costume Designer",
+        "description": "Creates costumes for theatrical performances and films."
+      },
+      {
+        "career": "Merchandiser",
+        "description": "Plans and promotes the sale of fashion products."
+      },
+      {
+        "career": "Quality Control Specialist",
+        "description": "Ensures the quality of fabrics and garments meets standards."
+      },
+      {
+        "career": "Sustainability Consultant",
+        "description": "Promotes eco-friendly and sustainable practices in the fashion industry."
+      },
+      {
+        "career": "Tailor/Dressmaker",
+        "description": "Crafts custom-fit garments for individuals."
+      },
+      {
+        "career": "Fashion Illustrator",
+        "description": "Creates sketches and illustrations for fashion collections."
+      }
+    ],
+    "Graphic Design": [
+        {
+          "career": "Graphic Designer",
+          "description": "Creates visual content for branding, marketing, and advertising purposes."
+        },
+        {
+          "career": "UI/UX Designer",
+          "description": "Designs user interfaces and enhances user experiences for digital products."
+        },
+        {
+          "career": "Motion Graphics Designer",
+          "description": "Produces animated visuals for videos, advertisements, and websites."
+        },
+        {
+          "career": "Art Director",
+          "description": "Oversees creative concepts and projects in advertising and design agencies."
+        },
+        {
+          "career": "Illustrator",
+          "description": "Produces custom artwork for books, websites, and marketing materials."
+        },
+        {
+          "career": "Package Designer",
+          "description": "Designs packaging for consumer products to enhance appeal and functionality."
+        },
+        {
+          "career": "Logo Designer",
+          "description": "Creates visual identities for brands and businesses."
+        },
+        {
+          "career": "Web Designer",
+          "description": "Focuses on the visual aspects of websites and their user experience."
+        },
+        {
+          "career": "Digital Content Creator",
+          "description": "Develops graphics and visuals for social media and online platforms."
+        },
+        {
+          "career": "Brand Identity Specialist",
+          "description": "Designs cohesive branding strategies and visuals for companies."
+        }
+      ],
+      "Commercial Art/Antiques": [
+      {
+        "career": "Commercial Artist",
+        "description": "Creates artwork for advertising, product packaging, and marketing."
+      },
+      {
+        "career": "Antique Dealer",
+        "description": "Evaluates, buys, and sells valuable historical artifacts and antiques."
+      },
+      {
+        "career": "Auctioneer",
+        "description": "Organizes and conducts auctions for art and antiques."
+      },
+      {
+        "career": "Art Appraiser",
+        "description": "Assesses the value and authenticity of artworks and antiques."
+      },
+      {
+        "career": "Restoration Specialist",
+        "description": "Restores and preserves historical artifacts and artwork."
+      },
+      {
+        "career": "Art Dealer",
+        "description": "Represents and sells artworks to collectors or institutions."
+      },
+      {
+        "career": "Museum Curator",
+        "description": "Manages and oversees collections of art and antiques in museums."
+      },
+      {
+        "career": "Interior Decorator",
+        "description": "Incorporates antiques into interior design projects."
+      },
+      {
+        "career": "Custom Frame Designer",
+        "description": "Designs custom frames for artworks and antique items."
+      },
+      {
+        "career": "Art Consultant",
+        "description": "Advises clients on purchasing, displaying, or investing in art and antiques."
+      }
+    ],
+    "Academic Art": [
+        {
+          "career": "Art Historian",
+          "description": "Studies and writes about the history and theory of art."
+        },
+        {
+          "career": "Art Teacher",
+          "description": "Educates students on art techniques, history, and theory."
+        },
+        {
+          "career": "Gallery Curator",
+          "description": "Manages exhibitions and collections in art galleries."
+        },
+        {
+          "career": "Art Critic",
+          "description": "Analyzes and reviews artwork for publications or organizations."
+        },
+        {
+          "career": "Art Conservator",
+          "description": "Preserves and restores historical and cultural artwork."
+        },
+        {
+          "career": "Fine Artist",
+          "description": "Creates original artwork for exhibitions, sales, or commissions."
+        },
+        {
+          "career": "Museum Educator",
+          "description": "Develops educational programs and materials for museum visitors."
+        },
+        {
+          "career": "Cultural Heritage Specialist",
+          "description": "Protects and promotes cultural and historical art pieces."
+        },
+        {
+          "career": "Visual Arts Researcher",
+          "description": "Explores new art forms, techniques, and their cultural impacts."
+        },
+        {
+          "career": "Art Librarian",
+          "description": "Manages collections of art-related books and materials in libraries or museums."
+        }
+      ],
+      "Musical Performing Art": [
+        {
+          "career": "Musician",
+          "description": "Performs music professionally using instruments or vocals."
+        },
+        {
+          "career": "Composer",
+          "description": "Writes and arranges original music for performances or productions."
+        },
+        {
+          "career": "Music Teacher",
+          "description": "Educates students on music theory, instruments, and performance."
+        },
+        {
+          "career": "Conductor",
+          "description": "Leads orchestras, choirs, or bands during performances."
+        },
+        {
+          "career": "Audio Engineer",
+          "description": "Records and produces music tracks for artists and bands."
+        },
+        {
+          "career": "Session Musician",
+          "description": "Performs on recordings or live sessions for other artists."
+        },
+        {
+          "career": "Music Director",
+          "description": "Oversees music for theatre, film, or live productions."
+        },
+        {
+          "career": "Sound Designer",
+          "description": "Creates sound effects and music for various multimedia platforms."
+        },
+        {
+          "career": "Vocal Coach",
+          "description": "Trains singers to improve their vocal techniques and performance."
+        },
+        {
+          "career": "Music Therapist",
+          "description": "Uses music to help individuals cope with emotional and mental health challenges."
+        }
+      ],
+      "Teaching/Advisory": [
+        {
+          "career": "School Teacher",
+          "description": "Educates students in a particular subject at primary or secondary school levels."
+        },
+        {
+          "career": "Academic Advisor",
+          "description": "Guides students in choosing courses, majors, and career paths."
+        },
+        {
+          "career": "University Lecturer",
+          "description": "Teaches and conducts research in higher education institutions."
+        },
+        {
+          "career": "Corporate Trainer",
+          "description": "Develops and delivers training programs for employees."
+        },
+        {
+          "career": "Education Consultant",
+          "description": "Advises schools or individuals on educational strategies and resources."
+        },
+        {
+          "career": "Special Education Teacher",
+          "description": "Supports students with learning disabilities or special needs."
+        },
+        {
+          "career": "Curriculum Developer",
+          "description": "Designs educational content and programs for institutions."
+        },
+        {
+          "career": "Librarian",
+          "description": "Manages educational resources and supports research for students and teachers."
+        },
+        {
+          "career": "Instructional Designer",
+          "description": "Creates engaging learning materials using technology and multimedia."
+        },
+        {
+          "career": "Test Developer",
+          "description": "Designs and evaluates assessments and educational testing tools."
+        }
+      ],
+      "Mathematics Based Careers": [
+        {
+          "career": "Data Analyst",
+          "description": "Uses mathematical tools to interpret and present data insights."
+        },
+        {
+          "career": "Actuary",
+          "description": "Assesses financial risks using statistics and probability."
+        },
+        {
+          "career": "Operations Research Analyst",
+          "description": "Solves organizational problems using optimization and modeling techniques."
+        },
+        {
+          "career": "Statistician",
+          "description": "Collects and analyzes data to identify trends and make predictions."
+        },
+        {
+          "career": "Mathematics Professor",
+          "description": "Teaches advanced mathematical theories and conducts research."
+        },
+        {
+          "career": "Quantitative Analyst",
+          "description": "Develops financial models for investment and risk management."
+        },
+        {
+          "career": "Cryptographer",
+          "description": "Designs secure communication systems and algorithms."
+        },
+        {
+          "career": "Market Research Analyst",
+          "description": "Analyzes market trends using mathematical and statistical methods."
+        },
+        {
+          "career": "Supply Chain Analyst",
+          "description": "Optimizes supply chain processes through mathematical modeling."
+        },
+        {
+          "career": "Economist",
+          "description": "Studies economic data and trends to advise businesses or governments."
+        }
+      ],
+      "Social care, religion, guidance and recruitment": [
+      {
+        "career": "Social Worker",
+        "description": "Provides support to individuals and families dealing with challenges, promoting their well-being and safety."
+      },
+      {
+        "career": "Care Worker",
+        "description": "Offers personal care and assistance to vulnerable groups such as the elderly or disabled."
+      },
+      {
+        "career": "Youth Worker",
+        "description": "Helps young people with personal and social development, often through community programs."
+      },
+      {
+        "career": "Counselor",
+        "description": "Provides guidance and emotional support for those facing psychological or life challenges."
+      },
+      {
+        "career": "Community Development Officer",
+        "description": "Works to enhance community resources, engagement, and overall quality of life."
+      },
+      {
+        "career": "Mental Health Support Worker",
+        "description": "Assists individuals managing mental health conditions, providing daily support and coping strategies."
+      },
+      {
+        "career": "Chaplain",
+        "description": "Offers spiritual and emotional care in settings such as hospitals, prisons, or the military."
+      },
+      {
+        "career": "Religious Leader (Clergy/Minister)",
+        "description": "Leads worship services, provides spiritual guidance, and fosters community within faith groups."
+      },
+      {
+        "career": "Theologian",
+        "description": "Conducts academic study of religious texts, beliefs, and practices."
+      },
+      {
+        "career": "Career Counselor",
+        "description": "Helps individuals identify suitable careers, develop skills, and plan professional growth."
+      },
+      {
+        "career": "Recruitment Consultant",
+        "description": "Matches candidates to job roles, working with employers to fulfill hiring needs."
+      },
+      {
+        "career": "Guidance Counselor",
+        "description": "Provides students or individuals with educational, career, and personal advice."
+      },
+      {
+        "career": "HR Specialist",
+        "description": "Manages employee relations, recruitment, and organizational development within companies."
+      },
+      {
+        "career": "Vocational Trainer",
+        "description": "Offers specialized training for individuals to gain employment in specific sectors or industries."
+      },
+      {
+        "career": "Missionary Worker",
+        "description": "Engages in religious outreach and humanitarian activities in communities worldwide."
+      },
+      {
+        "career": "Faith-Based Counselor",
+        "description": "Combines spiritual principles with counseling techniques to support individuals."
+      },
+      {
+        "career": "Diversity and Inclusion Officer",
+        "description": "Promotes equality and diversity in workplaces, ensuring inclusive policies and practices."
+      },
+      {
+        "career": "Job Placement Officer",
+        "description": "Assists individuals in finding suitable jobs, often focusing on vulnerable or disadvantaged groups."
+      },
+      {
+        "career": "Interfaith Coordinator",
+        "description": "Fosters understanding and collaboration between different religious or cultural groups."
+      },
+      {
+        "career": "Labor Market Analyst",
+        "description": "Studies employment trends and advises on workforce planning and recruitment strategies."
+      }
+    ],
+    "Charity/Fundraising/Voluntary Work": [
+        {
+          "career": "Fundraising Manager",
+          "description": "Plans and manages campaigns to raise funds for charities or organizations."
+        },
+        {
+          "career": "Charity Worker",
+          "description": "Works in various roles within charitable organizations to support their mission."
+        },
+        {
+          "career": "Volunteer Coordinator",
+          "description": "Recruits and organizes volunteers for projects or events."
+        },
+        {
+          "career": "Event Planner (Charity)",
+          "description": "Organizes events to generate funds or raise awareness for causes."
+        },
+        {
+          "career": "Grant Writer",
+          "description": "Prepares funding proposals to secure financial support for initiatives."
+        },
+        {
+          "career": "Nonprofit Administrator",
+          "description": "Manages the operations of nonprofit organizations."
+        },
+        {
+          "career": "Social Entrepreneur",
+          "description": "Develops innovative solutions to address social or environmental issues."
+        },
+        {
+          "career": "Advocacy Officer",
+          "description": "Promotes awareness and change for a particular social cause or issue."
+        },
+        {
+          "career": "Charity Retail Manager",
+          "description": "Manages charity shops to generate revenue for nonprofit causes."
+        },
+        {
+          "career": "Community Organizer",
+          "description": "Mobilizes local communities to work together for social or charitable initiatives."
+        }
+      ],
+      "Advertising/Marketing/PR": [
+        {
+          "career": "Marketing Manager",
+          "description": "Develops and implements marketing strategies to promote products or services."
+        },
+        {
+          "career": "Public Relations Specialist",
+          "description": "Manages an organization’s image and communication with the public."
+        },
+        {
+          "career": "Advertising Executive",
+          "description": "Plans and oversees advertising campaigns."
+        },
+        {
+          "career": "Content Marketing Specialist",
+          "description": "Creates engaging content to attract and retain customers."
+        },
+        {
+          "career": "Social Media Manager",
+          "description": "Oversees social media platforms to enhance brand visibility and engagement."
+        },
+        {
+          "career": "Copywriter",
+          "description": "Writes persuasive content for advertisements and marketing materials."
+        },
+        {
+          "career": "Market Research Analyst",
+          "description": "Studies market trends and consumer behavior to guide business decisions."
+        },
+        {
+          "career": "Digital Marketing Specialist",
+          "description": "Focuses on online marketing, including SEO, PPC, and email campaigns."
+        },
+        {
+          "career": "Brand Manager",
+          "description": "Builds and maintains the reputation of a company or product."
+        },
+        {
+          "career": "Event Marketing Manager",
+          "description": "Promotes events through marketing strategies and campaigns."
+        }
+      ],
+      "Landscape Design/Surveying": [
+        {
+          "career": "Landscape Architect",
+          "description": "Designs outdoor spaces such as parks, gardens, and recreational areas."
+        },
+        {
+          "career": "Surveyor",
+          "description": "Measures and maps land for construction, development, or legal purposes."
+        },
+        {
+          "career": "Urban Planner",
+          "description": "Plans and designs urban areas to enhance functionality and aesthetics."
+        },
+        {
+          "career": "Environmental Consultant",
+          "description": "Advises on sustainable design and land use."
+        },
+        {
+          "career": "Garden Designer",
+          "description": "Plans and designs private and public gardens."
+        },
+        {
+          "career": "Land Use Planner",
+          "description": "Assesses land for development while considering environmental impact."
+        },
+        {
+          "career": "Geospatial Analyst",
+          "description": "Uses mapping software to analyze spatial data for planning."
+        },
+        {
+          "career": "Ecological Designer",
+          "description": "Focuses on environmentally friendly landscaping solutions."
+        },
+        {
+          "career": "Soil and Water Specialist",
+          "description": "Ensures sustainable use of natural resources in landscape projects."
+        },
+        {
+          "career": "Landscape Contractor",
+          "description": "Implements landscape designs and oversees construction."
+        }
+      ],
+      "Politics and Government": [
+      {
+        "career": "Policy Analyst",
+        "description": "Researches and evaluates policies for government or organizations."
+      },
+      {
+        "career": "Legislative Assistant",
+        "description": "Supports lawmakers by researching issues and preparing documents."
+      },
+      {
+        "career": "Political Campaign Manager",
+        "description": "Oversees election campaigns and candidate strategies."
+      },
+      {
+        "career": "Public Affairs Specialist",
+        "description": "Manages communication between government and the public."
+      },
+      {
+        "career": "Diplomat",
+        "description": "Represents their country in international relations."
+      },
+      {
+        "career": "Civil Servant",
+        "description": "Works in government departments to implement policies."
+      },
+      {
+        "career": "Political Consultant",
+        "description": "Advises candidates or organizations on political strategies."
+      },
+      {
+        "career": "Community Organizer",
+        "description": "Mobilizes communities for political or social change."
+      },
+      {
+        "career": "Researcher (Politics)",
+        "description": "Conducts research on political trends, policies, and systems."
+      },
+      {
+        "career": "Lobbyist",
+        "description": "Advocates for specific causes or industries to influence legislation."
+      }
+    ],
+    "Publishing": [
+      {
+        "career": "Editor",
+        "description": "Reviews and refines written content for publication."
+      },
+      {
+        "career": "Author",
+        "description": "Writes books, articles, or other content for publication."
+      },
+      {
+        "career": "Literary Agent",
+        "description": "Represents authors and negotiates publishing deals."
+      },
+      {
+        "career": "Proofreader",
+        "description": "Ensures written material is error-free and grammatically correct."
+      },
+      {
+        "career": "Publisher",
+        "description": "Oversees the production and distribution of published materials."
+      },
+      {
+        "career": "Content Developer",
+        "description": "Creates content for books, magazines, or digital platforms."
+      },
+      {
+        "career": "Book Designer",
+        "description": "Designs layouts and visuals for books and printed materials."
+      },
+      {
+        "career": "Marketing Manager (Publishing)",
+        "description": "Promotes books and publishing content to target audiences."
+      },
+      {
+        "career": "Production Coordinator",
+        "description": "Manages the physical or digital production of publications."
+      },
+      {
+        "career": "Rights Manager",
+        "description": "Manages intellectual property rights for publishing houses."
+      }
+    ],
+    "Environmental": [
+        {
+          "career": "Environmental Scientist",
+          "description": "Studies environmental issues and develops solutions."
+        },
+        {
+          "career": "Conservationist",
+          "description": "Works to protect natural resources and biodiversity."
+        },
+        {
+          "career": "Sustainability Manager",
+          "description": "Implements sustainable practices within organizations."
+        },
+        {
+          "career": "Environmental Engineer",
+          "description": "Designs solutions to environmental problems such as pollution."
+        },
+        {
+          "career": "Wildlife Biologist",
+          "description": "Studies and conserves animal populations and habitats."
+        },
+        {
+          "career": "Forester",
+          "description": "Manages forest resources for conservation and production."
+        },
+        {
+          "career": "Renewable Energy Specialist",
+          "description": "Focuses on sustainable energy solutions like solar and wind power."
+        },
+        {
+          "career": "Climate Policy Analyst",
+          "description": "Researches and advises on policies related to climate change."
+        },
+        {
+          "career": "Urban Sustainability Planner",
+          "description": "Designs eco-friendly urban environments."
+        },
+        {
+          "career": "Waste Management Specialist",
+          "description": "Develops and oversees waste reduction programs."
+        }
+      ],
+      "Information Management": [
+      {
+        "career": "Information Manager",
+        "description": "Oversees the organization and storage of data and information systems."
+      },
+      {
+        "career": "Data Analyst",
+        "description": "Analyzes data to provide insights for decision-making."
+      },
+      {
+        "career": "Records Manager",
+        "description": "Ensures accurate and secure management of organizational records."
+      },
+      {
+        "career": "Librarian",
+        "description": "Organizes and manages resources in libraries or digital archives."
+      },
+      {
+        "career": "Knowledge Manager",
+        "description": "Facilitates knowledge sharing within an organization."
+      },
+      {
+        "career": "Archivist",
+        "description": "Preserves and organizes historical and organizational documents."
+      },
+      {
+        "career": "Document Controller",
+        "description": "Manages document distribution, version control, and archiving."
+      },
+      {
+        "career": "Database Administrator",
+        "description": "Maintains and optimizes database systems."
+      },
+      {
+        "career": "Digital Asset Manager",
+        "description": "Manages digital content and resources for easy access."
+      },
+      {
+        "career": "Enterprise Content Manager",
+        "description": "Implements systems to manage and share content across organizations."
+      }
+    ],
+    "History Related": [
+      {
+        "career": "Historian",
+        "description": "Researches and interprets historical events and trends."
+      },
+      {
+        "career": "Museum Curator",
+        "description": "Manages museum collections and organizes exhibitions."
+      },
+      {
+        "career": "Archivist",
+        "description": "Preserves historical documents and records."
+      },
+      {
+        "career": "Heritage Manager",
+        "description": "Oversees preservation and promotion of historical sites."
+      },
+      {
+        "career": "Historical Researcher",
+        "description": "Conducts research for publications, films, or educational purposes."
+      },
+      {
+        "career": "Archaeologist",
+        "description": "Studies past human cultures through material remains."
+      },
+      {
+        "career": "Tour Guide (History)",
+        "description": "Leads tours focused on historical sites or themes."
+      },
+      {
+        "career": "History Teacher",
+        "description": "Educates students on historical events and their significance."
+      },
+      {
+        "career": "Documentary Producer (History)",
+        "description": "Creates films or media based on historical topics."
+      },
+      {
+        "career": "Genealogist",
+        "description": "Researches family histories and ancestries."
+      }
+    ],
+    "Chemical Technologies": [
+        {
+          "career": "Chemical Engineer",
+          "description": "Designs processes and equipment for chemical production."
+        },
+        {
+          "career": "Pharmaceutical Scientist",
+          "description": "Develops and tests new drugs and medical therapies."
+        },
+        {
+          "career": "Process Technician",
+          "description": "Operates and maintains chemical processing equipment."
+        },
+        {
+          "career": "Materials Scientist",
+          "description": "Studies and develops new materials for various applications."
+        },
+        {
+          "career": "Environmental Chemist",
+          "description": "Examines chemical impacts on the environment and develops solutions."
+        },
+        {
+          "career": "Quality Control Analyst",
+          "description": "Tests products to ensure they meet required standards."
+        },
+        {
+          "career": "Petrochemical Engineer",
+          "description": "Focuses on extracting and processing oil and gas resources."
+        },
+        {
+          "career": "Lab Technician",
+          "description": "Conducts chemical experiments and supports R&D activities."
+        },
+        {
+          "career": "Food Chemist",
+          "description": "Studies and improves the chemical properties of food products."
+        },
+        {
+          "career": "Industrial Chemist",
+          "description": "Develops chemical products and processes for manufacturing."
+        }
+      ],
+      "Complementary Therapies": [
+      {
+        "career": "Massage Therapist",
+        "description": "Provides therapeutic massage to promote relaxation and healing."
+      },
+      {
+        "career": "Aromatherapist",
+        "description": "Uses essential oils to enhance physical and emotional well-being."
+      },
+      {
+        "career": "Reflexologist",
+        "description": "Applies pressure to specific points on the feet or hands for health benefits."
+      },
+      {
+        "career": "Acupuncturist",
+        "description": "Uses needles to stimulate specific points on the body to alleviate ailments."
+      },
+      {
+        "career": "Homeopath",
+        "description": "Prescribes natural remedies based on the principle of 'like cures like.'"
+      },
+      {
+        "career": "Reiki Practitioner",
+        "description": "Uses energy healing techniques to promote balance and wellness."
+      },
+      {
+        "career": "Yoga Therapist",
+        "description": "Combines yoga techniques to address physical and emotional health."
+      },
+      {
+        "career": "Naturopath",
+        "description": "Uses natural remedies and lifestyle changes to support health."
+      },
+      {
+        "career": "Herbalist",
+        "description": "Develops treatments using plant-based remedies."
+      },
+      {
+        "career": "Wellness Coach",
+        "description": "Guides individuals in adopting healthier lifestyles."
+      }
+    ],
+    "Transport/Travel/Logistics/Distribution": [
+        {
+          "career": "Logistics Manager",
+          "description": "Coordinates supply chain operations and distribution systems."
+        },
+        {
+          "career": "Transport Planner",
+          "description": "Designs and manages transportation systems for efficiency."
+        },
+        {
+          "career": "Freight Forwarder",
+          "description": "Arranges and manages the shipment of goods globally."
+        },
+        {
+          "career": "Travel Agent",
+          "description": "Plans and sells travel packages and arrangements."
+        },
+        {
+          "career": "Air Traffic Controller",
+          "description": "Manages aircraft movement in airports and airspace."
+        },
+        {
+          "career": "Supply Chain Analyst",
+          "description": "Optimizes supply chain processes to improve performance."
+        },
+        {
+          "career": "Warehouse Manager",
+          "description": "Oversees the operations of storage and distribution facilities."
+        },
+        {
+          "career": "Customs Broker",
+          "description": "Facilitates international trade by managing customs regulations."
+        },
+        {
+          "career": "Tour Guide (Travel)",
+          "description": "Leads groups or individuals on travel itineraries."
+        },
+        {
+          "career": "Fleet Manager",
+          "description": "Manages vehicles and drivers for transportation companies."
+        }
+      ],
+      "Structural Engineering": [
+      {
+        "career": "Structural Engineer",
+        "description": "Designs and analyzes structures to ensure safety and stability."
+      },
+      {
+        "career": "Construction Manager",
+        "description": "Oversees construction projects, ensuring quality and compliance."
+      },
+      {
+        "career": "Civil Engineer",
+        "description": "Plans and supervises infrastructure projects like bridges and buildings."
+      },
+      {
+        "career": "Bridge Engineer",
+        "description": "Specializes in the design and construction of bridges."
+      },
+      {
+        "career": "Geotechnical Engineer",
+        "description": "Analyzes soil and foundation conditions for construction projects."
+      },
+      {
+        "career": "Seismic Engineer",
+        "description": "Designs structures to withstand earthquakes."
+      },
+      {
+        "career": "Building Inspector",
+        "description": "Ensures construction complies with safety standards and codes."
+      },
+      {
+        "career": "Structural Draftsperson",
+        "description": "Creates technical drawings and plans for structural projects."
+      },
+      {
+        "career": "Steel Designer",
+        "description": "Specializes in the design of steel structures."
+      },
+      {
+        "career": "Forensic Engineer",
+        "description": "Investigates structural failures and defects."
+      }
+    ],
+    "Administrative": [
+      {
+        "career": "Administrative Assistant",
+        "description": "Provides clerical support such as scheduling and documentation."
+      },
+      {
+        "career": "Office Manager",
+        "description": "Oversees daily operations and staff in office settings."
+      },
+      {
+        "career": "Executive Assistant",
+        "description": "Provides high-level support to executives, including scheduling and correspondence."
+      },
+      {
+        "career": "HR Administrator",
+        "description": "Manages employee records and recruitment logistics."
+      },
+      {
+        "career": "Operations Coordinator",
+        "description": "Assists with planning and executing organizational operations."
+      },
+      {
+        "career": "Customer Service Manager",
+        "description": "Manages customer service teams and improves customer satisfaction."
+      },
+      {
+        "career": "Project Administrator",
+        "description": "Supports project managers with documentation and scheduling."
+      },
+      {
+        "career": "Clerical Worker",
+        "description": "Handles data entry, filing, and other administrative tasks."
+      },
+      {
+        "career": "Receptionist",
+        "description": "Manages front-desk operations and greets visitors."
+      },
+      {
+        "career": "Virtual Assistant",
+        "description": "Provides administrative services remotely."
+      }
+    ],
+    "Structural Design": [
+        {
+          "career": "Architect",
+          "description": "Designs buildings and spaces with structural integrity and aesthetics."
+        },
+        {
+          "career": "Structural Designer",
+          "description": "Develops structural plans and blueprints."
+        },
+        {
+          "career": "3D Modeler (Architecture)",
+          "description": "Creates three-dimensional models for construction projects."
+        },
+        {
+          "career": "Interior Designer",
+          "description": "Plans and designs interior spaces for functionality and beauty."
+        },
+        {
+          "career": "Facade Engineer",
+          "description": "Designs building exteriors and cladding systems."
+        },
+        {
+          "career": "Sustainable Designer",
+          "description": "Focuses on eco-friendly design solutions."
+        },
+        {
+          "career": "Draftsperson",
+          "description": "Prepares technical drawings for construction."
+        },
+        {
+          "career": "BIM Specialist",
+          "description": "Uses Building Information Modeling software for structural design."
+        },
+        {
+          "career": "Design Consultant",
+          "description": "Advises on architectural and structural design solutions."
+        },
+        {
+          "career": "Lighting Designer",
+          "description": "Plans and optimizes lighting systems in structures."
+        }
+      ],
+      "Financial": [
+      {
+        "career": "Accountant",
+        "description": "Manages financial records and prepares financial statements."
+      },
+      {
+        "career": "Financial Analyst",
+        "description": "Analyzes financial data to guide investment and business decisions."
+      },
+      {
+        "career": "Auditor",
+        "description": "Examines financial records for accuracy and compliance."
+      },
+      {
+        "career": "Investment Banker",
+        "description": "Advises companies on mergers, acquisitions, and capital raising."
+      },
+      {
+        "career": "Tax Advisor",
+        "description": "Provides guidance on tax planning and compliance."
+      },
+      {
+        "career": "Actuary",
+        "description": "Analyzes financial risks using statistics and mathematics."
+      },
+      {
+        "career": "Treasury Manager",
+        "description": "Manages cash flow and corporate finances."
+      },
+      {
+        "career": "Insurance Underwriter",
+        "description": "Assesses risks and determines insurance premiums."
+      },
+      {
+        "career": "Wealth Manager",
+        "description": "Offers financial advice and investment planning services."
+      },
+      {
+        "career": "Budget Analyst",
+        "description": "Develops and monitors organizational budgets."
+      }
+    ],
+    "Surveying": [
+        {
+          "career": "Land Surveyor",
+          "description": "Measures and maps land boundaries for legal or construction purposes."
+        },
+        {
+          "career": "Quantity Surveyor",
+          "description": "Manages costs and contracts in construction projects."
+        },
+        {
+          "career": "Geodetic Surveyor",
+          "description": "Specializes in large-scale mapping projects."
+        },
+        {
+          "career": "Construction Surveyor",
+          "description": "Provides precise measurements for construction sites."
+        },
+        {
+          "career": "Marine Surveyor",
+          "description": "Inspects ships and offshore structures for safety and compliance."
+        },
+        {
+          "career": "Building Surveyor",
+          "description": "Evaluates buildings for structural integrity and maintenance needs."
+        },
+        {
+          "career": "Valuation Surveyor",
+          "description": "Estimates the value of land or property."
+        },
+        {
+          "career": "Cartographer",
+          "description": "Creates maps using survey data and GIS tools."
+        },
+        {
+          "career": "Environmental Surveyor",
+          "description": "Assesses land for environmental risks or impacts."
+        },
+        {
+          "career": "Forensic Surveyor",
+          "description": "Investigates land disputes and property boundaries."
+        }
+      ],
+      "Biology Based": [
+      {
+        "career": "Biologist",
+        "description": "Studies living organisms and their ecosystems."
+      },
+      {
+        "career": "Microbiologist",
+        "description": "Examines microorganisms and their effects on other organisms."
+      },
+      {
+        "career": "Geneticist",
+        "description": "Studies genes, heredity, and genetic variations."
+      },
+      {
+        "career": "Ecologist",
+        "description": "Investigates ecosystems and their interactions."
+      },
+      {
+        "career": "Biotechnologist",
+        "description": "Uses biological processes to develop products and technologies."
+      },
+      {
+        "career": "Pharmacologist",
+        "description": "Researches drug effects and develops new medications."
+      },
+      {
+        "career": "Zoologist",
+        "description": "Studies animal species, their behavior, and habitats."
+      },
+      {
+        "career": "Marine Biologist",
+        "description": "Focuses on organisms in oceanic environments."
+      },
+      {
+        "career": "Botanist",
+        "description": "Researches plants and their applications."
+      },
+      {
+        "career": "Biomedical Scientist",
+        "description": "Conducts research to advance medical knowledge."
+      }
+    ],
+    "Construction and Property-Related": [
+        {
+          "career": "Construction Manager",
+          "description": "Oversees construction projects, ensuring timelines and budgets are met."
+        },
+        {
+          "career": "Quantity Surveyor",
+          "description": "Manages project costs and ensures value for money in construction."
+        },
+        {
+          "career": "Building Inspector",
+          "description": "Examines structures to ensure compliance with codes and regulations."
+        },
+        {
+          "career": "Property Manager",
+          "description": "Manages rental properties and coordinates maintenance."
+        },
+        {
+          "career": "Urban Planner",
+          "description": "Designs and plans city layouts and zoning regulations."
+        },
+        {
+          "career": "Real Estate Agent",
+          "description": "Facilitates buying, selling, and leasing properties."
+        },
+        {
+          "career": "Site Engineer",
+          "description": "Supervises construction sites to ensure safety and quality."
+        },
+        {
+          "career": "Architect",
+          "description": "Designs buildings and spaces with focus on functionality and aesthetics."
+        },
+        {
+          "career": "Project Planner",
+          "description": "Develops schedules and resource plans for construction projects."
+        },
+        {
+          "career": "Facilities Manager",
+          "description": "Oversees maintenance and operation of buildings and properties."
+        }
+      ],
+      "Hospitality and Events Management": [
+        {
+          "career": "Event Manager",
+          "description": "Plans and coordinates events such as conferences, weddings, and festivals."
+        },
+        {
+          "career": "Hotel Manager",
+          "description": "Oversees daily operations of hotels or resorts."
+        },
+        {
+          "career": "Catering Manager",
+          "description": "Manages food and beverage services for events or establishments."
+        },
+        {
+          "career": "Tourism Manager",
+          "description": "Develops and promotes travel and tourism services."
+        },
+        {
+          "career": "Conference Coordinator",
+          "description": "Organizes business and academic conferences."
+        },
+        {
+          "career": "Banquet Coordinator",
+          "description": "Plans and oversees banquet operations and services."
+        },
+        {
+          "career": "Resort Activities Director",
+          "description": "Organizes recreational activities for resort guests."
+        },
+        {
+          "career": "Travel Consultant",
+          "description": "Provides travel planning and booking services."
+        },
+        {
+          "career": "Event Decorator",
+          "description": "Designs and sets up event venues for specific themes."
+        },
+        {
+          "career": "Front Office Manager",
+          "description": "Manages guest relations and services in hospitality establishments."
+        }
+      ],
+      "Law-Related": [
+        {
+          "career": "Lawyer/Attorney",
+          "description": "Provides legal advice and represents clients in legal matters."
+        },
+        {
+          "career": "Legal Advisor",
+          "description": "Offers legal counsel to organizations and businesses."
+        },
+        {
+          "career": "Paralegal",
+          "description": "Supports lawyers by conducting research and preparing documents."
+        },
+        {
+          "career": "Judge",
+          "description": "Presides over court cases and ensures justice is served."
+        },
+        {
+          "career": "Court Clerk",
+          "description": "Manages court records and assists in court proceedings."
+        },
+        {
+          "career": "Criminologist",
+          "description": "Studies criminal behavior and develops crime prevention strategies."
+        },
+        {
+          "career": "Corporate Lawyer",
+          "description": "Handles legal issues related to business and corporate governance."
+        },
+        {
+          "career": "Family Lawyer",
+          "description": "Specializes in legal matters like divorce and child custody."
+        },
+        {
+          "career": "Legal Researcher",
+          "description": "Conducts in-depth legal research for cases and legislation."
+        },
+        {
+          "career": "Intellectual Property Lawyer",
+          "description": "Focuses on copyright, patents, and trademarks."
+        }
+      ],
+      "Commercial and Financial Dealing/Advice": [
+        {
+          "career": "Financial Advisor",
+          "description": "Provides investment and financial planning services."
+        },
+        {
+          "career": "Stockbroker",
+          "description": "Buys and sells stocks and securities on behalf of clients."
+        },
+        {
+          "career": "Commercial Banker",
+          "description": "Offers financial services to businesses and organizations."
+        },
+        {
+          "career": "Tax Consultant",
+          "description": "Assists clients with tax planning and compliance."
+        },
+        {
+          "career": "Investment Analyst",
+          "description": "Evaluates financial data to guide investment decisions."
+        },
+        {
+          "career": "Trade Analyst",
+          "description": "Analyzes trade and market data to support business decisions."
+        },
+        {
+          "career": "Insurance Broker",
+          "description": "Advises clients on insurance policies and coverage."
+        },
+        {
+          "career": "Credit Analyst",
+          "description": "Evaluates creditworthiness of individuals and organizations."
+        },
+        {
+          "career": "Business Consultant",
+          "description": "Provides expert advice to improve business performance."
+        },
+        {
+          "career": "Risk Manager",
+          "description": "Identifies and mitigates financial risks for businesses."
+        }
+      ],
+      "Retail Buying and Selling": [
+        {
+          "career": "Retail Manager",
+          "description": "Oversees operations of retail stores, including sales and staffing."
+        },
+        {
+          "career": "Buyer",
+          "description": "Selects and purchases goods for retail stores or companies."
+        },
+        {
+          "career": "Sales Associate",
+          "description": "Assists customers in finding and purchasing products."
+        },
+        {
+          "career": "Merchandiser",
+          "description": "Plans and stocks inventory to maximize sales."
+        },
+        {
+          "career": "E-Commerce Manager",
+          "description": "Manages online retail platforms and sales strategies."
+        },
+        {
+          "career": "Store Planner",
+          "description": "Designs layouts and displays to enhance customer experience."
+        },
+        {
+          "career": "Customer Service Specialist",
+          "description": "Handles customer inquiries and complaints in retail settings."
+        },
+        {
+          "career": "Visual Merchandiser",
+          "description": "Creates attractive product displays to increase sales."
+        },
+        {
+          "career": "Retail Analyst",
+          "description": "Analyzes sales data to improve retail performance."
+        },
+        {
+          "career": "Franchise Manager",
+          "description": "Manages franchise operations and ensures brand consistency."
+        }
+      ],
+      "Chemistry Based": [
+        {
+          "career": "Chemist",
+          "description": "Conducts experiments to develop new substances and products."
+        },
+        {
+          "career": "Chemical Engineer",
+          "description": "Designs and optimizes chemical production processes."
+        },
+        {
+          "career": "Pharmacist",
+          "description": "Prepares and dispenses medications and offers medical advice."
+        },
+        {
+          "career": "Quality Assurance Analyst",
+          "description": "Tests and ensures quality of chemical products and processes."
+        },
+        {
+          "career": "Materials Scientist",
+          "description": "Studies properties of materials to develop innovative solutions."
+        },
+        {
+          "career": "Forensic Chemist",
+          "description": "Analyzes chemical evidence in criminal investigations."
+        },
+        {
+          "career": "Toxicologist",
+          "description": "Studies effects of chemicals on living organisms."
+        },
+        {
+          "career": "Analytical Chemist",
+          "description": "Examines substances to determine their composition."
+        },
+        {
+          "career": "Environmental Chemist",
+          "description": "Investigates chemical effects on ecosystems and develops solutions."
+        },
+        {
+          "career": "Food Scientist",
+          "description": "Improves food quality and safety through chemical analysis."
+        }
+      ],
+      "English/Literary Related": [
+        {
+          "career": "Writer/Author",
+          "description": "Creates written content for books, articles, or scripts."
+        },
+        {
+          "career": "Editor",
+          "description": "Reviews and improves written materials for publication."
+        },
+        {
+          "career": "English Teacher",
+          "description": "Educates students in English language and literature."
+        },
+        {
+          "career": "Content Creator",
+          "description": "Develops engaging content for digital platforms."
+        },
+        {
+          "career": "Librarian",
+          "description": "Organizes and manages literary resources in libraries."
+        },
+        {
+          "career": "Literary Critic",
+          "description": "Analyzes and reviews literary works for publications or academia."
+        },
+        {
+          "career": "Journalist",
+          "description": "Reports on events and writes articles for media outlets."
+        },
+        {
+          "career": "Translator",
+          "description": "Converts written materials from one language to another."
+        },
+        {
+          "career": "Publishing Manager",
+          "description": "Oversees production and distribution of books and magazines."
+        },
+        {
+          "career": "Speechwriter",
+          "description": "Prepares written speeches for public figures."
+        }
+      ],
+      "Media and Journalism": [
+        {
+          "career": "Journalist",
+          "description": "Researches, writes, and reports news stories for various media outlets."
+        },
+        {
+          "career": "Editor",
+          "description": "Reviews and refines content for publication or broadcast."
+        },
+        {
+          "career": "Broadcast Producer",
+          "description": "Oversees production of TV and radio programs."
+        },
+        {
+          "career": "News Anchor",
+          "description": "Presents news stories on television or radio."
+        },
+        {
+          "career": "Photojournalist",
+          "description": "Captures and publishes visual images to tell news stories."
+        },
+        {
+          "career": "Social Media Manager",
+          "description": "Manages and curates content for media organizations on social platforms."
+        },
+        {
+          "career": "Documentary Producer",
+          "description": "Creates non-fiction films covering various topics."
+        },
+        {
+          "career": "Media Analyst",
+          "description": "Analyzes media trends and audience engagement."
+        },
+        {
+          "career": "Public Relations Officer",
+          "description": "Manages public image and communications for organizations or individuals."
+        },
+        {
+          "career": "Content Writer",
+          "description": "Develops written material for websites, blogs, and publications."
+        }
+      ],
+      "Agricultural Sciences": [
+      {
+        "career": "Agronomist",
+        "description": "Studies soil and crop management for improved agricultural output."
+      },
+      {
+        "career": "Horticulturist",
+        "description": "Specializes in growing plants, including fruits, vegetables, and ornamental plants."
+      },
+      {
+        "career": "Soil Scientist",
+        "description": "Analyzes soil properties and advises on land use."
+      },
+      {
+        "career": "Agricultural Engineer",
+        "description": "Designs and develops farming equipment and technology."
+      },
+      {
+        "career": "Animal Nutritionist",
+        "description": "Develops balanced diets to optimize livestock health and productivity."
+      },
+      {
+        "career": "Farm Manager",
+        "description": "Oversees daily operations of farms and agricultural businesses."
+      },
+      {
+        "career": "Plant Pathologist",
+        "description": "Studies plant diseases and develops control measures."
+      },
+      {
+        "career": "Agricultural Policy Analyst",
+        "description": "Advises on agricultural policies and their economic impacts."
+      },
+      {
+        "career": "Agroecologist",
+        "description": "Examines ecological practices to improve farming sustainability."
+      },
+      {
+        "career": "Extension Officer",
+        "description": "Provides education and resources to farmers."
+      }
+    ],
+    "Medicine/Dentistry/Veterinary": [
+        {
+          "career": "Doctor",
+          "description": "Diagnoses and treats illnesses in humans."
+        },
+        {
+          "career": "Dentist",
+          "description": "Specializes in oral health, including teeth and gum care."
+        },
+        {
+          "career": "Veterinarian",
+          "description": "Provides medical care to animals."
+        },
+        {
+          "career": "Surgeon",
+          "description": "Performs surgical procedures to treat injuries and diseases."
+        },
+        {
+          "career": "Pharmacologist",
+          "description": "Researches and develops new medications."
+        },
+        {
+          "career": "Medical Researcher",
+          "description": "Conducts studies to improve understanding of medical conditions and treatments."
+        },
+        {
+          "career": "Orthodontist",
+          "description": "Focuses on aligning teeth and correcting jaw irregularities."
+        },
+        {
+          "career": "Clinical Pathologist",
+          "description": "Examines tissues and bodily fluids to diagnose diseases."
+        },
+        {
+          "career": "Epidemiologist",
+          "description": "Studies patterns and causes of diseases in populations."
+        },
+        {
+          "career": "Animal Behaviorist",
+          "description": "Studies animal behavior and provides behavioral therapies."
+        }
+      ],
+      "Agriculture and Land-Based": [
+        {
+          "career": "Conservationist",
+          "description": "Protects natural habitats and promotes sustainable land use."
+        },
+        {
+          "career": "Forester",
+          "description": "Manages forests for ecological and economic purposes."
+        },
+        {
+          "career": "Land Surveyor",
+          "description": "Measures and maps land for development or conservation."
+        },
+        {
+          "career": "Environmental Consultant",
+          "description": "Advises on land use and environmental protection policies."
+        },
+        {
+          "career": "Farm Worker",
+          "description": "Engages in manual and mechanical work on farms."
+        },
+        {
+          "career": "Wildlife Biologist",
+          "description": "Studies animal habitats and develops conservation plans."
+        },
+        {
+          "career": "Agri-Business Manager",
+          "description": "Manages operations and finances of agricultural businesses."
+        },
+        {
+          "career": "Rural Development Officer",
+          "description": "Promotes sustainable rural community development."
+        },
+        {
+          "career": "Soil Conservationist",
+          "description": "Focuses on preventing soil erosion and improving land fertility."
+        },
+        {
+          "career": "Irrigation Specialist",
+          "description": "Designs and manages efficient irrigation systems."
+        }
+      ],
+      "Language-Related": [
+        {
+          "career": "Linguist",
+          "description": "Studies language structure, history, and development."
+        },
+        {
+          "career": "Interpreter",
+          "description": "Provides real-time translation in spoken or sign languages."
+        },
+        {
+          "career": "Translator",
+          "description": "Converts written text from one language to another."
+        },
+        {
+          "career": "Language Teacher",
+          "description": "Educates students in learning new languages."
+        },
+        {
+          "career": "Speech Therapist",
+          "description": "Assists individuals with speech and communication disorders."
+        },
+        {
+          "career": "Copywriter",
+          "description": "Writes persuasive text for advertisements and marketing."
+        },
+        {
+          "career": "Lexicographer",
+          "description": "Compiles dictionaries and analyzes language use."
+        },
+        {
+          "career": "Cultural Liaison",
+          "description": "Bridges cultural gaps in international settings."
+        },
+        {
+          "career": "Dialect Coach",
+          "description": "Trains actors or speakers in specific accents or languages."
+        },
+        {
+          "career": "Etymologist",
+          "description": "Studies the origins and historical development of words."
+        }
+      ],
+      "Geography and Geology Related": [
+      {
+        "career": "Geologist",
+        "description": "Studies Earth’s composition and natural processes."
+      },
+      {
+        "career": "Cartographer",
+        "description": "Designs and produces maps."
+      },
+      {
+        "career": "Urban Planner",
+        "description": "Develops plans for land use and urban development."
+      },
+      {
+        "career": "GIS Specialist",
+        "description": "Analyzes geographic data for environmental or planning projects."
+      },
+      {
+        "career": "Hydrologist",
+        "description": "Studies water cycles and distribution."
+      },
+      {
+        "career": "Seismologist",
+        "description": "Monitors and studies earthquakes and seismic activity."
+      },
+      {
+        "career": "Environmental Geologist",
+        "description": "Examines the impact of human activity on geological resources."
+      },
+      {
+        "career": "Mineralogist",
+        "description": "Identifies and studies minerals for industrial use."
+      },
+      {
+        "career": "Climate Scientist",
+        "description": "Analyzes weather patterns and long-term climate trends."
+      },
+      {
+        "career": "Soil Geologist",
+        "description": "Studies soil formation and its environmental applications."
+      }
+    ]
+    }
+  }
+  

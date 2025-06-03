@@ -1,0 +1,5 @@
+envVars:
+  - key: SECRET_KEY
+    value: your-production-secret-key
+  - key: DATABASE_URL
+    value: mysql+pymysql://username:password@host/dbname

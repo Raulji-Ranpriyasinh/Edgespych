@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>A4 Timeline with Pie Chart</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;600;700&display=swap">
+  <style>
+    #a4-timeline-container .page {
+      width: 21cm;
+      height: 29.7cm;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 2cm;
+      box-sizing: border-box;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      font-family: 'Spartan', Arial, sans-serif;
+    }
+
+    #a4-timeline-container table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    #a4-timeline-container th,
+    #a4-timeline-container td {
+      border: none;
+      padding: 6px 0; /* Adjusted for dot centering */
+      line-height: 1; /* Tightened for precise alignment */
+      vertical-align: middle;
+    }
+
+    #a4-timeline-container tr:not(:first-child) td {
+      background: linear-gradient(to right, #000 0%, #000 100%);
+      background-size: 100% 2px;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    #a4-timeline-container .label-section {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    #a4-timeline-container .label-section > div {
+      text-align: left;
+      padding-right: 20px;
+      min-width: 45%;
+    }
+
+    #a4-timeline-container hr {
+      border: none;
+      border-top: 2px solid #007bff;
+      margin: 30px 0;
+    }
+
+    #a4-timeline-container .pie-chart {
+      align-self: flex-start;
+    }
+
+    #a4-timeline-container .test-labels {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="a4-timeline-container">
+    <div class="page">
+      <!-- Month Header Row -->
+      <table>
+        <tr>
+          <th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>May</th><th>Jun</th>
+          <th>Jul</th><th>Aug</th><th>Sep</th><th>Oct</th><th>Nov</th><th>Dec</th>
+        </tr>
+        <!-- 6 Rows of Dots with Horizontal Black Lines -->
+        <tr><td> <span style="font-size: 20px;" >•</span>  </td><td> • </td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td></tr>
+        <tr><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td></tr>
+        <tr><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td></tr>
+        <tr><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td></tr>
+        <tr><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td></tr>
+        <tr><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td><td>•</td></tr>
+      </table>
+
+      <!-- Labels Section -->
+      <div class="label-section">
+        <div>
+          <p>School Selection :</p>
+          <p>Essay :</p>
+          <p>Bank Letter :</p>
+          <p>Transcript :</p>
+          <p>Visa :</p>
+        </div>
+        <div>
+          <p>Application :</p>
+          <p>Recommendations :</p>
+          <p>Mark Sheets :</p>
+          <p>Resume :</p>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <hr>
+
+      <!-- Pie Chart -->
+      <div class="pie-chart">
+        <svg width="200" height="200" viewBox="0 0 200 200" style="display: block; margin: 50px auto;">
+          <circle cx="100" cy="100" r="95" fill="white" stroke="black" stroke-width="2" />
+          <line x1="100" y1="100" x2="100" y2="5" stroke="black" stroke-width="2" />
+          <line x1="100" y1="100" x2="190.45" y2="71.31" stroke="black" stroke-width="2" />
+          <line x1="100" y1="100" x2="154.55" y2="181.37" stroke="black" stroke-width="2" />
+          <line x1="100" y1="100" x2="45.45" y2="181.37" stroke="black" stroke-width="2" />
+          <line x1="100" y1="100" x2="9.55" y2="71.31" stroke="black" stroke-width="2" />
+        </svg>
+      </div>
+
+      <!-- Labels Below Pie Chart -->
+      <div class="test-labels">
+        <span>AP</span><br>
+        <span>ACT/SAT</span><br>
+        <span>IELTS/TOEFL</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
