@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Login</title>
+    <style>
+        /* ===== Core Layout ===== */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f8fbfd;
+        }
+
+        .container {
+            width: 400px;
+            background: #fff;
+            padding: 24px 32px 32px;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        /* ===== Form Elements ===== */
+        form {
+            margin-top: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 14px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #015fff, #3b72d0);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.25s ease;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #E8F0FE;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" width="250" />
+    <h2>Admin Login</h2>
+
+    <form id="adminLoginForm" autocomplete="off">
+        <input type="text" name="username" placeholder="Enter Admin Username" required />
+        <input type="password" name="password" placeholder="Enter Password" required />
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<script>
+    // ================= Admin Login =================
+    document.getElementById('adminLoginForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const username = this.username.value.trim();
+        const password = this.password.value;
+
+        try {
+            const res = await fetch('/admin_login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+            if (data.success) {
+                // Redirect to admin dashboard
+                window.location.href = '/admin_dashboard';
+            } else {
+                alert('Invalid admin credentials');
+            }
+        } catch (err) {
+            console.error('Login error:', err);
+            alert('Something went wrong. Please try again.');
+        }
+    });
+
+    // ====== Input Background Color Change on Focus or Filled ======
+    const usernameInput = document.querySelector('input[name="username"]');
+    const passwordInput = document.querySelector('input[name="password"]');
+
+    usernameInput.addEventListener('focus', () => updateInputBackground(usernameInput));
+    usernameInput.addEventListener('blur', () => updateInputBackground(usernameInput));
+
+    passwordInput.addEventListener('focus', () => updateInputBackground(passwordInput));
+    passwordInput.addEventListener('blur', () => updateInputBackground(passwordInput));
+
+    // Initialize background on page load if inputs are filled (optional)
+    window.addEventListener('DOMContentLoaded', () => {
+        updateInputBackground(usernameInput);
+        updateInputBackground(passwordInput);
+    });
+
+    function updateInputBackground(inputElem) {
+        if (inputElem === document.activeElement || inputElem.value.trim() !== "") {
+            inputElem.style.backgroundColor = "#E1EAFA"; // light blue for focus or filled
+        } else {
+            inputElem.style.backgroundColor = ""; // reset to default
+        }
+    }
+</script>
+
+</body>
+</html>

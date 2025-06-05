@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Register</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Login & Register</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #e3ebef;
+            background-color: #f8fbfd;
         }
 
         .container {
@@ -24,72 +24,36 @@
             text-align: center;
         }
 
-        .toggle-group {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .toggle-group button {
-            flex: 1;
+        input,
+        select {
+            width: 100%;
+            box-sizing: border-box;
             padding: 10px;
-            border: 1px solid #28a745;
-            background: white;
-            cursor: pointer;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
             font-size: 16px;
+            transition: background-color 0.3s ease;
         }
-
-        .toggle-group .active {
-            background: #28a745;
-            color: white;
-        }
-
-/* Add this inside your <style> tag */
-
-input,
-select {
-    width: 100%;           /* Make them fill the container width */
-    box-sizing: border-box; /* Include padding and border in width */
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
 
         button {
             width: 95%;
             padding: 12px;
-            background: #28a745;
+            background: linear-gradient(90deg, #015fff, #3b72d0);
             color: white;
             border: none;
             font-size: 16px;
             cursor: pointer;
             margin-top: 10px;
             border-radius: 5px;
-
         }
-        .register {
-            width: 95%;
-            padding: 12px;
-            background: linear-gradient(90deg, #015FFF, #3B72D0);
-            color: white;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 10px;
-            border-radius: 5px;
-
-        }
-        
 
         button:hover {
-            background: linear-gradient(90deg, #015FFF, #3B72D0);
+            background: linear-gradient(90deg, #015fff, #3b72d0);
         }
 
-        .hidden {
-            display: none;
+        .register {
+            background: linear-gradient(90deg, #015fff, #3b72d0);
         }
 
         .toggle-link {
@@ -102,47 +66,63 @@ select {
         .toggle-link:hover {
             text-decoration: underline;
         }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Label styles for live display */
+        #studentForm label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: left;
+            font-size: 14px;
+            color: #444;
+        }
+
+        #studentForm span.status-text {
+            font-weight: normal;
+            font-style: italic;
+            color: #666;
+            margin-left: 5px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            /* Removes the default focus outline */
+            border-color: #E8F0FE;
+            /* Optional: reset border color if needed */
+            box-shadow: none;
+            /* Removes any focus shadow if present */
+        }
     </style>
 </head>
 
 <body>
-
     <div class="container">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" width="250px">
-        <h2>Register</h2>
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" width="250px" />
+        <h2 id="formTitle">Register</h2>
 
-        <div class="toggle-group hidden" id="toggleGroup">
-            <button id="studentBtn" class="active" onclick="toggleRole('student')">Student</button>
-            <button id="adminBtn" onclick="toggleRole('admin')">Admin</button>
-        </div>
-
+        <!-- Login Form -->
         <div id="studentForm" class="hidden">
-            <input type="text" id="studentEmail" placeholder="Enter Student ID or Email">
-            <input type="password" id="studentPassword" placeholder="Enter Password">
-            <button onclick="loginStudent()">Login</button>
+
+            <input type="text" id="studentEmail" placeholder="Enter Student Email" />
+            <input type="password" id="studentPassword" placeholder="Enter Password" />
+
+            <button onclick="loginStudent()">Log in</button>
             <span class="toggle-link" onclick="toggleForms()">Don't have an account? Register here</span>
         </div>
 
-        <div id="adminForm" class="hidden">
-            <input type="text" placeholder="Enter Admin Username">
-            <input type="password" placeholder="Enter Password">
-            <button onclick="loginAdmin()">Login</button>
-        </div>
-
+        <!-- Register Form -->
         <div id="registerForm">
             <form>
-                <input type="text" placeholder="First Name *" required>
-                <input type="text" placeholder="Last Name *" required>
-                <input type="email" placeholder="Email *" required>
-                <input type="text" placeholder="Mobile Number with Country Code *" required>
-                <input type="text" placeholder="Country *" required>
-                <!-- <select required>
-                    <option value="">Select Country *</option>
-                    <option value="India">India</option>
-                    <option value="USA">USA</option>
-                    <option value="UK">UK</option>
-                    <option value="Canada">Canada</option>
-                </select> -->
+                <input type="text" placeholder="First Name *" required />
+                <input type="text" placeholder="Last Name *" required />
+                <input type="email" placeholder="Email *" required />
+                <input type="text" placeholder="Mobile Number with Country Code *" required />
+                <input type="text" placeholder="Country *" required />
 
                 <select required>
                     <option value="">Select Curriculum *</option>
@@ -152,9 +132,7 @@ select {
                     <option value="Other">Other</option>
                 </select>
 
-                <input type="text" placeholder="School Name *" required>
-
-                <!-- <input type="text" placeholder="Grade *" required> -->
+                <input type="text" placeholder="School Name *" required />
 
                 <select name="grade" required>
                     <option value="">Grade *</option>
@@ -172,8 +150,8 @@ select {
                     <option value="Advertisements">Advertisements</option>
                 </select>
 
-                <input type="password" placeholder="Password *" required>
-                <input type="password" placeholder="Confirm Password *" required>
+                <input type="password" placeholder="Password *" required />
+                <input type="password" placeholder="Confirm Password *" required />
 
                 <button class="register" type="submit">Register</button>
                 <span class="toggle-link" onclick="toggleForms()">Already registered? Login here</span>
@@ -182,28 +160,19 @@ select {
     </div>
 
     <script>
-        function toggleRole(role) {
-            document.getElementById("studentForm").classList.toggle("hidden", role !== 'student');
-            document.getElementById("adminForm").classList.toggle("hidden", role !== 'admin');
-            document.getElementById("studentBtn").classList.toggle("active", role === 'student');
-            document.getElementById("adminBtn").classList.toggle("active", role === 'admin');
-        }
-
         function toggleForms() {
             const studentForm = document.getElementById("studentForm");
-            const adminForm = document.getElementById("adminForm");
             const registerForm = document.getElementById("registerForm");
-            const toggleGroup = document.getElementById("toggleGroup");
+            const formTitle = document.getElementById("formTitle");
 
-            if (!registerForm.classList.contains("hidden")) {
-                registerForm.classList.add("hidden");
-                studentForm.classList.remove("hidden");
-                toggleGroup.classList.remove("hidden");
-            } else {
+            if (registerForm.classList.contains("hidden")) {
                 registerForm.classList.remove("hidden");
                 studentForm.classList.add("hidden");
-                adminForm.classList.add("hidden");
-                toggleGroup.classList.add("hidden");
+                formTitle.textContent = "Register";
+            } else {
+                registerForm.classList.add("hidden");
+                studentForm.classList.remove("hidden");
+                formTitle.textContent = "Login";
             }
         }
 
@@ -211,23 +180,20 @@ select {
             const email = document.getElementById("studentEmail").value;
             const password = document.getElementById("studentPassword").value;
 
-            fetch('/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email: email, password: password })
+            fetch("/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email, password: password }),
             })
-                .then(response => response.json())
-                .then(data => {
+                .then((response) => response.json())
+                .then((data) => {
                     if (data.success) {
-                        alert("Login successful!");
                         window.location.href = "/dashboard";
                     } else {
                         alert("Invalid credentials");
                     }
                 })
-                .catch(error => console.error('Error:', error));
+                .catch((error) => console.error("Error:", error));
         }
 
         document.querySelector("#registerForm form").addEventListener("submit", function (event) {
@@ -246,40 +212,37 @@ select {
                 password: document.querySelector("#registerForm input:nth-child(10)").value,
             };
 
-            fetch('/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+            fetch("/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
             })
-                .then(response => response.json())
-                .then(data => {
+                .then((response) => response.json())
+                .then((data) => {
                     alert(data.message);
                     if (data.success) toggleForms(); // Go to login after success
                 })
-                .catch(error => console.error("Error:", error));
+                .catch((error) => console.error("Error:", error));
         });
 
-        function loginAdmin() {
-            const username = document.querySelector("#adminForm input:nth-child(1)").value;
-            const password = document.querySelector("#adminForm input:nth-child(2)").value;
+        // --------- New code for live display and background color ---------
 
-            fetch('/admin_login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username: username, password: password })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert("Admin Login successful!");
-                        window.location.href = "/admin_dashboard";
-                    } else {
-                        alert("Invalid admin credentials");
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+        const studentEmailInput = document.getElementById("studentEmail");
+        const studentPasswordInput = document.getElementById("studentPassword");
+
+
+        studentEmailInput.addEventListener("focus", () => updateInputBackground(studentEmailInput));
+        studentEmailInput.addEventListener("blur", () => updateInputBackground(studentEmailInput));
+
+        studentPasswordInput.addEventListener("focus", () => updateInputBackground(studentPasswordInput));
+        studentPasswordInput.addEventListener("blur", () => updateInputBackground(studentPasswordInput));
+
+        function updateInputBackground(inputElem) {
+            if (inputElem === document.activeElement || inputElem.value.trim() !== "") {
+                inputElem.style.backgroundColor = "#E1EAFA"; // light green for focus or filled
+            } else {
+                inputElem.style.backgroundColor = ""; // default
+            }
         }
     </script>
 </body>

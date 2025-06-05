@@ -239,6 +239,11 @@ def admin_login():
     else:
         return jsonify({'success': False, 'message': 'Invalid username or password!'}), 401
 
+@app.route('/admin', methods=['GET'])
+def admin_login_page():
+    return render_template('adminlogin.html')
+
+
 # Dashboard route
 @app.route('/dashboard')
 def dashboard():
