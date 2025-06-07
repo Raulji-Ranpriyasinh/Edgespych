@@ -310,9 +310,6 @@ def admin_logout():
     session.pop('admin_id', None)
     return redirect(url_for('home'))
                          
-
-
-
 @app.route('/programmes')
 def programmes():
     user_id = session.get('user_id')  # Get user_id from session
