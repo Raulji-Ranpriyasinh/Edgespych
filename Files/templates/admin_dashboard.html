@@ -156,6 +156,54 @@
             background-color: green;
         }
     </style>
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+</style>
+
+
 </head>
 
 <body>
@@ -288,6 +336,22 @@
                         Career</a>
                     {% endif %}
                 </td>
+
+<td style="text-align: center;">
+    <form method="POST" action="{{ url_for('toggle_career_access', student_id=student.id) }}">
+        <input type="hidden" name="can_view" value="{{ not student.can_view_career_result }}">
+        <label class="switch">
+            <input type="checkbox" onchange="this.form.submit()" {% if student.can_view_career_result %}checked{% endif %}>
+            <span class="slider round"></span>
+        </label>
+        <div style="margin-top: 5px; font-weight: bold; color: {% if student.can_view_career_result %}green{% else %}gray{% endif %};">
+            {{ "ON" if student.can_view_career_result else "OFF" }}
+        </div>
+    </form>
+</td>
+
+
+
 
             </tr>
             {% endfor %}

@@ -207,31 +207,82 @@
 
     <div class="container">
         <h2>Programmes</h2>
-        <div class="grid">
-            <div class="card">
-                <h3 style="color: #296eff;">MyAptitude</h3>
-                <p>A psychometrically based aptitude assessment <br> developed by experts.</p>
-                <div class="status">You can start the questionnaire</div>
+<div class="grid">
+    <!-- <div class="card">
+        <h3 style="color: #296eff;">MyAptitude</h3>
+        <p>A psychometrically based aptitude assessment <br> developed by experts.</p>
+        <div class="status">You can start the questionnaire</div>
 
-                {% if not aptitude_completed %}
-                <a href="{{ url_for('aptitude_questionnaire') }}" class="start-btn btn-blue">Start</a>
-                {% else %}
-                <a class="start-btn disabled">✅ Test Completed</a>
-                {% endif %}
-            </div>
+        {% if not aptitude_completed %}
+        <a href="{{ url_for('aptitude_questionnaire') }}" class="start-btn btn-blue">Start</a>
+        {% else %}
+        <a class="start-btn disabled">✅ Test Completed</a>
+        {% endif %}
 
-            <div class="card">
-                <h3 style="color: #dc143c;">MyCareerChoices</h3>
-                <p>Analyses your responses to questions and creates <br> a career profile.</p>
-                <div class="status">You can start the questionnaire</div>
+        
+        <a href="{{ url_for('download_aptitude', student_id=user_id) }}" class="start-btn btn-blue" style="margin-top: 10px;">
+            View Result
+        </a>
+    </div>
 
-                {% if not career_completed %}
-                <a href="{{ url_for('career_assessment') }}" class="start-btn btn-red">Start</a>
-                {% else %}
-                <a class="start-btn disabled">✅ Test Completed</a>
-                {% endif %}
-            </div>
-        </div>
+    <div class="card">
+        <h3 style="color: #dc143c;">MyCareerChoices</h3>
+        <p>Analyses your responses to questions and creates <br> a career profile.</p>
+        <div class="status">You can start the questionnaire</div>
+
+        {% if not career_completed %}
+        <a href="{{ url_for('career_assessment') }}" class="start-btn btn-red">Start</a>
+        {% else %}
+        <a class="start-btn disabled">✅ Test Completed</a>
+        {% endif %}
+
+        
+        <a href="{{ url_for('download_career', student_id=user_id) }}" class="start-btn btn-red" style="margin-top: 10px;">
+            View Result
+        </a>
+    </div> -->
+
+
+    <div class="grid">
+    <!-- Aptitude Card -->
+    <div class="card">
+        <h3 style="color: #296eff;">MyAptitude</h3>
+        <p>A psychometrically based aptitude assessment <br> developed by experts.</p>
+        <div class="status">You can start the questionnaire</div>
+
+        {% if not aptitude_completed %}
+            <a href="{{ url_for('aptitude_questionnaire') }}" class="start-btn btn-blue">Start</a>
+        {% else %}
+            <a class="start-btn disabled">✅ Test Completed</a>
+            {% if can_view_career_result %}
+                <a href="{{ url_for('download_aptitude', student_id=user_id) }}" class="start-btn btn-blue">📄 View Result</a>
+            {% else %}
+                <a class="start-btn disabled" title="Your result has not been generated yet">📄 View Result</a>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <!-- Career Card -->
+    <div class="card">
+        <h3 style="color: #dc143c;">MyCareerChoices</h3>
+        <p>Analyses your responses to questions and creates <br> a career profile.</p>
+        <div class="status">You can start the questionnaire</div>
+
+        {% if not career_completed %}
+            <a href="{{ url_for('career_assessment') }}" class="start-btn btn-red">Start</a>
+        {% else %}
+            <a class="start-btn disabled">✅ Test Completed</a>
+            {% if can_view_career_result %}
+                <a href="{{ url_for('download_career', student_id=user_id) }}" class="start-btn btn-red">📄 View Result</a>
+            {% else %}
+                <a class="start-btn disabled" title="Your result has not been generated yet">📄 View Result</a>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+
+</div>
+
     </div>
 
     <script>

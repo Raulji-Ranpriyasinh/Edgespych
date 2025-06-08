@@ -36,6 +36,7 @@ class StudentDetails(db.Model):
     referral_source = db.Column(db.String(255))
     password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
+    can_view_career_result = db.Column(db.Boolean, default=False)
 
    
 
@@ -328,14 +329,25 @@ def programmes():
         # Fallback if already stored in TestStatus
         career_test_completed = test_status.career_test_completed
 
+    # Get student details to fetch can_view_career_result
+    student = db.session.execute(
+        db.select(StudentDetails).where(StudentDetails.id == user_id)
+    ).scalar_one_or_none()
+
+    can_view_career_result = False
+    if student:
+        can_view_career_result = student.can_view_career_result
+
     return render_template(
         'programmers.html',
         email=user_email,
         user_id=user_id,
         first_name=user_first_name,
         career_completed=career_test_completed,
-        aptitude_completed=test_status.aptitude_test_completed if test_status else False
+        aptitude_completed=test_status.aptitude_test_completed if test_status else False,
+        can_view_career_result=can_view_career_result
     )
+
 
 
 #----------------------------------------------------------
@@ -973,6 +985,18 @@ def career_report(student_id):
     })
 
 
+@app.route('/toggle_career_access/<int:student_id>', methods=['POST'])
+def toggle_career_access(student_id):
+    student = db.session.execute(
+        db.select(StudentDetails).where(StudentDetails.id == student_id)
+    ).scalar_one_or_none()
+
+    if student:
+        allow = request.form.get('can_view') == 'True'
+        student.can_view_career_result = allow
+        db.session.commit()
+
+    return redirect(url_for('admin_dashboard'))  # Replace with your actual admin route
 
 #--------------------------------------------------------------------------------------------
 # Logout API
