@@ -26,13 +26,19 @@
 <body style="font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; background: #f4f4f9;">
 
 
-
+<script>
+        window.onload = function () {
+        fetchStudentData();
+        fetchStudentScores();
+        fetchResults();
+    };
+</script>
     <div style="margin-top: 50px;">
-        <h2>Generate Aptitude Report</h2>
+        <!-- <h2>Generate Aptitude Report</h2>
         <button onclick="fetchStudentData(); fetchStudentScores(); fetchResults();"
             style="padding: 10px 20px; background: #800080; color: white; border: none; border-radius: 5px; cursor: pointer;">
             Generate Report
-        </button>
+        </button> -->
         <button onclick="downloadPDF()"
             style="margin-top: 20px; padding: 10px 20px; background: #800080; color: white; border: none; cursor: pointer;">
             Download PDF
@@ -46,7 +52,7 @@
             return parts[parts.length - 1]; // Get the last part of the URL (student ID)
         }
     </script>
-
+<!-- <h3 id="student_name" style="color: #800080;">Loading...</h3> -->
     <!-- Report Section (Initially Hidden) -->
     <div id="report_section" style="display: none;">
         <div id="full_report">
@@ -220,6 +226,8 @@
 
 
             </div>
+
+            <!-- ************** -->
             <style>
                 /* Print-friendly formatting */
                 @media print {
@@ -619,6 +627,8 @@
                 }
             </style>
 
+
+            <!-- fourtpage -->
             <div id="four_page" class="three-container" style="display: none;">
 
 
@@ -845,36 +855,7 @@
 
 </script>
 
-<script>/*
-async function downloadPDF() {
-    const { jsPDF } = window.jspdf;
-    if (!jsPDF) {
-        console.error("jsPDF is not loaded.");
-        return;
-    }
-
-    const pdf = new jsPDF({ unit: "mm", format: "a4" });
-    const pages = ["report_page1", "second_page", "third_page"];
-
-    for (let i = 0; i < pages.length; i++) {
-        const element = document.getElementById(pages[i]);
-        if (!element) {
-            console.error(`Element with ID ${pages[i]} not found.`);
-            continue;
-        }
-
-        const canvas = await html2canvas(element, { scale: 3 }); // Increase scale for high resolution
-        const imgData = canvas.toDataURL("image/png");
-        const imgWidth = 210;
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-        if (i > 0) pdf.addPage();
-        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-    }
-
-    pdf.save("Aptitude_Report.pdf");
-}
-*/
+<script>
     async function downloadPDF() {
         const { jsPDF } = window.jspdf;
 
@@ -924,6 +905,6 @@ async function downloadPDF() {
         pdf.save("Aptitude_Report.pdf");
     }
 
-</script>
+</script> 
 
 </html>

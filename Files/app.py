@@ -683,7 +683,7 @@ def get_results():
 
 @app.route('/download_aptitude/<int:student_id>')
 def download_aptitude(student_id):
-    return render_template('download_aptitude.html', student_id=student_id)
+    return render_template('aptitudefirst.html', student_id=student_id)
 
 @app.route('/download_career/<int:student_id>')
 def download_career(student_id):

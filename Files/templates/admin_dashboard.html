@@ -7,201 +7,198 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <title>Admin Dashboard</title>
     <style>
-        body {
-            
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8fbfd;
-        }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8fbfd;
+    }
 
-         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8fbfd;
-        }
+    .navbar {
+      padding: 10px 20px;
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+      background-image: url('/static/nav-img1.png'), url('/static/nav-img2.png');
+      background-repeat: no-repeat, no-repeat;
+      background-size: contain, contain;
+      background-position: center left, center right;
+    }
 
-.navbar {
-    padding: 10px;
-    background-color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+    .logo img {
+      height: 40px;
+    }
 
-    /* background images */
-    background-image: url('/static/nav-img1.png'), url('/static/nav-img2.png');
-    background-repeat: no-repeat, no-repeat;
-    background-size: contain, contain; /* make sure both fit naturally */
-    background-position: center left, center right; /* place left and right */
-}
+    .profile-btn {
+      background-color: #296eff;
+      color: white;
+      font-weight: 500;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        .logo {
-            font-weight: bold;
-            font-size: 24px;
-            color: #001e4d;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+    .profile-btn a {
+      color: white;
+      text-decoration: none;
+      font-weight: 100;
+    }
 
+    .container {
+      width: 90%;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
 
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #001e4d;
+    }
 
-        .dropdown {
-            position: relative;
-        }
+    .filters,
+    .search-bar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-        .profile-btn {
-            background-color: #296eff;
-            color: white;
-            font-weight: 500;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+    .filters select,
+    .search-bar input {
+      padding: 10px;
+      margin: 5px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-        .user-icon {
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            margin-right: 8px;
-        }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 48px;
-            background-color: white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            min-width: 200px;
-            z-index: 1;
-            padding: 12px;
-            border-radius: 8px;
-        }
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+    }
 
-        .dropdown-content p {
-            margin: 8px 5px;
-            font-weight: 500;
-            color: #333;
-        }
+    th {
+      background-color: #0864ed;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
 
-        .dropdown-content a {
-            display: block;
-            padding: 10px;
-            color: black;
-            text-decoration: none;
-            border-radius: 6px;
-        }
+    tr:nth-child(even) td {
+      background-color: #f4f7fb;
+    }
 
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
+    tr:hover td {
+      background-color: #eaf1fb;
+    }
 
-        .logout {
-            text-decoration: none;
-            color: white;
-            padding: 10px;
-            background-color: red;
-            border-radius: 5px;
-        }
+    td {
+      font-size: 14px;
+      color: #333;
+      vertical-align: middle;
+    }
 
-        .container {
-            width: 90%;
-            margin: auto;
-            padding: 20px;
-        }
+    .btn {
+      display: inline-block;
+      padding: 6px 10px;
+      font-size: 13px;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: 500;
+      transition: 0.3s;
+      color: white;
+      text-decoration: none;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-        }
+    .aptitude-btn {
+      background-color: #007bff;
+    }
 
-        table,
-        th,
-        td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: left;
-        }
+    .career-btn {
+      background-color: #28a745;
+    }
 
-        th {
-            background-color: #0864ed;
-            color: white;
-        }
+    .aptitude-btn:hover,
+    .career-btn:hover {
+      opacity: 0.9;
+    }
 
-        .btn {
-            display: block;
-            text-decoration: none;
-            padding: 8px 12px;
-            color: white;
-            border-radius: 5px;
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 5px;
-        }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
 
-        .aptitude-btn {
-            background-color: blue;
-        }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
 
-        .career-btn {
-            background-color: green;
-        }
-    </style>
-<style>
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
-}
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 24px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+    .slider::before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 4px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 24px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
+    input:checked + .slider {
+      background-color: #4caf50;
+    }
 
-.slider::before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 4px;
-  bottom: 3px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #4caf50;
-}
-
-input:checked + .slider::before {
-  transform: translateX(26px);
-}
-</style>
+    input:checked + .slider::before {
+      transform: translateX(26px);
+    }
+     .status-indicator {
+    margin-top: 5px;
+    font-weight: bold;
+  }
+  .status-on {
+    color: green;
+  }
+  .status-off {
+    color: gray;
+  }
+  </style>
 
 
 </head>
@@ -306,6 +303,7 @@ input:checked + .slider::before {
                 <th>Referral Source</th>
                 <th>Registration Date</th>
                 <th>Actions</th>
+                <th>Result Access</th>
             </tr>
             {% for student in students %}
             <tr>
@@ -338,17 +336,20 @@ input:checked + .slider::before {
                 </td>
 
 <td style="text-align: center;">
-    <form method="POST" action="{{ url_for('toggle_career_access', student_id=student.id) }}">
-        <input type="hidden" name="can_view" value="{{ not student.can_view_career_result }}">
-        <label class="switch">
-            <input type="checkbox" onchange="this.form.submit()" {% if student.can_view_career_result %}checked{% endif %}>
-            <span class="slider round"></span>
-        </label>
-        <div style="margin-top: 5px; font-weight: bold; color: {% if student.can_view_career_result %}green{% else %}gray{% endif %};">
-            {{ "ON" if student.can_view_career_result else "OFF" }}
-        </div>
-    </form>
+    {% if student.aptitude_test_completed or student.career_test_completed %}
+        <form method="POST" action="{{ url_for('toggle_career_access', student_id=student.id) }}">
+            <input type="hidden" name="can_view" value="{{ not student.can_view_career_result }}">
+            <label class="switch">
+                <input type="checkbox" onchange="this.form.submit()" {% if student.can_view_career_result %}checked{% endif %}>
+                <span class="slider round"></span>
+            </label>
+            <div class="status-indicator {% if student.can_view_career_result %}status-on{% else %}status-off{% endif %}">
+                {{ "ON" if student.can_view_career_result else "OFF" }}
+            </div>
+        </form>
+    {% endif %}
 </td>
+
 
 
 
