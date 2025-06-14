@@ -14,18 +14,20 @@
       background-color: #f8fbfd;
     }
 
-    .navbar {
-      padding: 10px 20px;
-      background-color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
-      background-image: url('/static/nav-img1.png'), url('/static/nav-img2.png');
-      background-repeat: no-repeat, no-repeat;
-      background-size: contain, contain;
-      background-position: center left, center right;
-    }
+.navbar {
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+
+    /* background images */
+    background-image: url('/static/nav-img1.png'), url('/static/nav-img2.png');
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, contain; /* make sure both fit naturally */
+    background-position: center left, center right; /* place left and right */
+}
 
     .logo img {
       height: 40px;
@@ -55,9 +57,8 @@
       width: 90%;
       margin: 20px auto;
       padding: 20px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      
+     
     }
 
     h2 {
@@ -288,7 +289,7 @@
 
 
     <div class="container">
-        <h2>Registered Students</h2>
+        
         <table id="studentsTable">
             <tr>
                 <th>ID</th>
@@ -301,7 +302,7 @@
                 <th>School Name</th>
                 <th>class</th>
                 <th>Referral Source</th>
-                <th>Registration Date</th>
+                <!--   -->
                 <th>Actions</th>
                 <th>Result Access</th>
             </tr>
@@ -317,7 +318,7 @@
                 <td>{{ student.school_name }}</td>
                 <td>{{ student.grade }}</td>
                 <td>{{ student.referral_source }}</td>
-                <td>{{ student.created_at }}</td>
+                <!-- <td>{{ student.created_at }}</td> -->
                 <!-- <td>
                 <a href="{{ url_for('download_aptitude', student_id=student.id) }}" class="btn aptitude-btn">Download Aptitude</a>
                 <a href="{{ url_for('download_career', student_id=student.id) }}" class="btn career-btn">Download Career</a>
@@ -337,16 +338,17 @@
 
 <td style="text-align: center;">
     {% if student.aptitude_test_completed or student.career_test_completed %}
-        <form method="POST" action="{{ url_for('toggle_career_access', student_id=student.id) }}">
-            <input type="hidden" name="can_view" value="{{ not student.can_view_career_result }}">
-            <label class="switch">
-                <input type="checkbox" onchange="this.form.submit()" {% if student.can_view_career_result %}checked{% endif %}>
-                <span class="slider round"></span>
-            </label>
-            <div class="status-indicator {% if student.can_view_career_result %}status-on{% else %}status-off{% endif %}">
-                {{ "ON" if student.can_view_career_result else "OFF" }}
-            </div>
-        </form>
+        <form class="career-access-toggle-form" data-student-id="{{ student.id }}">
+    <input type="hidden" name="can_view" value="{{ not student.can_view_career_result }}">
+    <label class="switch">
+        <input type="checkbox" class="career-toggle-checkbox" {% if student.can_view_career_result %}checked{% endif %}>
+        <span class="slider round"></span>
+    </label>
+    <div class="status-indicator">
+        {{ "ON" if student.can_view_career_result else "OFF" }}
+    </div>
+</form>
+
     {% endif %}
 </td>
 
@@ -405,6 +407,40 @@
         }
 
     </script>
+<script>
+document.querySelectorAll(".career-toggle-checkbox").forEach(checkbox => {
+    checkbox.addEventListener("change", function () {
+        const form = this.closest("form");
+        const studentId = form.dataset.studentId;
+        const canView = this.checked;
+
+        fetch(`/toggle_career_access/${studentId}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-Requested-With": "XMLHttpRequest"
+            },
+            body: new URLSearchParams({
+                can_view: canView
+            })
+        })
+        .then(response => {
+            if (!response.ok) throw new Error("Network response was not ok.");
+            // Optional: update status text
+            const indicator = form.querySelector(".status-indicator");
+            if (indicator) {
+                indicator.className = "status-indicator " + (canView ? "status-on" : "status-off");
+                indicator.textContent = canView ? "ON" : "OFF";
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("Something went wrong while toggling access.");
+            this.checked = !canView;  // Revert checkbox if error
+        });
+    });
+});
+</script>
 
 </body>
 

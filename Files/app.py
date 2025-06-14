@@ -688,7 +688,6 @@ def download_aptitude(student_id):
 @app.route('/download_career/<int:student_id>')
 def download_career(student_id):
     return render_template('download_career.html', student_id=student_id)
-#career------------------------------------------------------------------------------------
 
 
 
@@ -696,20 +695,16 @@ def download_career(student_id):
 def get_student_dataa():
     data = request.json
     student_id = data.get('student_id')
-
     student = db.session.get(StudentDetails, student_id)
     if not student:
         return jsonify({"error": "Student not found"}), 404
-
     full_name = f"{student.first_name} {student.last_name}"
-
     return jsonify({"student_id": student_id, "name": full_name})
 
 
 
-# Preload Data
+
 def load_mappings():
-    # Question → Subjects Mapping
     question_subject_dict = {}
     subject_question_count = {}
     subject_question_numbers = {}
@@ -717,13 +712,9 @@ def load_mappings():
     for entry in QuestionSubject.query.all():
         q_num = entry.question_number
         sub_id = entry.subject_id
-
-        # Map question to subjects
         question_subject_dict.setdefault(q_num, []).append(sub_id)
         subject_question_count[sub_id] = subject_question_count.get(sub_id, 0) + 1
         subject_question_numbers.setdefault(sub_id, []).append(q_num)
-
-    # Question → Supporting Subjects Mapping
     question_supporting_subject_dict = {}
     supporting_subject_question_count = {}
     supporting_subject_question_numbers = {}
@@ -731,16 +722,10 @@ def load_mappings():
     for entry in QuestionSupportingSubject.query.all():
         q_num = entry.question_number
         sup_id = entry.supporting_id
-
-        # Map question to supporting subjects
         question_supporting_subject_dict.setdefault(q_num, []).append(sup_id)
         supporting_subject_question_count[sup_id] = supporting_subject_question_count.get(sup_id, 0) + 1
         supporting_subject_question_numbers.setdefault(sup_id, []).append(q_num)
-
-    # Subject ID → Subject Name Mapping
     subject_names_dict = {sub.subject_id: sub.subject_name for sub in Subject.query.all()}
-
-    # Supporting Subject ID → Supporting Subject Name Mapping ✅ **Newly Added**
     supporting_subject_names_dict = {sup.supporting_id: sup.supporting_subject_name for sup in SupportingSubject.query.all()}
 
     return (
@@ -992,11 +977,14 @@ def toggle_career_access(student_id):
     ).scalar_one_or_none()
 
     if student:
-        allow = request.form.get('can_view') == 'True'
+        allow = request.form.get('can_view') == 'true'
         student.can_view_career_result = allow
         db.session.commit()
 
-    return redirect(url_for('admin_dashboard'))  # Replace with your actual admin route
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return '', 204  # No Content
+    return redirect(url_for('admin_dashboard'))
+
 
 #--------------------------------------------------------------------------------------------
 # Logout API

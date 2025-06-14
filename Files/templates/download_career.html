@@ -355,34 +355,34 @@
 
 
 
-   <script>
-    function getStudentIdFromURL() {
-        const urlParts = window.location.pathname.split('/');
-        return urlParts[urlParts.length - 1]; // Assuming URL ends with student_id
-    }
-
-    const student_id = getStudentIdFromURL();
-
-    window.onload = function () {
-        if (student_id) {
-            const hiddenInput = document.createElement("input");
-            hiddenInput.type = "hidden";
-            hiddenInput.id = "student_id";
-            hiddenInput.value = student_id;
-            document.body.appendChild(hiddenInput);
-
-            // Auto-trigger generation functions
-            loadData();
-            fetchReport();
-            generate();
-            ibgenerate();
-            loadOverallOnlyChart();
+    <script>
+        function getStudentIdFromURL() {
+            const urlParts = window.location.pathname.split('/');
+            return urlParts[urlParts.length - 1]; // Assuming URL ends with student_id
         }
-    };
-</script>
+
+        const student_id = getStudentIdFromURL();
+
+        window.onload = function () {
+            if (student_id) {
+                const hiddenInput = document.createElement("input");
+                hiddenInput.type = "hidden";
+                hiddenInput.id = "student_id";
+                hiddenInput.value = student_id;
+                document.body.appendChild(hiddenInput);
+
+                // Auto-trigger generation functions
+                loadData();
+                fetchReport();
+                generate();
+                ibgenerate();
+                loadOverallOnlyChart();
+            }
+        };
+    </script>
 
 
-<!-- 
+    <!-- 
     <div id="student-form">
         <label for="student-input">Generate Career Report:</label>
         <button onclick="loadData(),fetchReport(),generate(),ibgenerate()" id="submit-btn">Generate Report</button>
@@ -403,8 +403,7 @@
         <!-- First Page -->
         <!-- below index -->
 
-        <div class="page"
-            style="
+        <div class="page" style="
     background-image: url('/static/careerpdfupper.png'), url('/static/careerpdflower.png');
     background-repeat: no-repeat, no-repeat;
     background-position: top right, bottom left;
@@ -792,8 +791,8 @@
                 let interestChart = null;
                 let overallChart = null;
                 function loadData() {
-                     console.log("loadData() called");
-                    
+                    console.log("loadData() called");
+
                     const studentId = getStudentIdFromUrl();
                     console.log(studentId);
                     //const studentId = document.getElementById("student_id").value;
@@ -879,13 +878,14 @@
                                             }
                                         }
                                     },
+                                        
                                     plugins: {
                                         legend: {
                                             display: true,
                                             position: 'top'
                                         },
                                         tooltip: {
-                                            enabled: true
+                                            enabled: false
                                         },
                                         datalabels: {
                                             display: function (context) {
@@ -1008,7 +1008,7 @@
                                             position: 'top'
                                         },
                                         tooltip: {
-                                            enabled: true
+                                            enabled: false
                                         },
                                         datalabels: {
                                             display: context => context.dataset.data[context.dataIndex] > 0,
@@ -1187,14 +1187,14 @@
             </p>
 
 
-    <div style="border-top: 1px solid #E5DEE5; padding-top: 10px; 
+            <div style="border-top: 1px solid #E5DEE5; padding-top: 10px; 
          font-size: 8.5pt; font-weight: bold; color: #360335; 
          position: absolute; bottom: 30px; left: 30px; right: 30px;
          display: flex; justify-content: space-between;">
 
-        <span class="studentname"></span> <!-- Left -->
-        <span>5</span> <!-- Right -->
-    </div>
+                <span class="studentname"></span> <!-- Left -->
+                <span>5</span> <!-- Right -->
+            </div>
         </div>
 
         <!--  page -->
@@ -1221,7 +1221,7 @@
 
             <!-- Report will be inserted here -->
         </div>
-
+        <!-- ///// -->
         <script>
 
             async function fetchReport() {
@@ -1326,10 +1326,50 @@
                             ${careerSuggestionsHTML}
                         `;
 
-                        const footer1 = document.createElement("div");
-                        footer1.style = "border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #360335; position: absolute; bottom: 30px; left: 30px; right: 30px;";
-                        footer1.textContent = ` ${pageCounter}`;
+                        /* const footer1 = document.createElement("div");
+                         footer1.style = "border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #360335; position: absolute; bottom: 30px; left: 30px; right: 30px;";
+                         footer1.textContent = ` ${pageCounter}`;
+ 
+                         page1.appendChild(header1);
+                         page1.appendChild(content1);
+                         page1.appendChild(footer1);
+                         reportContainer.appendChild(page1);
+ 
+                         pageCounter++;*/
 
+                        /**/
+                        // Get student name from the already populated element
+                        const studentName = document.querySelector('.studentname')?.innerText || "Default Name";
+
+                        // Create footer
+                        const footer1 = document.createElement("div");
+                        footer1.style = `
+    border-top: 1px solid #000000;
+    padding-top: 10px;
+    font-size: 8.5pt;
+    font-weight: bold;
+    color: #360335;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+`;
+
+                        // Left: student name
+                        const nameSpan = document.createElement("span");
+                        nameSpan.textContent = studentName;
+
+                        // Right: page number
+                        const pageSpan = document.createElement("span");
+                        pageSpan.textContent = `${pageCounter}`;
+
+                        // Append spans
+                        footer1.appendChild(nameSpan);
+                        footer1.appendChild(pageSpan);
+
+                        // Append footer to page
                         page1.appendChild(header1);
                         page1.appendChild(content1);
                         page1.appendChild(footer1);
@@ -1337,6 +1377,8 @@
 
                         pageCounter++;
 
+
+                        /**/
                         // ----- Page 2 -----
                         const page2 = document.createElement("div");
                         page2.className = "page";
@@ -1499,16 +1541,46 @@ be required in these careers. Tick to see how well you match these.
                             ${checklistHTMLForPage2}
                         `;
 
-                        const footer2 = document.createElement("div");
-                        footer2.style = "border-top: 1px solid #000000; padding-top: 10px; text-align: right; font-size: 8.5pt; font-weight: bold; color: #360335; position: absolute; bottom: 30px; left: 30px; right: 30px;";
-                        footer2.textContent = ` ${pageCounter}`;
+// Get student name from DOM (already populated via class)
 
-                        page2.appendChild(header2);
-                        page2.appendChild(content2);
-                        page2.appendChild(footer2);
-                        reportContainer.appendChild(page2);
 
-                        pageCounter++;
+// Create footer2
+const footer2 = document.createElement("div");
+footer2.style = `
+    border-top: 1px solid #000000;
+    padding-top: 10px;
+    font-size: 8.5pt;
+    font-weight: bold;
+    color: #360335;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+`;
+
+// Left: student name
+const nameSpan2 = document.createElement("span");
+nameSpan2.textContent = studentName;
+
+// Right: page number
+const pageSpan2 = document.createElement("span");
+pageSpan2.textContent = `${pageCounter}`;
+
+// Add spans to footer2
+footer2.appendChild(nameSpan2);
+footer2.appendChild(pageSpan2);
+
+// Append all to page2
+page2.appendChild(header2);
+page2.appendChild(content2);
+page2.appendChild(footer2);
+reportContainer.appendChild(page2);
+
+// Increment page number
+pageCounter++;
+
                     });
 
                 } catch (error) {
@@ -1519,7 +1591,7 @@ be required in these careers. Tick to see how well you match these.
 
 
         </script>
-
+        <!-- ////// -->
         <!-- -------------------reeport------------------------------------------ done-->
         <!-- page A level Subject Availabilite -->
         <div class="page">
@@ -1990,7 +2062,7 @@ be required in these careers. Tick to see how well you match these.
             </p>
             <div id="ibCrosstabContainer"></div>
             <!-- Footer -->
-             <div style="border-top: 1px solid #DAECE8; padding-top: 10px; 
+            <div style="border-top: 1px solid #DAECE8; padding-top: 10px; 
          font-size: 8.5pt; font-weight: bold; color: #329681; 
          position: absolute; bottom: 30px; left: 30px; right: 30px;
          display: flex; justify-content: space-between;">
@@ -2237,7 +2309,7 @@ be required in these careers. Tick to see how well you match these.
             </div>
             <img src="{{ url_for('static', filename='F_C_MINDMAP.png') }}" alt="Example Image">
             <!-- Footer -->
-           <div style="border-top: 1px solid #E6E0EF; padding-top: 10px; 
+            <div style="border-top: 1px solid #E6E0EF; padding-top: 10px; 
          font-size: 8.5pt; font-weight: bold; color: #400E86; 
          position: absolute; bottom: 30px; left: 30px; right: 30px;
          display: flex; justify-content: space-between;">
@@ -2264,7 +2336,7 @@ be required in these careers. Tick to see how well you match these.
             </div>
             <img src="{{ url_for('static', filename='F2_C_MINDMAP.png') }}" alt="Example Image">
             <!-- Footer -->
-           <div style="border-top: 1px solid #E6E0EF; padding-top: 10px; 
+            <div style="border-top: 1px solid #E6E0EF; padding-top: 10px; 
          font-size: 8.5pt; font-weight: bold; color: #400E86; 
          position: absolute; bottom: 30px; left: 30px; right: 30px;
          display: flex; justify-content: space-between;">
@@ -2296,7 +2368,7 @@ be required in these careers. Tick to see how well you match these.
 
 
             <!-- Footer -->
-           <div style="border-top: 1px solid #E8F0E8; padding-top: 10px; 
+            <div style="border-top: 1px solid #E8F0E8; padding-top: 10px; 
          font-size: 8.5pt; font-weight: bold; color: #0D610D; 
          position: absolute; bottom: 30px; left: 30px; right: 30px;
          display: flex; justify-content: space-between;">
@@ -2335,39 +2407,39 @@ be required in these careers. Tick to see how well you match these.
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    // Get student ID directly from URL when page loads
-    const studentId = getStudentIdFromUrl();
+            // Get student ID directly from URL when page loads
+            const studentId = getStudentIdFromUrl();
 
-    if (!studentId) {
-        alert("Invalid or missing Student ID in URL.");
-        return;
-    }
-
-    // Fetch student data immediately
-    fetch("/get_student_dataa", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ student_id: studentId })
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                alert("Student not found!");
+            if (!studentId) {
+                alert("Invalid or missing Student ID in URL.");
                 return;
             }
 
-            document.getElementById("student-name").innerText = data.name;
+            // Fetch student data immediately
+            fetch("/get_student_dataa", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ student_id: studentId })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert("Student not found!");
+                        return;
+                    }
 
-            const elements = document.getElementsByClassName("studentname");
-            for (let i = 0; i < elements.length; i++) {
-                elements[i].innerText = data.name;
-            }
+                    document.getElementById("student-name").innerText = data.name;
 
-            // Show container after data loads
-            document.querySelector(".container").style.display = "block";
-        })
-        .catch(error => console.error("Error fetching data:", error));
-});
+                    const elements = document.getElementsByClassName("studentname");
+                    for (let i = 0; i < elements.length; i++) {
+                        elements[i].innerText = data.name;
+                    }
+
+                    // Show container after data loads
+                    document.querySelector(".container").style.display = "block";
+                })
+                .catch(error => console.error("Error fetching data:", error));
+        });
 
 
 
