@@ -191,15 +191,47 @@ with app.app_context():
 def home():
     return render_template('index.html')
 
-# Register API
+# Register API 14/06
+# @app.route('/register', methods=['POST'])
+# def register():
+#     data = request.json
+#     existing_user = StudentDetails.query.filter_by(email=data['email']).first()
+#     if existing_user:
+#         return jsonify({'success': False, 'message': 'Email already registered!'}), 400
+    
+#     hashed_password = generate_password_hash(data['password'], method='pbkdf2:sha256')
+#     new_user = StudentDetails(
+#         first_name=data['first_name'],
+#         last_name=data['last_name'],
+#         email=data['email'],
+#         mobile_number=data['mobile_number'],
+#         country=data['country'],
+#         curriculum=data['curriculum'],
+#         school_name=data['school_name'],
+#         grade=data['grade'],
+#         referral_source=data.get('referral_source', ''),
+#         password=hashed_password
+#     )
+#     db.session.add(new_user)
+#     db.session.commit()
+#     return jsonify({'success': True, 'message': 'Registration successful!'})
+
+
+from flask import session
+
 @app.route('/register', methods=['POST'])
 def register():
     data = request.json
+
+    # Check if user already exists
     existing_user = StudentDetails.query.filter_by(email=data['email']).first()
     if existing_user:
         return jsonify({'success': False, 'message': 'Email already registered!'}), 400
-    
+
+    # Hash password
     hashed_password = generate_password_hash(data['password'], method='pbkdf2:sha256')
+
+    # Create new user
     new_user = StudentDetails(
         first_name=data['first_name'],
         last_name=data['last_name'],
@@ -212,9 +244,18 @@ def register():
         referral_source=data.get('referral_source', ''),
         password=hashed_password
     )
+
+    # Save to DB
     db.session.add(new_user)
     db.session.commit()
-    return jsonify({'success': True, 'message': 'Registration successful!'})
+
+    # Log in the user (set session)
+    session['user_id'] = new_user.id
+    session['user_email'] = new_user.email
+    session['user_first_name'] = new_user.first_name
+
+    return jsonify({'success': True, 'message': 'Registered and logged in successfully!'})
+
 
 # Login API with redirection to dashboard
 @app.route('/login', methods=['POST'])
