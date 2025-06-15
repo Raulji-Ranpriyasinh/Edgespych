@@ -217,7 +217,6 @@ def home():
 #     return jsonify({'success': True, 'message': 'Registration successful!'})
 
 
-from flask import session
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -839,7 +838,7 @@ def get_career_scores(student_id):
     subjects_list = []
     for sub in subject_scores:
         if sub in subject_names_dict:
-            main_score = round(subject_scores[sub], 2)
+            main_score = min(round(subject_scores[sub], 2),100)
 
             # Get supporting subjects related to this main subject
             related_supporting_ids = main_supporting_subject_map.get(sub, [])
@@ -869,7 +868,7 @@ def get_career_scores(student_id):
     supporting_subjects_list = [
         {
             "name": supporting_subject_names_dict[sup],
-            "score": round(supporting_subject_scores[sup], 2),
+            "score": min(round(supporting_subject_scores[sup], 2), 100),
             "total_questions": supporting_subject_question_count.get(sup, 0),
             "questions": supporting_subject_question_numbers.get(sup, [])
         }
@@ -908,7 +907,7 @@ def career_report(student_id):
                 subject_scores[sub_id] = subject_scores.get(sub_id, 0) + weight
 
     subject_scores = {
-        sub_id: (score / (subject_question_count[sub_id] * 2)) * 100
+        sub_id: min((score / (subject_question_count[sub_id] * 2)) * 100, 100)
         if subject_question_count.get(sub_id, 0) > 0 else 0
         for sub_id, score in subject_scores.items()
     }
@@ -953,7 +952,7 @@ def career_report(student_id):
                 supporting_scores[sup_id] = supporting_scores.get(sup_id, 0) + weight
 
     supporting_scores = {
-        sup_id: (score / (supporting_subject_question_count[sup_id] * 2)) * 100
+        sup_id: min((score / (supporting_subject_question_count[sup_id] * 2)) * 100, 100)
         if supporting_subject_question_count.get(sup_id, 0) > 0 else 0
         for sup_id, score in supporting_scores.items()
     }
