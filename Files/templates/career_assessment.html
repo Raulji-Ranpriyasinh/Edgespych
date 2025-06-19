@@ -153,7 +153,6 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     font-weight: 500;
-    color: #fff;
     box-shadow: none;
 }
 
@@ -167,7 +166,7 @@
 }
 
 .btn.maybe {
-    background-color: #666666;
+    background-color: #fade11;
 }
 
 .btn.no {
@@ -205,7 +204,7 @@
 <div class="container">
     <div class="question-card">
         <h3 class="card-heading">Career Questions</h3>
-        <p class="question" id="question">Loading...</p>
+        <p class="question" id="question" style="font-size: 18px;" >Loading...</p>
         <div class="button-wrapper">
             <button class="btn yes" onclick="nextQuestion(2)">YES</button>
             <button class="btn maybe" onclick="nextQuestion(1)">MAYBE</button>

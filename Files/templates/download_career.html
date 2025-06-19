@@ -539,8 +539,8 @@
 
 
 
-            <h1 class="main-heading" style="font-size: 20px;">The <span class="highlight">EDGEPSYCH Programme</span>
-            </h1>
+            <!-- <h1 class="main-heading" style="font-size: 20px;">The <span class="highlight">EDGEPSYCH Programme</span>
+            </h1> -->
             <p class="description" style="font-size: 10pt;text-align: justify;">
                 The <span class="highlight">EDGEPSYCH programme</span> has been designed to help you consider and
                 explore in greater detail your future career possibilities, as well as A Levels / IB subjects, which
@@ -866,19 +866,21 @@
                                             }
                                         },
                                         y: {
-                                            title: { display: true, text: 'Career Fields' },
+                                            title: { display: true, text: 'Career Fields', color: '#333' },
                                             ticks: {
+                                                color: '#000',
                                                 align: 'start',
-
                                                 autoSkip: false,
-                                                font: { size: 8 }
+                                                font: { size: 8, weight: 'bold' }
+
+
                                             },
                                             grid: {
                                                 display: true // ❌ Hide Y-axis grid
                                             }
                                         }
                                     },
-                                        
+
                                     plugins: {
                                         legend: {
                                             display: true,
@@ -891,8 +893,8 @@
                                             display: function (context) {
                                                 return context.dataset.data[context.dataIndex] > 0;
                                             },
-                                            anchor: 'centre',
-                                            align: 'centre',
+                                            anchor: 'start',
+                                            align: 'start',
                                             color: 'black',
                                             padding: 10,
                                             font: {
@@ -1015,9 +1017,10 @@
                                             anchor: 'centre',
                                             align: 'centre',
                                             color: 'black',
-                                            padding: 10,
-                                            font: { size: 7 },
+                                        
+                                            font: { size: 5 },
                                             formatter: value => value.toFixed(1) + '%'
+
                                         }
                                     }
                                 }
@@ -1541,12 +1544,12 @@ be required in these careers. Tick to see how well you match these.
                             ${checklistHTMLForPage2}
                         `;
 
-// Get student name from DOM (already populated via class)
+                        // Get student name from DOM (already populated via class)
 
 
-// Create footer2
-const footer2 = document.createElement("div");
-footer2.style = `
+                        // Create footer2
+                        const footer2 = document.createElement("div");
+                        footer2.style = `
     border-top: 1px solid #000000;
     padding-top: 10px;
     font-size: 8.5pt;
@@ -1560,26 +1563,26 @@ footer2.style = `
     justify-content: space-between;
 `;
 
-// Left: student name
-const nameSpan2 = document.createElement("span");
-nameSpan2.textContent = studentName;
+                        // Left: student name
+                        const nameSpan2 = document.createElement("span");
+                        nameSpan2.textContent = studentName;
 
-// Right: page number
-const pageSpan2 = document.createElement("span");
-pageSpan2.textContent = `${pageCounter}`;
+                        // Right: page number
+                        const pageSpan2 = document.createElement("span");
+                        pageSpan2.textContent = `${pageCounter}`;
 
-// Add spans to footer2
-footer2.appendChild(nameSpan2);
-footer2.appendChild(pageSpan2);
+                        // Add spans to footer2
+                        footer2.appendChild(nameSpan2);
+                        footer2.appendChild(pageSpan2);
 
-// Append all to page2
-page2.appendChild(header2);
-page2.appendChild(content2);
-page2.appendChild(footer2);
-reportContainer.appendChild(page2);
+                        // Append all to page2
+                        page2.appendChild(header2);
+                        page2.appendChild(content2);
+                        page2.appendChild(footer2);
+                        reportContainer.appendChild(page2);
 
-// Increment page number
-pageCounter++;
+                        // Increment page number
+                        pageCounter++;
 
                     });
 
@@ -1845,8 +1848,9 @@ pageCounter++;
                 <h2 style="color: #0FC8A9; margin: 0; font-size: 30px; ">SUBJECT AVAILABILITY CHART </h2>
             </div>
 
-            <h3 style="font-size: 15py; color: #006699; margin-bottom: 10px; text-align: left; ">A Levels Subjects
-                Available at EDGEPSYCH Consulting</h3>
+            <h3 style="font-size: 15py; color: #006699; margin-bottom: 10px; text-align: left; ">Available A Level
+                Subjects
+            </h3>
 
             <div style="font-size: 10pt.5px; margin-bottom: 20px; line-height: 1.5;text-align: justify;">
                 The subject groups listed in the columns of the Subject Selection Chart, typically offered at your
@@ -1991,7 +1995,7 @@ pageCounter++;
 
                         <tr>
                             <td style="padding: 6px 8px;">15. Sport Related</td>
-                            <td style="padding: 6px 8px;text-align: left;">Sports Studies</td>
+                            <td style="padding: 6px 8px;text-align: left;    vertical-align: top;">Sports Studies</td>
                         </tr>
                     </tbody>
                 </table>
@@ -2247,7 +2251,7 @@ pageCounter++;
 
                         <tr>
                             <td>4. Sciences</td>
-                            <td style="text-align: left;">
+                            <td style="text-align: left;    vertical-align: top;">
                                 Biology<br>
                                 Chemistry<br>
                                 Computer Science<br>
@@ -2257,7 +2261,7 @@ pageCounter++;
                         </tr>
                         <tr>
                             <td>5. Mathematics</td>
-                            <td style="text-align: left;">
+                            <td style="text-align: left;    vertical-align: top;">
                                 Mathematics: Analysis and Approaches (HL)<br>
                                 Mathematics: Analysis and Approaches (SL)<br>
                                 Mathematics: Applications and Interpretation (HL)<br>
@@ -2266,7 +2270,7 @@ pageCounter++;
                         </tr>
                         <tr>
                             <td>6. The Arts</td>
-                            <td style="text-align: left;">
+                            <td style="text-align: left;    vertical-align: top;">
                                 Dance<br>
                                 Film<br>
                                 Music<br>

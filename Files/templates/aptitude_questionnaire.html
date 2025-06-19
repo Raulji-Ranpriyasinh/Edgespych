@@ -532,7 +532,7 @@
     <div id="category-modal"
         style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999;">
         <div
-            style="background:#fff; padding: 20px; max-width: 400px; margin: 15% auto; border-radius: 10px; text-align:center;">
+            style="background:#fff; padding: 20px; max-width: 800px; margin: 10% auto; border-radius: 10px; text-align:center;">
             <h2 id="modal-category-name">Ready?</h2>
             <!-- Corrected to match the JavaScript ID -->
             <p id="modal-category-instruction">You will now begin this category. Click "Start" when you're ready.</p>
@@ -631,29 +631,38 @@
 
 
 
+function showCategorySelection() {
+    console.log("Showing Category Selection...");
 
-        function showCategorySelection() {
-            console.log("Showing Category Selection..."); // Log to check if this is being called
+    const container = document.getElementById("category-selection");
+    container.innerHTML = "";
 
-            const container = document.getElementById("category-selection");
-            container.innerHTML = ""; // Clear previous buttons
+    // Map raw category keys to nice display names
+    const categoryNameMap = {
+        spellingmistake: "Spelling Mistake",
+        ABSTRACT: "Abstract Reasoning",
+        NUMEBERS: "Numbers ",
+        Verbal: "Verbal Reasoning",
+        arithmetic: "Arithmetic",
+        workingQA: "Working-QA",
+        SPATIAL: "Spatial Reasoning"
+    };
 
-            categories.forEach((category, index) => {
-                const button = document.createElement("button");
-                button.innerText = capitalizeFirstLetter(category);
+    categories.forEach((category, index) => {
+        const button = document.createElement("button");
 
-                button.className = "category-button";
-                button.id = `category-button-${index}`;
-                container.appendChild(button);
-            });
+        // Use friendly name if available, fallback to capitalized
+        const displayName = categoryNameMap[category] || capitalizeFirstLetter(category);
 
-            container.style.display = "flex"; // Show all category buttons
-        }
+        button.innerText = displayName;
+        button.className = "category-button";
+        button.id = `category-button-${index}`;
 
-        function capitalizeFirstLetter(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-        }
+        container.appendChild(button);
+    });
 
+    container.style.display = "flex";
+}
 
 
 

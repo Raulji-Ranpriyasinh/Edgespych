@@ -26,13 +26,13 @@
 <body style="font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; background: #f4f4f9;">
 
 
-<script>
+    <script>
         window.onload = function () {
-        fetchStudentData();
-        fetchStudentScores();
-        fetchResults();
-    };
-</script>
+            fetchStudentData();
+            fetchStudentScores();
+            fetchResults();
+        };
+    </script>
     <div style="margin-top: 50px;">
         <!-- <h2>Generate Aptitude Report</h2>
         <button onclick="fetchStudentData(); fetchStudentScores(); fetchResults();"
@@ -52,7 +52,7 @@
             return parts[parts.length - 1]; // Get the last part of the URL (student ID)
         }
     </script>
-<!-- <h3 id="student_name" style="color: #800080;">Loading...</h3> -->
+    <!-- <h3 id="student_name" style="color: #800080;">Loading...</h3> -->
     <!-- Report Section (Initially Hidden) -->
     <div id="report_section" style="display: none;">
         <div id="full_report">
@@ -470,8 +470,23 @@
                                                     ticks: { font: { size: 12 } }
                                                 },
                                                 y: {
-                                                    title: { display: true, text: "Category" },
-                                                    ticks: { font: { size: 12 } }
+                                                    title: {
+                                                        display: true,
+                                                        text: "Category"
+                                                    },
+                                                    position: 'left',
+                                                    ticks: {
+                                                        align: 'start',         // Align labels to the left
+                                                        crossAlign: 'near',     // Nudge text closer to axis
+                                                        autoSkip: false,        // Show all labels
+                                                        padding: 2,             // Keep labels close to axis
+                                                        font: { size: 12 },
+                                                        color: '#333',          // Dark label color for visibility
+                                                        display: true
+                                                    },
+                                                    grid: {
+                                                        display: true
+                                                    }
                                                 }
                                             }
                                         },
@@ -676,16 +691,14 @@
                         account for careers
                         requiring this skill.
                     </p>
-                    <p class="four-description"
-                        style="text-align: justify;     font-size: 14px;   margin: 10px auto 20px auto;">
-                        Verbal Reasoning (English) – This test measures your ability to understand and identify
-                        relationships between words in the
-                        English language. It gauges your aptitude for academic work, especially in verbal comprehension.
-                        Your score is slightly below
-                        average for someone with your academic background, indicating that you may face challenges in
-                        fields requiring strong
-                        verbal reasoning and language skills.
-                    </p>
+<p class="four-description"
+   style="text-align: justify; font-size: 14px; margin: 10px auto 20px auto;">
+   <span style="font-weight: bold !important;">Verbal Reasoning (English)</span> – This test measures your ability to understand and identify
+   relationships between words in the English language. It gauges your aptitude for academic work, especially in verbal comprehension.
+   Your score is slightly below average for someone with your academic background, indicating that you may face challenges in
+   fields requiring strong verbal reasoning and language skills.
+</p>
+
                     <p class="four-description"
                         style="text-align: justify;     font-size: 14px;   margin: 10px auto 20px auto;">
                         Spatial Reasoning – These tests assess your ability to visualize and manipulate two- and
@@ -905,6 +918,6 @@
         pdf.save("Aptitude_Report.pdf");
     }
 
-</script> 
+</script>
 
 </html>
