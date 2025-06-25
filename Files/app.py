@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+from functools import wraps
 import mysql.connector
 import random
 import time
@@ -285,16 +286,13 @@ def admin_login_page():
 # Dashboard route
 @app.route('/dashboard')
 def dashboard():
+
     if 'user_id' not in session:
         return redirect(url_for('home'))
     user_id = session.get('user_id')  # Retrieve student ID from session
     user_email = session.get('user_email')  # Retrieve email from session
     user_first_name = session.get('user_first_name')
     return render_template('dashboard.html', email=user_email, user_id=user_id,first_name=user_first_name)
-
-
-
-
 
 @app.route('/admin_dashboard')
 def admin_dashboard():
