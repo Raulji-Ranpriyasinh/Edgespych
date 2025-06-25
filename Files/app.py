@@ -39,9 +39,6 @@ class StudentDetails(db.Model):
     can_view_career_result = db.Column(db.Boolean, default=False)
 
    
-
-
-
 class CareerQuestion(db.Model):
     __tablename__ = 'careerquestion'  # Match the exact MySQL table name
     question_number = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -838,7 +835,8 @@ def get_career_scores(student_id):
     subjects_list = []
     for sub in subject_scores:
         if sub in subject_names_dict:
-            main_score = min(round(subject_scores[sub], 2),100)
+            main_score = min(round(subject_scores[sub]), 100)
+
 
             # Get supporting subjects related to this main subject
             related_supporting_ids = main_supporting_subject_map.get(sub, [])
@@ -848,7 +846,8 @@ def get_career_scores(student_id):
 
             # Calculate overall match score
             if related_scores:
-                overall_score = round((main_score + sum(related_scores)) / (1 + len(related_scores)), 2)
+                overall_score = round((main_score + sum(related_scores)) / (1 + len(related_scores)))
+
                 #overall_score = round((sum(related_scores)) / (len(related_scores)), 2)
             else:
                 overall_score = main_score
@@ -868,7 +867,8 @@ def get_career_scores(student_id):
     supporting_subjects_list = [
         {
             "name": supporting_subject_names_dict[sup],
-            "score": min(round(supporting_subject_scores[sup], 2), 100),
+            "score": min(round(supporting_subject_scores[sup]), 100),
+
             "total_questions": supporting_subject_question_count.get(sup, 0),
             "questions": supporting_subject_question_numbers.get(sup, [])
         }
@@ -918,7 +918,8 @@ def career_report(student_id):
             {
                 "subject_id": sub_id,
                 "field": subject_names_dict.get(sub_id, "Unknown"),
-                "score": round(subject_scores[sub_id], 2)
+                "score": round(subject_scores[sub_id])
+
             }
             for sub_id in subject_scores if sub_id in subject_names_dict
         ],
@@ -984,7 +985,8 @@ def career_report(student_id):
                     if name.lower() == sub_name.lower():
                         sup_id = sid
                         break
-                score = round(supporting_scores.get(sup_id, 0), 2) if sup_id else 0
+                score = round(supporting_scores.get(sup_id, 0)) if sup_id else 0
+
                 subject["supporting_subjects"].append({
                     "subject_id": sup_id,
                     "name": sub_name,

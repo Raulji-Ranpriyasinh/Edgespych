@@ -1,1 +1,1 @@
-    db.session.add(new_user)
+home

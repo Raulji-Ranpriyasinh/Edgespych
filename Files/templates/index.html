@@ -2,251 +2,264 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Student Login & Register</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f8fbfd;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Login & Register</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8fbfd;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-        .container {
-            width: 400px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+    .container {
+      width: 400px;
+      background: white;
+      padding: 24px 32px;
+      border-radius: 8px;
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      margin-top: 30px;
+    }
 
-        input,
-        select {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease;
+    }
 
-        button {
-            width: 95%;
-            padding: 12px;
-            background: linear-gradient(90deg, #015fff, #3b72d0);
-            color: white;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(90deg, #015fff, #3b72d0);
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
 
-        button:hover {
-            background: linear-gradient(90deg, #015fff, #3b72d0);
-        }
+    button:hover {
+      background: linear-gradient(90deg, #0148d4, #305fae);
+    }
 
-        .register {
-            background: linear-gradient(90deg, #015fff, #3b72d0);
-        }
+    .toggle-link {
+      display: block;
+      margin-top: 15px;
+      color: #007bff;
+      cursor: pointer;
+    }
 
-        .toggle-link {
-            display: block;
-            margin-top: 15px;
-            color: #007bff;
-            cursor: pointer;
-        }
+    .toggle-link:hover {
+      text-decoration: underline;
+    }
 
-        .toggle-link:hover {
-            text-decoration: underline;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        /* Label styles for live display */
-        #studentForm label {
-            display: block;
-            font-weight: bold;
-            margin-top: 10px;
-            text-align: left;
-            font-size: 14px;
-            color: #444;
-        }
-
-        #studentForm span.status-text {
-            font-weight: normal;
-            font-style: italic;
-            color: #666;
-            margin-left: 5px;
-        }
-
-        input:focus,
-        select:focus {
-            outline: none;
-            /* Removes the default focus outline */
-            border-color: #E8F0FE;
-            /* Optional: reset border color if needed */
-            box-shadow: none;
-            /* Removes any focus shadow if present */
-        }
-    </style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" width="250px" />
-        <h2 id="formTitle">Register</h2>
+  <div class="container">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" width="250px" />
+    <h2 id="formTitle">Register</h2>
 
-        <!-- Login Form -->
-        <div id="studentForm" class="hidden">
-
-            <input type="text" id="studentEmail" placeholder="Enter Student Email" />
-            <input type="password" id="studentPassword" placeholder="Enter Password" />
-
-            <button onclick="loginStudent()">Log in</button>
-            <span class="toggle-link" onclick="toggleForms()">Don't have an account? Register here</span>
-        </div>
-
-        <!-- Register Form -->
-        <div id="registerForm">
-            <form>
-                <input type="text" placeholder="First Name *" required />
-                <input type="text" placeholder="Last Name *" required />
-                <input type="email" placeholder="Email *" required />
-                <input type="text" placeholder="Mobile Number with Country Code *" required />
-                <input type="text" placeholder="Country *" required />
-
-                <select required>
-                    <option value="">Select Curriculum *</option>
-                    <option value="IB">IB</option>
-                    <option value="Cambridge">Cambridge</option>
-                    <option value="American">American</option>
-                    <option value="Other">Other</option>
-                </select>
-
-                <input type="text" placeholder="School Name *" required />
-
-                <select name="grade" required>
-                    <option value="">Grade *</option>
-                    <option value="VIII/Year-09">VIII/Year-09</option>
-                    <option value="IX/Year-10/Freshmen">IX/Year-10/Freshmen</option>
-                    <option value="X/Year-11/Sophomore">X/Year-11/Sophomore</option>
-                    <option value="XI/Year-12/Jr. High">XI/Year-12/Jr. High</option>
-                    <option value="XII/Year-13/High">XII/Year-13/High</option>
-                </select>
-
-                <select required>
-                    <option value="">How did you know about us? *</option>
-                    <option value="Social Media">Social Media</option>
-                    <option value="Friends/Family">Friends/Family</option>
-                    <option value="Advertisements">Advertisements</option>
-                </select>
-
-                <input type="password" placeholder="Password *" required />
-                <input type="password" placeholder="Confirm Password *" required />
-
-                <button class="register" type="submit">Register</button>
-                <span class="toggle-link" onclick="toggleForms()">Already registered? Login here</span>
-            </form>
-        </div>
+    <!-- Login Form -->
+    <div id="studentForm" class="hidden">
+      <input type="email" id="studentEmail" placeholder="Enter Student Email" required />
+      <input type="password" id="studentPassword" placeholder="Enter Password" required />
+      <button onclick="loginStudent()">Log in</button>
+      <span class="toggle-link" onclick="toggleForms()">Don't have an account? Register here</span>
     </div>
 
-    <script>
-        function toggleForms() {
-            const studentForm = document.getElementById("studentForm");
-            const registerForm = document.getElementById("registerForm");
-            const formTitle = document.getElementById("formTitle");
+    <!-- Register Form -->
+    <div id="registerForm">
+      <form onsubmit="return registerStudent(event)">
+        <input type="text" id="first_name" placeholder="First Name *" required />
+        <input type="text" id="last_name" placeholder="Last Name *" required />
+        <input type="email" id="email" placeholder="Email *" required />
+        <input type="text" id="mobile_number" placeholder="10-digit Mobile Number *" required maxlength="10" />
+        <input type="text" id="country" placeholder="Country *" required />
 
-            if (registerForm.classList.contains("hidden")) {
-                registerForm.classList.remove("hidden");
-                studentForm.classList.add("hidden");
-                formTitle.textContent = "Register";
-            } else {
-                registerForm.classList.add("hidden");
-                studentForm.classList.remove("hidden");
-                formTitle.textContent = "Login";
-            }
-        }
+        <select id="curriculum" required>
+          <option value="">Select Curriculum *</option>
+          <option value="IB">IB</option>
+          <option value="Cambridge">Cambridge</option>
+          <option value="American">American</option>
+          <option value="Other">Other</option>
+        </select>
 
-        function loginStudent() {
-            const email = document.getElementById("studentEmail").value;
-            const password = document.getElementById("studentPassword").value;
+        <input type="text" id="school_name" placeholder="School Name *" required />
 
-            fetch("/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: email, password: password }),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data.success) {
-                        window.location.href = "/dashboard";
-                    } else {
-                        alert("Invalid credentials");
-                    }
-                })
-                .catch((error) => console.error("Error:", error));
-        }
+        <select id="grade" required>
+          <option value="">Grade *</option>
+          <option value="VIII/Year-09">VIII/Year-09</option>
+          <option value="IX/Year-10/Freshmen">IX/Year-10/Freshmen</option>
+          <option value="X/Year-11/Sophomore">X/Year-11/Sophomore</option>
+          <option value="XI/Year-12/Jr. High">XI/Year-12/Jr. High</option>
+          <option value="XII/Year-13/High">XII/Year-13/High</option>
+        </select>
 
-        document.querySelector("#registerForm form").addEventListener("submit", function (event) {
-            event.preventDefault();
+        <select id="referral_source" required>
+          <option value="">How did you know about us? *</option>
+          <option value="Social Media">Social Media</option>
+          <option value="Friends/Family">Friends/Family</option>
+          <option value="Advertisements">Advertisements</option>
+        </select>
 
-            const formData = {
-                first_name: document.querySelector("#registerForm input:nth-child(1)").value,
-                last_name: document.querySelector("#registerForm input:nth-child(2)").value,
-                email: document.querySelector("#registerForm input:nth-child(3)").value,
-                mobile_number: document.querySelector("#registerForm input:nth-child(4)").value,
-                country: document.querySelector("#registerForm input:nth-child(5)").value,
-                curriculum: document.querySelector("#registerForm select:nth-child(6)").value,
-                school_name: document.querySelector("#registerForm input:nth-child(7)").value,
-                grade: document.querySelector("#registerForm select:nth-child(8)").value,
-                referral_source: document.querySelector("#registerForm select:nth-child(9)").value,
-                password: document.querySelector("#registerForm input:nth-child(10)").value,
-            };
+        <input type="password" id="password" placeholder="Password *" required />
+        <input type="password" id="confirmPassword" placeholder="Confirm Password *" required />
 
-            fetch("/register", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    alert(data.message);
-                    if (data.success) {
-    window.location.href = "/dashboard"; // Redirect immediately after registration
-} // Go to login after success
-                })
-                .catch((error) => console.error("Error:", error));
+        <button class="register" type="submit">Register</button>
+        <span class="toggle-link" onclick="toggleForms()">Already registered? Login here</span>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function toggleForms() {
+      const studentForm = document.getElementById("studentForm");
+      const registerForm = document.getElementById("registerForm");
+      const formTitle = document.getElementById("formTitle");
+
+      if (registerForm.classList.contains("hidden")) {
+        registerForm.classList.remove("hidden");
+        studentForm.classList.add("hidden");
+        formTitle.textContent = "Register";
+      } else {
+        registerForm.classList.add("hidden");
+        studentForm.classList.remove("hidden");
+        formTitle.textContent = "Login";
+      }
+    }
+
+    function loginStudent() {
+      const email = document.getElementById("studentEmail").value.trim().toLowerCase();
+      const password = document.getElementById("studentPassword").value;
+
+      if (!email || !password) {
+        alert("Please fill in both fields.");
+        return;
+      }
+
+      fetch("/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = "/dashboard";
+          } else {
+            alert("Invalid credentials");
+          }
+        })
+        .catch(error => console.error("Error:", error));
+    }
+
+    function registerStudent(event) {
+      event.preventDefault();
+
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const mobile = document.getElementById("mobile_number").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+      }
+
+      if (mobile.length !== 10) {
+        alert("Mobile number must be exactly 10 digits.");
+        return false;
+      }
+
+      const data = {
+        first_name: document.getElementById("first_name").value.trim(),
+        last_name: document.getElementById("last_name").value.trim(),
+        email: document.getElementById("email").value.trim().toLowerCase(),
+        mobile_number: mobile,
+        country: document.getElementById("country").value.trim(),
+        curriculum: document.getElementById("curriculum").value,
+        school_name: document.getElementById("school_name").value.trim(),
+        grade: document.getElementById("grade").value,
+        referral_source: document.getElementById("referral_source").value,
+        password: password
+      };
+
+      fetch("/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(result => {
+          if (result.success) {
+            alert("Registration successful login successful!");
+            window.location.href = "/dashboard";
+          } else {
+            alert(result.message || "Registration failed.");
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          alert("An error occurred.");
         });
 
-        // --------- New code for live display and background color ---------
+      return false;
+    }
 
-        const studentEmailInput = document.getElementById("studentEmail");
-        const studentPasswordInput = document.getElementById("studentPassword");
-
-
-        studentEmailInput.addEventListener("focus", () => updateInputBackground(studentEmailInput));
-        studentEmailInput.addEventListener("blur", () => updateInputBackground(studentEmailInput));
-
-        studentPasswordInput.addEventListener("focus", () => updateInputBackground(studentPasswordInput));
-        studentPasswordInput.addEventListener("blur", () => updateInputBackground(studentPasswordInput));
-
-        function updateInputBackground(inputElem) {
-            if (inputElem === document.activeElement || inputElem.value.trim() !== "") {
-                inputElem.style.backgroundColor = "#E1EAFA"; // light green for focus or filled
-            } else {
-                inputElem.style.backgroundColor = ""; // default
-            }
+    // Capitalize first letter
+    function formatNameField(id) {
+      const input = document.getElementById(id);
+      input.addEventListener("input", () => {
+        const val = input.value.trim();
+        if (val.length > 0) {
+          input.value = val.charAt(0).toUpperCase() + val.slice(1).toLowerCase();
         }
-    </script>
+      });
+    }
+
+    formatNameField("first_name");
+    formatNameField("last_name");
+    formatNameField("country");
+    formatNameField("school_name");
+
+    document.getElementById("email").addEventListener("input", function () {
+      this.value = this.value.toLowerCase();
+    });
+
+    document.getElementById("mobile_number").addEventListener("input", function () {
+      this.value = this.value.replace(/\D/g, '').slice(0, 10);
+    });
+
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach((input) => {
+      input.addEventListener("focus", () => updateInputBackground(input));
+      input.addEventListener("blur", () => updateInputBackground(input));
+    });
+
+    function updateInputBackground(inputElem) {
+      if (inputElem === document.activeElement || inputElem.value.trim() !== "") {
+        inputElem.style.backgroundColor = "#E1EAFA";
+      } else {
+        inputElem.style.backgroundColor = "";
+      }
+    }
+  </script>
 </body>
 
 </html>

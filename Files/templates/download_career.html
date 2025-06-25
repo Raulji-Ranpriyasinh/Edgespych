@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>MYCAREERCHOICES</title>
+    <title>Edgepsych Career Report</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -20,7 +20,7 @@
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: white;
             text-align: center;
 
         }
@@ -189,7 +189,7 @@
 
         @media print {
             body {
-                background-color: #fff;
+                background-color: white;
             }
 
             .page {
@@ -204,8 +204,8 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white;
             margin: 0;
             padding: 0;
         }
@@ -377,6 +377,7 @@
                 generate();
                 ibgenerate();
                 loadOverallOnlyChart();
+                tableData();
             }
         };
     </script>
@@ -422,41 +423,51 @@
                 <div style="width: 40%; font-weight: bold; color: #1f2d5d; font-size: 16px;text-align: left; ">Your
                     Feedback</div>
                 <div style="width: 60%;">
-                    <div
-                        style="display: flex; align-items: center; margin-bottom: 8px; background-color: #EFD8DE;padding-right: 12px; ">
-                        <span
-                            style="background-color: #A31C3E; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">I</span>
-                        The Career Navigator Pathways
-                        <span style="margin-left: auto;">1</span>
-                    </div>
-                    <div
-                        style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E4DDFD;padding-right: 12px; ">
-                        <span
-                            style="background-color: #592BF1; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">II</span>
-                        Interest Profile and Overall Match
-                        <span style="margin-left: auto;">2</span>
-                    </div>
-                    <div
-                        style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E5DEE5;padding-right: 12px; ">
-                        <span
-                            style="background-color: #360335; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">III</span>
-                        Careers Selection Worksheets
-                        <span style="margin-left: auto;">4</span>
-                    </div>
-                    <div
-                        style="display: flex; align-items: center; margin-bottom: 8px;background-color: #E2F8F5; padding-right: 12px;">
-                        <span
-                            style="background-color: #0FC8A9; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">IV</span>
-                        Subject Selection Chart (A)
-                        <span style="margin-left: auto;">24</span>
-                    </div>
-                    <div
-                        style="display: flex; align-items: center; margin-bottom: 8px;background-color: #DAECE8; padding-right: 12px;">
-                        <span
-                            style="background-color: #329681; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">V</span>
-                        Subject Selection Chart (B)
-                        <span style="margin-left: auto;">26</span>
-                    </div>
+                    <a href="#page1" style="text-decoration: none;color: inherit; ">
+                        <div
+                            style="display: flex; align-items: center; margin-bottom: 8px; background-color: #EFD8DE;padding-right: 12px; ">
+                            <span
+                                style="background-color: #A31C3E; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">I</span>
+                            The Career Navigator Pathways
+                            <span style="margin-left: auto;">1</span>
+                        </div>
+                    </a>
+                    <a href="#page2" style="text-decoration: none;color: inherit; ">
+                        <div
+                            style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E4DDFD;padding-right: 12px; ">
+                            <span
+                                style="background-color: #592BF1; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">II</span>
+                            Interest Profile and Overall Match
+                            <span style="margin-left: auto;">2</span>
+                        </div>
+                    </a>
+                    <a href="#page3" style="text-decoration: none;color: inherit; ">
+                        <div
+                            style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E5DEE5;padding-right: 12px; ">
+                            <span
+                                style="background-color: #360335; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">III</span>
+                            Careers Selection Worksheets
+                            <span style="margin-left: auto;">4</span>
+                        </div>
+                    </a>
+                    <a href="#page4" style="text-decoration: none;color: inherit; ">
+                        <div
+                            style="display: flex; align-items: center; margin-bottom: 8px;background-color: #E2F8F5; padding-right: 12px;">
+                            <span
+                                style="background-color: #0FC8A9; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">IV</span>
+                            Subject Selection Chart (A)
+                            <span style="margin-left: auto;">24</span>
+                        </div>
+                    </a>
+                    <a href="#page5" style="text-decoration: none;color: inherit; ">
+                        <div
+                            style="display: flex; align-items: center; margin-bottom: 8px;background-color: #DAECE8; padding-right: 12px;">
+                            <span
+                                style="background-color: #329681; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">V</span>
+                            Subject Selection Chart (B)
+                            <span style="margin-left: auto;">26</span>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -468,27 +479,36 @@
                 <div style="width: 40%; font-weight: bold; color: #1f2d5d; font-size: 16px; text-align: left;">How to
                     use your <br> Career <br> Navigator <br> Feedback</div>
                 <div style="width: 60%;">
-                    <div
-                        style="display: flex; align-items: center; margin-bottom: 8px;background-color: #E6E0EF; padding-right: 12px;">
-                        <span
-                            style="background-color: #400E86; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">VI</span>
-                        The Idea Map
-                        <span style="margin-left: auto;">28</span>
-                    </div>
-                    <div
-                        style="display: flex; align-items: center; margin-bottom: 8px;background-color: #E8F0E8; padding-right: 12px;">
-                        <span
-                            style="background-color: #0D610D; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">VII</span>
-                        Career Mapping
-                        <span style="margin-left: auto;">30</span>
-                    </div>
-                    <div
-                        style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E6E2DC ;padding-right: 12px; ">
-                        <span
-                            style="background-color: #6C552F; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">VIII</span>
-                        Careers Analysis Forms
-                        <span style="margin-left: auto;">17</span>
-                    </div>
+                    <a href="#page6" style="text-decoration: none;color: inherit; ">
+                        <div
+                            style="display: flex; align-items: center; margin-bottom: 8px;background-color: #E6E0EF; padding-right: 12px;">
+                            <span
+                                style="background-color: #400E86; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">VI</span>
+                            The Idea Map
+                            <span style="margin-left: auto;">28</span>
+                        </div>
+                    </a>
+                    <a href="#page7" style="text-decoration: none;color: inherit; ">
+                        <div
+                            style="display: flex; align-items: center; margin-bottom: 8px;background-color: #E8F0E8; padding-right: 12px;">
+                            <span
+                                style="background-color: #0D610D; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">VII</span>
+                            Career Mapping
+                            <span style="margin-left: auto;">30</span>
+                        </div>
+                    </a>
+
+                    <a href="#page8" style="text-decoration: none;color: inherit; ">
+
+                        <div
+                            style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E6E2DC ;padding-right: 12px; ">
+                            <span
+                                style="background-color: #6C552F; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">VIII</span>
+                            Careers Analysis Forms
+                            <span style="margin-left: auto;">17</span>
+                        </div>
+                    </a>
+
                 </div>
             </div>
 
@@ -524,13 +544,14 @@
 
         <!-- above index -->
         <!-- 4 Page -->
-        <div class="page" style="text-align: left;">
+        <div id="page1" class="page" style="text-align: left;">
             <div class="header"></div>
 
             <header>
                 <h2 class="title"
                     style="text-align: right;border-bottom: 2px solid #EFD8DE; padding-bottom: 10px; font-size: 30px;color: #A31C3E;">
-                    The EDGEPSYCH Programme </h2>
+                    The <img src="/static/logopdf.png" alt="EDGEPSYCH" style="height: 1em; vertical-align: middle; margin: 0 0px; position: relative;
+  top: 4px; " /> Programme </h2>
                 <div class="circle"
                     style="width: 50px; height: 50px; border: 2px solid #EFD8DE; border-radius: 50%; text-align: center; 
                 font-size: 30px; font-weight: bold; color: #A31C3E;; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
@@ -542,7 +563,7 @@
             <!-- <h1 class="main-heading" style="font-size: 20px;">The <span class="highlight">EDGEPSYCH Programme</span>
             </h1> -->
             <p class="description" style="font-size: 10pt;text-align: justify;">
-                The <span class="highlight">EDGEPSYCH programme</span> has been designed to help you consider and
+                The <span class="highlight"> EDGEPSYCH programme</span> has been designed to help you consider and
                 explore in greater detail your future career possibilities, as well as A Levels / IB subjects, which
                 will meet the requirements for higher education or other routes into your lifelong career path.
             </p>
@@ -607,7 +628,7 @@
 
         </div>
         <!-- 5 page -->
-        <div class="page">
+        <div id="page2" class="page">
             <div class="header" style="font-size: 8.5pt;"></div>
 
             <!-- Page Header -->
@@ -709,7 +730,164 @@
 
         </div>
         <!-- 6 page -->
-        <div class="page">
+<div class="page">
+  <div style="border-bottom: 2px solid #E4DDFD; padding-bottom: 10px; display: flex; align-items: center;">
+    <div
+      style="width: 50px; height: 50px; border: 2px solid #E4DDFD; border-radius: 50%; text-align: center;
+      font-size: 30px; font-weight: bold; color: #592BF1; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+      II
+    </div>
+    <h2 style="color: #592BF1; margin: 0; font-size: 30px;">INTEREST PROFILE AND OVERALL MATCH</h2>
+  </div>
+
+  <table id="interest-table" class="bar-table" style="margin-top: 10px;">
+    <thead>
+      <tr>
+        <th>Career Field</th>
+        <th>Interest</th>
+        <th>Overall Match</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <!-- <canvas id="careerChart" style="width: 100%; height: 400px; margin-top: 30px;"></canvas>
+  <canvas id="overallcareerChart" style="width: 100%; height: 400px; margin-top: 30px;"></canvas> -->
+</div>
+
+<style>
+  .bar-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    table-layout: fixed;
+  }
+
+  .bar-table th,
+  .bar-table td {
+    text-align: left;
+    font-size: 10px;
+    vertical-align: middle;
+  }
+
+  .bar-container {
+    width: 100%;
+    border-radius: 4px;
+    height: 14px;
+    position: relative;
+  }
+
+  .bar {
+    height: 100%;
+    border-radius: 4px;
+    display: block;
+  }
+
+  .bar-label {
+    font-size: 8pt;
+    margin-left: 5px;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+<script>
+  let interestChart = null;
+  let overallChart = null;
+
+  function getStudentIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get("student_id");
+  }
+
+  function tableData(subjects) {
+    const tableBody = document.querySelector("#interest-table tbody");
+    tableBody.innerHTML = "";
+
+    subjects.forEach((subject, index) => {
+      const row = document.createElement("tr");
+
+      let colorInterest = 'rgba(255, 255, 153, 1)'; // Baby yellow
+      let colorMatch = 'rgba(255, 255, 153, 1)';
+
+      if (index < 10) {
+        colorInterest = 'rgba(144, 238, 144, 1)'; // Baby green
+        colorMatch = 'rgba(144, 238, 144, 1)';
+      } else if (index >= subjects.length - 10) {
+        colorInterest = 'rgba(255, 182, 193, 1)'; // Baby red
+        colorMatch = 'rgba(255, 182, 193, 1)';
+      }
+
+      // Career Field
+      const nameCell = document.createElement("td");
+      nameCell.textContent = subject.name;
+      row.appendChild(nameCell);
+
+      // Interest Score + Bar
+      const interestCell = document.createElement("td");
+      interestCell.innerHTML = `
+        <div style="display: flex; align-items: center;">
+          <span style="min-width: 35px;">${subject.score?.toFixed(1) || 0}</span>
+          <div class="bar-container" style="margin-left: 5px;">
+            <div class="bar" style="width: ${subject.score}%; background-color: ${colorInterest};"></div>
+          </div>
+        </div>
+      `;
+      row.appendChild(interestCell);
+
+      // Overall Match Score + Bar
+      const overallCell = document.createElement("td");
+      overallCell.innerHTML = `
+        <div style="display: flex; align-items: center;">
+          <span style="min-width: 35px;">${subject.overall_match_score?.toFixed(1) || 0}</span>
+          <div class="bar-container" style="margin-left: 5px;">
+            <div class="bar" style="width: ${subject.overall_match_score}%; background-color: ${colorMatch};"></div>
+          </div>
+        </div>
+      `;
+      row.appendChild(overallCell);
+
+      tableBody.appendChild(row);
+    });
+  }
+
+  function loadData() {
+    const studentId = getStudentIdFromUrl();
+    if (!studentId) {
+      alert("Please enter a student ID.");
+      return;
+    }
+
+    fetch(`/get_career_scores/${studentId}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) {
+          alert(data.error);
+          return;
+        }
+
+        let subjects = data.subjects;
+        subjects.sort((a, b) => b.score - a.score);
+
+        // Optional: if you re-enable the canvas charts, update their colors too
+        tableData(subjects);
+        // loadOverallOnlyChart(subjects);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+
+  document.addEventListener("DOMContentLoaded", loadData);
+</script>
+
+
+
+
+<!-- /////above canvas -->
+        <div class="page" style="display: none;" >
             <div class="header"></div>
 
             <style>
@@ -788,8 +966,8 @@
 
             <script>
 
-                let interestChart = null;
-                let overallChart = null;
+               // let interestChart = null;
+                //let overallChart = null;
                 function loadData() {
                     console.log("loadData() called");
 
@@ -914,8 +1092,10 @@
                             //document.getElementById("student_id").style.display = "block";
                         });
                     loadOverallOnlyChart()
+                    
                 }
 
+                
                 function loadOverallOnlyChart() {
                     const studentId = getStudentIdFromUrl();
                     //const studentId = document.getElementById("student_id").value;
@@ -1017,7 +1197,7 @@
                                             anchor: 'centre',
                                             align: 'centre',
                                             color: 'black',
-                                        
+
                                             font: { size: 5 },
                                             formatter: value => value.toFixed(1) + '%'
 
@@ -1047,9 +1227,9 @@
                 <span>2</span> <!-- Right -->
             </div>
         </div>
-
+<!-- /////above canvas -->
         <!-- career selection worksheet page 7 -->
-        <div class="page">
+        <div id="page3" class="page">
             <div class="header" style="font-size: 8.5pt;"></div>
 
             <!-- Page Header -->
@@ -1282,7 +1462,7 @@
         The following careers are some you might like to consider specifically within this area.
         </span></h3>
 <ul style="list-style-type: none; padding-left: 0;">
-    <table style="width: 100%; border-collapse: collapse;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
         <tbody>
             ${field.careers.map(career => `
                 <tr style="border-top: 2px solid #E5DEE5; border-bottom: 2px solid #E5DEE5;">
@@ -1597,74 +1777,66 @@ be required in these careers. Tick to see how well you match these.
         <!-- ////// -->
         <!-- -------------------reeport------------------------------------------ done-->
         <!-- page A level Subject Availabilite -->
-        <div class="page">
-            <style>
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-                    margin-top: 15px;
-                    table-layout: fixed;
-                    font-size: 11px;
-                }
+        <div id="page4" class="page">
+           <style>
+  #crosstabContainer table,
+  #ibCrosstabContainer table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    table-layout: fixed;
+    font-size: 11px;
+  }
 
-                th,
-                td {
-                    border: 1px solid #ccc;
-                    padding: 4px;
-                    text-align: center;
-                    word-wrap: break-word;
-                }
+  #crosstabContainer th,
+  #crosstabContainer td,
+  #ibCrosstabContainer th,
+  #ibCrosstabContainer td {
+    border: 1px solid #ccc;
+    padding: 4px;
+    text-align: center;
+    word-wrap: break-word;
+  }
 
-                th {
-                    background-color: #f2f2f2;
-                }
+  #crosstabContainer th,
+  #ibCrosstabContainer th {
+    background-color: #f2f2f2;
+  }
 
-                tr:nth-child(even) {
-                    background-color: #fafafa;
-                }
+  #crosstabContainer tr:nth-child(even),
+  #ibCrosstabContainer tr:nth-child(even) {
+    background-color: #fafafa;
+  }
 
-                /*
-                .vertical-header {
-                    width: 30px;
-                    padding: 0;
-                    text-align: left;
-                    vertical-align: middle;
-                    writing-mode: vertical-rl;
-                    transform: rotate(180deg);
-                    font-size: 10px;
-                
-            }*/
-                .vertical-header {
-                    width: 30px;
-                    padding: 0;
-                    text-align: center;
-                    vertical-align: middle;
-                    font-size: 10px;
-                    line-height: 1.2;
-                    white-space: wrap;
-                }
+  #crosstabContainer .vertical-header,
+  #ibCrosstabContainer .vertical-header {
+    width: 30px;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 10px;
+    line-height: 1.2;
+    white-space: wrap;
+  }
+
+  #crosstabContainer th:first-child,
+  #crosstabContainer td:first-child,
+  #ibCrosstabContainer th:first-child,
+  #ibCrosstabContainer td:first-child {
+    width: 80px;
+    max-width: 80px;
+    white-space: normal;
+    font-size: 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  #dcontent {
+    display: none;
+  }
+</style>
 
 
-
-                th:first-child,
-                td:first-child {
-                    width: 80px;
-                    max-width: 80px;
-                    white-space: normal;
-                    font-size: 10px;
-                    text-align: left;
-                    vertical-align: top;
-                }
-
-                #crosstabContainer {
-                    overflow-x: auto;
-                }
-
-                /* Initially hide dcontent */
-                #dcontent {
-                    display: none;
-                }
-            </style>
 
             <div style="border-bottom: 2px solid #E2F8F5; padding-bottom: 10px; display: flex; align-items: center;">
                 <div
@@ -1836,177 +2008,205 @@ be required in these careers. Tick to see how well you match these.
 
 
         <!-- page d a availability-->
-        <div class="page">
+      <div class="page" style="font-family: 'Arial', sans-serif; padding: 20px;">
 
+    <div style="border-bottom: 2px solid #E2F8F5; padding-bottom: 10px; display: flex; align-items: center;">
+        <div style="width: 50px; height: 50px; border: 2px solid #E2F8F5; border-radius: 50%; 
+            font-size: 22px; font-weight: bold; color: #0FC8A9; display: flex; 
+            align-items: center; justify-content: center; margin-right: 12px;">
+            IV
+        </div>
+        <h2 style="color: #0FC8A9; margin: 0; font-size: 26px;">SUBJECT AVAILABILITY CHART</h2>
+    </div>
 
-            <div style="border-bottom: 2px solid #E2F8F5; padding-bottom: 10px; display: flex; align-items: center;">
-                <div
-                    style="width: 50px; height: 50px; border: 2px solid #E2F8F5; border-radius: 50%; text-align: center; 
-                    font-size: 30px; font-weight: bold; color: #0FC8A9; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
-                    IV
-                </div>
-                <h2 style="color: #0FC8A9; margin: 0; font-size: 30px; ">SUBJECT AVAILABILITY CHART </h2>
-            </div>
+    <h3 style="font-size: 15px; color: #006699; margin: 20px 0 10px;">Available A Level Subjects</h3>
 
-            <h3 style="font-size: 15py; color: #006699; margin-bottom: 10px; text-align: left; ">Available A Level
-                Subjects
-            </h3>
+    <div style="font-size: 10.5pt; margin-bottom: 20px; line-height: 1.6; text-align: justify;">
+        The subject groups listed in the columns of the Subject Selection Chart, typically offered at your
+        school or college for A Levels, are shown below. It may be helpful to highlight the subjects you
+        selected for your combinations on the previous page. This is especially important when multiple
+        subjects fall under the same subject group. For example, in Group 2, you could highlight 'History,'
+        and in Group 3, you might highlight 'French' or 'German.'
+    </div>
+<style>
+  .subject-chart {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    position: relative;
+  }
 
-            <div style="font-size: 10pt.5px; margin-bottom: 20px; line-height: 1.5;text-align: justify;">
-                The subject groups listed in the columns of the Subject Selection Chart, typically offered at your
-                school or college for A Levels, are
-                shown below. It may be helpful to highlight the subjects you selected for your combinations on the
-                previous page. This is especially
-                important when multiple subjects fall under the same subject group. For example, in Group 2, you could
-                highlight 'History,' and in
-                Group 3, you might highlight 'French' or 'German
-                .
-            </div>
+  .subject-chart .header {
+    border-bottom: 2px solid #E2F8F5;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
 
-            <div style="display: flex; justify-content: space-between; gap: 20px;">
-                <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
-                    <thead>
-                        <tr>
-                            <th
-                                style="background-color: #f2f2f2; text-align: left; padding: 8px; border-bottom: 2px solid #ccc;">
-                                Subject Group</th>
-                            <th
-                                style="background-color: #f2f2f2; text-align: left; padding: 8px; border-bottom: 2px solid #ccc;">
-                                Subjects Available</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+  .subject-chart .circle {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #E2F8F5;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: bold;
+    color: #0FC8A9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+  }
 
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top ;">1.
-                                Literary Subjects</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                English Language<br>English Literature</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">2. History
-                                Related</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                Classical Civilisation<br>History<br>History of Art</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">3.
-                                Languages - Modern/Classical</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                French<br>German<br>Classical Greek<br>Latin<br>Spanish</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">4.
-                                Miscellaneous Arts/Humanities</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                Media Studies<br>Psychology<br>Religious Studies<br>Sociology</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">5.
-                                Economics/Business</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                Business<br>Economics<br>Law</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 6px 8px;">6. Music/Drama/Theatre Studies</td>
-                            <td style="padding: 6px 8px;text-align: left;">Drama and Theatre<br>Music<br>Theatre Studies
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">7.
-                                Art/Design/Craft</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                Art and Design</td>
-                        </tr>
+  .subject-chart h2 {
+    color: #0FC8A9;
+    margin: 0;
+    font-size: 26px;
+  }
 
+  .subject-chart h3 {
+    font-size: 15px;
+    color: #006699;
+    margin: 20px 0 10px;
+  }
 
+  .subject-chart .description {
+    font-size: 10.5pt;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: justify;
+  }
 
-                    </tbody>
-                </table>
+  .subject-chart .tables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 
-                <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
-                    <thead>
+  .subject-chart table {
+    flex: 1;
+    min-width: 300px;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
 
+  .subject-chart table thead {
+    background-color: #f2f2f2;
+  }
 
+  .subject-chart table th,
+  .subject-chart table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
 
+  .subject-chart table td.group {
+    font-weight: bold;
+    
+  }
 
-                        <tr>
-                            <th
-                                style="background-color: #f2f2f2; text-align: left; padding: 8px; border-bottom: 2px solid #ccc;">
-                                Subject Group</th>
-                            <th
-                                style="background-color: #f2f2f2; text-align: left; padding: 8px; border-bottom: 2px solid #ccc;">
-                                Subjects Available</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+  .subject-chart table tr:hover {
+    background-color: #f9f9f9;
+  }
 
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">8.
-                                Computer/IT</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                Computer Science<br>Information Technology</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">9.
-                                Mathematics</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                Further Mathematics</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">10.
-                                Chemistry</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                Chemistry (Single Subject)</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">11.
-                                Biology</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                Biology (Single Subject)</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">12.
-                                Physics</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                Physics (Single Subject)</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top;">13.
-                                Geography/Geology</td>
-                            <td
-                                style="padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; ">
-                                Geography</td>
-                        </tr>
+  .subject-chart .footer {
+    border-top: 1px solid #DAECE8;
+    padding-top: 10px;
+    font-size: 8.5pt;
+    font-weight: bold;
+   
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+    <div class="subject-chart" style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <!-- Left Table -->
+        <table style="flex: 1; min-width: 300px; border-collapse: collapse; font-size: 12px;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ccc;">Subject Group</th>
+                    <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ccc;">Subjects Available</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="group">1. Literary Subjects</td>
+                    <td>English Language<br>English Literature</td>
+                </tr>
+                <tr>
+                    <td class="group">2. History Related</td>
+                    <td>Classical Civilisation<br>History<br>History of Art</td>
+                </tr>
+                <tr>
+                    <td class="group">3. Languages - Modern/Classical</td>
+                    <td>French<br>German<br>Classical Greek<br>Latin<br>Spanish</td>
+                </tr>
+                <tr>
+                    <td class="group">4. Miscellaneous Arts/Humanities</td>
+                    <td>Media Studies<br>Psychology<br>Religious Studies<br>Sociology</td>
+                </tr>
+                <tr>
+                    <td class="group">5. Economics/Business</td>
+                    <td>Business<br>Economics<br>Law</td>
+                </tr>
+                <tr>
+                    <td class="group">6. Music/Drama/Theatre Studies</td>
+                    <td>Drama and Theatre<br>Music<br>Theatre Studies</td>
+                </tr>
+                <tr>
+                    <td class="group">7. Art/Design/Craft</td>
+                    <td>Art and Design</td>
+                </tr>
+            </tbody>
+        </table>
 
+        <!-- Right Table -->
+        <table style="flex: 1; min-width: 300px; border-collapse: collapse; font-size: 12px;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ccc;">Subject Group</th>
+                    <th style="padding: 10px; text-align: left; border-bottom: 2px solid #ccc;">Subjects Available</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="group">8. Computer/IT</td>
+                    <td>Computer Science<br>Information Technology</td>
+                </tr>
+                <tr>
+                    <td class="group">9. Mathematics</td>
+                    <td>Further Mathematics</td>
+                </tr>
+                <tr>
+                    <td class="group">10. Chemistry</td>
+                    <td>Chemistry (Single Subject)</td>
+                </tr>
+                <tr>
+                    <td class="group">11. Biology</td>
+                    <td>Biology (Single Subject)</td>
+                </tr>
+                <tr>
+                    <td class="group">12. Physics</td>
+                    <td>Physics (Single Subject)</td>
+                </tr>
+                <tr>
+                    <td class="group">13. Geography/Geology</td>
+                    <td>Geography</td>
+                </tr>
+                <tr>
+                    <td class="group">15. Sport Related</td>
+                    <td>Sports Studies</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-
-
-                        <tr>
-                            <td style="padding: 6px 8px;">15. Sport Related</td>
-                            <td style="padding: 6px 8px;text-align: left;    vertical-align: top;">Sports Studies</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-
-
-
-            <!-- Footer -->
-            <div style="border-top: 1px solid #E2F8F5; padding-top: 10px; 
-         font-size: 8.5pt; font-weight: bold; color: #0FC8A9; 
+    <!-- Footer -->
+            <div style="border-top: 1px solid #DAECE8; padding-top: 10px; 
+         font-size: 8.5pt; font-weight: bold; color: #329681; 
          position: absolute; bottom: 30px; left: 30px; right: 30px;
          display: flex; justify-content: space-between;">
 
@@ -2014,13 +2214,15 @@ be required in these careers. Tick to see how well you match these.
                 <span>25</span> <!-- Right -->
             </div>
 
-        </div>
+
+</div>
+
 
 
 
         <!-- page ib crosstab -->
 
-        <div class="page">
+        <div id="page5" class="page">
 
             <div style="border-bottom: 2px solid #DAECE8; padding-bottom: 10px; display: flex; align-items: center;">
                 <div
@@ -2174,114 +2376,173 @@ be required in these careers. Tick to see how well you match these.
                 <h2 style="color: #329681; margin: 0; font-size: 30px; ">SUBJECT AVAILABILITY CHART </h2>
             </div>
 
-            <h3 style="font-size: 15pt; color: #006699; margin-bottom: 10px; text-align: left; ">IB Levels Subjects
-                Available at EDGEPSYCH Consulting</h3>
-            <p style="text-align: justify; line-height: 1.5;font-size: 10pt;">
-                Subject groups shown in the columns of the Subject Selection Chart, and which are
-                normally available to you at school or college for IB subjects are shown below. It may help to highlight
-                those subjects which you chose for your subject combinations on the opposite page. This is important
-                when several different subjects are available under
-                the same subject group. Thus in Group 2 you might highlight 'History', and in Group 3 'French' or
-                'German'.
-            </p>
+            <style>
+  .ib-subject-chart {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    position: relative;
+  }
 
-            <div style="display: flex; gap: 30px; margin-top: 30px;">
+  .ib-subject-chart h3 {
+    font-size: 15pt;
+    color: #006699;
+    margin-bottom: 10px;
+    text-align: left;
+  }
 
-                <!-- Left Table -->
-                <table cellspacing="0" cellpadding="8" style="border-collapse: collapse; width: 47%;">
-                    <thead>
-                        <tr style="background: #f4f4f4; border-bottom: 2px solid #7cbb00;">
-                            <th style="text-align: left;">Subject Group</th>
-                            <th style="text-align: left;">Subjects Available</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1. Studies in Language and Literature</td>
-                            <td style="text-align: left;">
-                                English Language and Literature<br>
-                                English Literature<br>
-                                German Literature<br>
-                                Mother Tongue Language and Literature<br>
-                                Mother Tongue Literature<br>
-                                Hindi Literature<br>
-                                Hindi Language and Literature
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2. Language Acquisition</td>
-                            <td style="text-align: left;">
-                                French<br>
-                                German<br>
-                                German ab initio (SL)<br>
-                                German Language and Literature<br>
-                                Language A: language &amp; literature<br>
-                                Language A: literature<br>
-                                Language ab initio (SL only)<br>
-                                Language B<br>
-                                Mother Tongue Language<br>
-                                Spanish
-                            </td>
-                        </tr>
+  .ib-subject-chart p {
+    text-align: justify;
+    line-height: 1.5;
+    font-size: 10pt;
+    margin-bottom: 20px;
+  }
 
-                        <tr>
-                            <td>3. Individuals and Societies</td>
-                            <td style="text-align: left;">
-                                Business &amp; Management<br>
-                                Economics<br>
-                                Geography<br>
-                                Global Politics<br>
-                                History<br>
-                                Psychology
-                            </td>
-                        </tr>
+  .ib-subject-chart .tables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+  }
 
-                    </tbody>
-                </table>
+  .ib-subject-chart table {
+    width: 47%;
+    border-collapse: collapse;
+    font-size: 11.5px;
+    background-color: white;
+  }
 
-                <!-- Right Table -->
-                <table border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse; width: 47%;">
-                    <thead>
-                        <tr style="background: #f4f4f4; border-bottom: 2px solid #7cbb00;">
-                            <th style="text-align: left;">Subject Group</th>
-                            <th style="text-align: left;">Subjects Available</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+  .ib-subject-chart thead {
+    background: #f4f4f4;
+  }
 
-                        <tr>
-                            <td>4. Sciences</td>
-                            <td style="text-align: left;    vertical-align: top;">
-                                Biology<br>
-                                Chemistry<br>
-                                Computer Science<br>
-                                Design Technology<br>
-                                Physics
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5. Mathematics</td>
-                            <td style="text-align: left;    vertical-align: top;">
-                                Mathematics: Analysis and Approaches (HL)<br>
-                                Mathematics: Analysis and Approaches (SL)<br>
-                                Mathematics: Applications and Interpretation (HL)<br>
-                                Mathematics: Applications and Interpretation (SL)
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>6. The Arts</td>
-                            <td style="text-align: left;    vertical-align: top;">
-                                Dance<br>
-                                Film<br>
-                                Music<br>
-                                Theatre<br>
-                                Visual Arts
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+  .ib-subject-chart th,
+  .ib-subject-chart td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid #ddd;
+  }
 
-            </div>
+  .ib-subject-chart thead th {
+    border-bottom: 2px solid #7cbb00;
+    font-weight: bold;
+  }
+
+  .ib-subject-chart tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  @media (max-width: 768px) {
+    .ib-subject-chart table {
+      width: 100%;
+    }
+  }
+</style>
+
+<div class="ib-subject-chart">
+  <h3>IB Levels Subjects Available at EDGEPSYCH Consulting</h3>
+
+  <p>
+    Subject groups shown in the columns of the Subject Selection Chart, and which are normally available
+    to you at school or college for IB subjects are shown below. It may help to highlight those subjects
+    which you chose for your subject combinations on the opposite page. This is important when several
+    different subjects are available under the same subject group. Thus in Group 2 you might highlight
+    'History', and in Group 3 'French' or 'German'.
+  </p>
+
+  <div class="tables">
+    <!-- Left Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Subject Group</th>
+          <th>Subjects Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1. Studies in Language and Literature</td>
+          <td>
+            English Language and Literature<br>
+            English Literature<br>
+            German Literature<br>
+            Mother Tongue Language and Literature<br>
+            Mother Tongue Literature<br>
+            Hindi Literature<br>
+            Hindi Language and Literature
+          </td>
+        </tr>
+        <tr>
+          <td>2. Language Acquisition</td>
+          <td>
+            French<br>
+            German<br>
+            German ab initio (SL)<br>
+            German Language and Literature<br>
+            Language A: language &amp; literature<br>
+            Language A: literature<br>
+            Language ab initio (SL only)<br>
+            Language B<br>
+            Mother Tongue Language<br>
+            Spanish
+          </td>
+        </tr>
+        <tr>
+          <td>3. Individuals and Societies</td>
+          <td>
+            Business &amp; Management<br>
+            Economics<br>
+            Geography<br>
+            Global Politics<br>
+            History<br>
+            Psychology
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Right Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Subject Group</th>
+          <th>Subjects Available</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>4. Sciences</td>
+          <td>
+            Biology<br>
+            Chemistry<br>
+            Computer Science<br>
+            Design Technology<br>
+            Physics
+          </td>
+        </tr>
+        <tr>
+          <td>5. Mathematics</td>
+          <td>
+            Mathematics: Analysis and Approaches (HL)<br>
+            Mathematics: Analysis and Approaches (SL)<br>
+            Mathematics: Applications and Interpretation (HL)<br>
+            Mathematics: Applications and Interpretation (SL)
+          </td>
+        </tr>
+        <tr>
+          <td>6. The Arts</td>
+          <td>
+            Dance<br>
+            Film<br>
+            Music<br>
+            Theatre<br>
+            Visual Arts
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
             <!-- Footer -->
             <div style="border-top: 1px solid #DAECE8; padding-top: 10px; 
          font-size: 8.5pt; font-weight: bold; color: #329681; 
@@ -2294,7 +2555,7 @@ be required in these careers. Tick to see how well you match these.
         </div>
 
         <!-- e -->
-        <div class="page">
+        <div id="page6" class="page">
 
 
 
@@ -2355,7 +2616,7 @@ be required in these careers. Tick to see how well you match these.
 
 
 
-        <div class="page">
+        <div id="page7" class="page">
             <div style="border-bottom: 2px solid #E8F0E8; padding-bottom: 10px; display: flex; align-items: center;">
                 <div
                     style="width: 50px; height: 50px; border: 2px solid #E8F0E8; border-radius: 50%; text-align: center; 
@@ -2368,6 +2629,12 @@ be required in these careers. Tick to see how well you match these.
 
 
 
+            <img src="/static/last%20page.png" alt="Logo" style="
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+">
 
 
 
@@ -2383,7 +2650,7 @@ be required in these careers. Tick to see how well you match these.
 
 
 
-            <img src="{{ url_for('static', filename='last page.png') }}" alt="Logo">
+
 
 
 
