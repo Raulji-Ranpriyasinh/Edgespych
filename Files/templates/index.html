@@ -224,15 +224,21 @@
     }
 
     // Capitalize first letter
-    function formatNameField(id) {
-      const input = document.getElementById(id);
-      input.addEventListener("input", () => {
-        const val = input.value.trim();
-        if (val.length > 0) {
-          input.value = val.charAt(0).toUpperCase() + val.slice(1).toLowerCase();
-        }
-      });
+function formatNameField(id) {
+  const input = document.getElementById(id);
+  
+  input.addEventListener("blur", () => {
+    const val = input.value.trim();
+    if (val.length > 0) {
+      input.value = val
+        .split(" ")
+        .filter(word => word.length > 0) // remove extra spaces
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ");
     }
+  });
+}
+
 
     formatNameField("first_name");
     formatNameField("last_name");

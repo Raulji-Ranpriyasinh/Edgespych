@@ -137,7 +137,7 @@
         }
 
         .question-container {
-
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .85);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -260,6 +260,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            
         }
 
 
@@ -267,6 +268,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .85);
         }
 
         .option-text {
@@ -275,6 +277,7 @@
             text-align: center;
             padding: 5px;
             font-size: 18px;
+            font-weight: bold;
         }
 
         .option-text.selected {
@@ -498,6 +501,7 @@
         height: auto;
         padding: 15px;
         box-sizing: border-box;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     }
 
     .question-img {
@@ -605,7 +609,10 @@
     display: inline-flex;
     gap: 10px;
     flex-wrap: nowrap;
+
+
 }
+
 }
 
 
@@ -702,18 +709,34 @@
     </div>
 
     
+<div id="category-modal"
+    style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+           background: rgba(0, 0, 0, 0.5); z-index: 9999; font-family: 'Segoe UI', sans-serif;">
+    
+    <div style="background: #fff; padding: 30px 20px; max-width: 800px; margin: 5% auto;
+                border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">
+        
+        <h2 id="modal-category-name" style="margin-bottom: 10px; font-size: 26px; color: #333;">Ready?</h2>
+        
+        <p id="modal-category-instruction" style="font-size: 16px; color: #555; line-height: 1.5;">
+            You will now begin this category. Click "Let's Map your Career" when you're ready.
+        </p>
+        
+        <img id="modal-category-image"
+             style="max-width: 100%; margin: 20px auto; border-radius: 8px;" alt="Category Image">
 
-    <div id="category-modal"
-        style="display:none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999;">
-        <div
-            style="background:#fff; padding: 20px; max-width: 800px; margin: 10% auto; border-radius: 10px; text-align:center;">
-            <h2 id="modal-category-name">Ready?</h2>
-            <!-- Corrected to match the JavaScript ID -->
-            <p id="modal-category-instruction">You will now begin this category. Click "Start" when you're ready.</p>
-            <img id="modal-category-image" style="max-width: 100%; margin-top: 10px;" alt="Category Image">
-            <button id="modal-ok-button">Start</button>
-        </div>
+        <button id="modal-ok-button"
+            style="display: block; margin: 30px auto 0 auto; padding: 12px 30px;
+                   background: linear-gradient(90deg, #015FFF, #3B72D0); color: white; border: none; border-radius: 25px;
+                   font-size: 16px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                   transition: background-color 0.3s;">
+            Let’s Map your Career
+        </button>
     </div>
+</div>
+
+
+
 
 
     <script>
@@ -730,27 +753,41 @@
             fetchQuestions();
         });
 
-        function showCategoryModal() {
-            const category = categories[currentCategoryIndex];
-            const categoryInstruction = categoryInstructions[category];
-            const categoryImage = categoryImages[category];
+function showCategoryModal() {
+    const category = categories[currentCategoryIndex];
+    const categoryInfo = categoryInstructions[category];
+    const categoryImage = categoryImages[category];
 
-            document.getElementById("modal-category-name").innerText = category;
-            document.getElementById("modal-category-instruction").innerText = categoryInstruction;
-            document.getElementById("modal-category-image").src = categoryImage;
+    // Use label instead of raw category name
+    document.getElementById("modal-category-name").innerText = categoryInfo?.label || category;
 
-            document.getElementById("category-modal").style.display = "block";
+    // Use instruction text
+    document.getElementById("modal-category-instruction").innerText = categoryInfo?.instruction || "No instructions available.";
 
-            const startButton = document.getElementById("modal-ok-button");
-            startButton.onclick = null;
-            startButton.onclick = function () {
-                document.getElementById("category-modal").style.display = "none";
-                loadNextQuestion();
-                startCategoryTimer();
-                renderQuestionTiles();
-            };
-        }
+    // Set image if available
+    if (categoryImage) {
+        document.getElementById("modal-category-image").src = categoryImage;
+        document.getElementById("modal-category-image").style.display = "block";
+    } else {
+        document.getElementById("modal-category-image").style.display = "none";
+    }
 
+    // ✅ Show modal
+    document.getElementById("category-modal").style.display = "block";
+
+    // ✅ Attach handler to OK button
+    const startButton = document.getElementById("modal-ok-button");
+    startButton.onclick = null;
+    startButton.onclick = function () {
+        document.getElementById("category-modal").style.display = "none";
+        currentQuestionIndex = 0;
+        loadNextQuestion();
+        startTimer();
+        renderQuestionTiles();
+    };
+}
+
+/*
         function fetchQuestions() {
             fetch('/aptitudegetquestion')
                 .then(response => response.json())
@@ -771,7 +808,7 @@
                 })
                 .catch(error => console.error("Error fetching questions:", error));
         }
-
+*/
         function showCategorySelection() {
             const container = document.getElementById("category-selection");
             container.innerHTML = "";
@@ -801,32 +838,48 @@
             updateCategoryButtonsUI()
         }
 
-        function startTimer() {
-            let timeLeft = 300;
+function startTimer() {
+    let timeLeft = 300; // 10 seconds for demo
+    clearInterval(timerInterval);
+
+    timerInterval = setInterval(function () {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        let timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        document.getElementById("progress-bar").innerText = timeString;
+        document.getElementById("progress-bar").style.width = `${(timeLeft / 300) * 100}%`;
+
+        if (timeLeft === 0) {
             clearInterval(timerInterval);
 
-            timerInterval = setInterval(function () {
-                let minutes = Math.floor(timeLeft / 60);
-                let seconds = timeLeft % 60;
-                let timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            const currentCategory = categories[currentCategoryIndex];
+            submitCategoryResponses(currentCategory); // ✅ Submit even if unanswered
 
-                document.getElementById("progress-bar").innerText = timeString;
-                document.getElementById("progress-bar").style.width = `${(timeLeft / 300) * 100}%`;
+            if (currentCategoryIndex >= categories.length - 1) {
+                // ✅ If this was the last category
+                alert("✅ All categories completed!");
+                window.location.href = '/programmes'; // Redirect
+                return;
+            }
 
-                if (timeLeft === 0) {
-                    clearInterval(timerInterval);
-                    alert("Time is up for this category!");
-                    currentCategoryIndex++;
-                    currentQuestionIndex = 0;
-                    loadNextQuestion();
-                }
-                timeLeft--;
-            }, 1000);
+            // Otherwise move to next category
+            alert("⏰ Time is up for this category!");
+            currentCategoryIndex++;
+            currentQuestionIndex = 0;
+            updateCategoryButtonsUI();
+            loadNextQuestion();
+            showCategoryModal();
         }
+
+        timeLeft--;
+    }, 1000);
+}
+
 
         let hasSubmitted = false;
         // change for the unanswerd log 
-
+/*
 function selectOption(option) {
     if (isQuestionLoading || hasSubmitted) return;
 
@@ -877,10 +930,40 @@ function selectOption(option) {
     loadNextQuestion();
     renderQuestionTiles();
 }
+*/
 
 
+const categoryInstructions = {
+  spellingmistake: {
+    label: "Spelling Mistake",
+    instruction: "For this category, carefully read each word and select the correctly spelled word."
+  },
+  ABSTRACT: {
+    label: "Abstract Reasoning",
+    instruction: "For abstract reasoning, select the option that logically completes the given series or pattern."
+  },
+  NUMEBERS: {
+    label: "Numerical Reasoning",
+    instruction: "For numbers, perform the necessary calculation and choose the correct answer."
+  },
+  Verbal: {
+    label: "Verbal Reasoning",
+    instruction: "For verbal reasoning, choose the answer that best completes the sentence or solves the problem."
+  },
+  arithmetic: {
+    label: "Arithmetic Calculation",
+    instruction: "In the arithmetic category, solve the math problem and pick the correct option."
+  },
+  workingQA: {
+    label: "Working Quickly and Accurately",
+    instruction: "For working QA, read the question carefully and choose the most appropriate answer based on your reasoning."
+  },
+  SPATIAL: {
+    label: "Spatial Reasoning",
+    instruction: "For spatial reasoning, analyze the 2D or 3D shapes and select the correct answer."
+  }
+};
 
-        const categoryInstructions = { SpellingMistake: "For this category, carefully read each word and select the correctly spelled word.", ABSTRACT: "For abstract reasoning, select the option that logically completes the given series or pattern.", NUMBERS: "For numbers, perform the necessary calculation and choose the correct answer.", Verbal: "For verbal reasoning, choose the answer that best completes the sentence or solves the problem.", arithmetic: "In the arithmetic category, solve the math problem and pick the correct option.", workingQA: "For working QA, read the question carefully and choose the most appropriate answer based on your reasoning.", SPATIAL: "For spatial reasoning, analyze the 2D or 3D shapes and select the correct answer." };
 
         const categoryImages = { spellingmistake: "/static/spellingmistake.png", ABSTRACT: "/static/abstract.png", NUMEBERS: "/static/numbers.png", Verbal: "/static/verbal.png", arithmetic: "/static/arithmetic.png", workingQA: "/static/workingqa.png", SPATIAL: "/static/spatial.png" };
 // changed for loop hole
@@ -913,7 +996,7 @@ function loadNextQuestion() {
     isQuestionLoading = true;
 
     if (currentCategoryIndex >= categories.length) {
-        submitFinalResponses();
+        
         return;
     }
 
@@ -922,7 +1005,7 @@ function loadNextQuestion() {
     let totalQuestions = questions.length;
 
     // 🕓 Start timer only when user starts category
-    if (currentQuestionIndex === 0) startTimer();
+    //if (currentQuestionIndex === 0) startTimer();
 
     // ✅ Check if user is trying to move past the last question
     if (currentQuestionIndex >= totalQuestions) {
@@ -940,7 +1023,7 @@ function loadNextQuestion() {
         // ✅ All questions answered — move to next category
         currentCategoryIndex++;
         currentQuestionIndex = 0;
-        updateCategoryButtonsUI()
+        updateCategoryButtonsUI();
         showCategoryModal();
         isQuestionLoading = false;
         return;
@@ -1042,20 +1125,52 @@ function loadNextQuestion() {
         let timer;
         const timeLimit = 5 * 60 * 1000; // 5 minutes per category
 
-        function startCategoryTimer() {
-            if (categoryTimer) clearInterval(categoryTimer); // Clear previous timer
-            timeLeft = 300; // Reset time to 5 minutes
+function startCategoryTimer() {
+    if (categoryTimer) clearInterval(categoryTimer);
+    timeLeft = 10; // use 10 sec temporarily for quick test
 
-            categoryTimer = setInterval(() => {
-                document.getElementById("timer-display").innerText = `Time Left: ${timeLeft}s`;
-                timeLeft--;
+    categoryTimer = setInterval(() => {
+        document.getElementById("timer-display").innerText = `Time Left: ${timeLeft}s`;
+        timeLeft--;
 
-                if (timeLeft < 0) {
-                    clearInterval(categoryTimer); // Stop timer
-                    moveToNextCategory(); // ✅ Auto move to next category
+        if (timeLeft < 0) {
+            clearInterval(categoryTimer);
+
+            const categoryToSubmit = categories[currentCategoryIndex];
+            console.log("🕐 Time is up! Submitting category:", categoryToSubmit);
+
+            // Try forcing submit
+            try {
+                submitCategoryResponses(categoryToSubmit);
+                console.log("📤 Called submitCategoryResponses inside timeout");
+            } catch (err) {
+                console.error("❌ Error calling submitCategoryResponses:", err);
+            }
+
+            setTimeout(() => {
+                if (currentCategoryIndex < categories.length - 1) {
+                    currentCategoryIndex++;
+                    currentQuestionIndex = 0;
+
+                    console.log("➡️ Moving to next category:", categories[currentCategoryIndex]);
+
+                    updateCategoryButtonsUI();
+                    showCategoryModal();
+                    renderQuestionTiles();
+                } else {
+                    alert("✅ All categories completed!");
+                    window.location.href = '/programmes';
                 }
-            }, 1000);
+            }, 300);
         }
+    }, 1000);
+}
+
+
+
+
+
+        
         function moveToNextCategory() {
             if (currentCategoryIndex < categories.length - 1) {
                 currentCategoryIndex++;
@@ -1131,34 +1246,40 @@ function loadNextQuestion() {
             loadQuestionById(prevQuestionId);
         }
 
-        function submitFinalResponses() {
-            clearTimeout(timer); // Stop the timer if it's running
+function submitCategoryResponses(category) {
+    console.log("📥 submitCategoryResponses triggered for category:", category);
+    const categoryQuestions = questionsByCategory[category];
+    const categoryResponses = {};
 
-            if (Object.keys(userResponses).length < 30) {
-                alert("Please answer all 30 questions before submitting!");
-                return;
-            }
+    categoryQuestions.forEach(q => {
+        const selected = userResponses.hasOwnProperty(q.id) ? userResponses[q.id] : "0";
+        categoryResponses[q.id] = selected;
+    });
 
-            fetch('/submit_final_responses', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                credentials : 'include',
-                body: JSON.stringify({
-                    responses: userResponses,
-                    category: categories[currentCategoryIndex]
-                })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert("✅ Responses saved successfully!");
-                        window.location.href = '/programmes';
-                    } else {
-                        alert("❌ Error saving responses: " + data.message);
-                    }
-                })
-                .catch(error => console.error("Error submitting responses:", error));
+    return fetch('/submit_category_responses', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+            category: category,
+            responses: categoryResponses
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('✅ Backend responded:', data);
+        console.log('👥 Sent payload:', {
+            category: category,
+            responses: categoryResponses
+        });
+        if (!data.success) {
+            alert("Error saving responses: " + data.message);
         }
+    })
+    .catch(error => console.error("Error submitting category responses:", error));
+}
+
+
 
         function loadQuestionById(questionId) {
             let currentCategory = categories[currentCategoryIndex];
@@ -1238,7 +1359,7 @@ function loadNextQuestion() {
         }
         ///
 
-        function submitResponse(option) {
+        /*function submitResponse(option) {
             let currentCategory = categories[currentCategoryIndex];
             let questions = questionsByCategory[currentCategory];
             let question = questions[currentQuestionIndex];
@@ -1263,7 +1384,7 @@ function loadNextQuestion() {
 
             console.log(`User selected ${option} for Question ID ${question.id}`);
             renderQuestionTiles();
-        }
+        }*/
 
         let ctrlPressed = false;
 
@@ -1329,6 +1450,149 @@ function loadNextQuestion() {
             var dropdown = document.getElementById("dropdownMenu");
             dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
         }
+
+
+        function selectOption(option) {
+    if (isQuestionLoading || hasSubmitted) return;
+
+    let questionId = document.getElementById("question-id").value;
+    userResponses[questionId] = option;
+
+    // Remove previous selections
+    ["a", "b", "c", "d"].forEach(opt => {
+        document.getElementById(`option-${opt}`).classList.remove("selected-option");
+        document.getElementById(`option-${opt}-text`).classList.remove("selected-option");
+    });
+
+    // Highlight current selection
+    document.getElementById(`option-${option.toLowerCase()}`).classList.add("selected-option");
+    document.getElementById(`option-${option.toLowerCase()}-text`).classList.add("selected-option");
+
+    const currentCategory = categories[currentCategoryIndex];
+    const questions = questionsByCategory[currentCategory];
+    const totalQuestions = questions.length;
+
+    const unanswered = questions.filter(q => !(q.id in userResponses));
+
+    // ✅ If that was the last unanswered question in the category
+    if (unanswered.length === 0) {
+        // 🔁 Submit this category's responses to backend
+        submitCategoryResponses(currentCategory);
+
+        if (currentCategoryIndex === categories.length - 1) {
+            hasSubmitted = true;
+            setTimeout(() => {
+            window.location.href = '/programmes';
+        }, 1000); 
+        } else {
+            alert("✅ All questions answered in this category! Moving to the next one...");
+            currentCategoryIndex++;
+            currentQuestionIndex = 0;
+            updateCategoryButtonsUI();
+            showCategoryModal();
+        }
+        return;
+    }
+
+    // Move to next question
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex >= totalQuestions) {
+        alert("⚠️ You haven't answered all questions in this category.");
+        currentQuestionIndex = questions.findIndex(q => !(q.id in userResponses));
+    }
+
+    loadNextQuestion();
+    renderQuestionTiles();
+}
+
+
+function submitCategoryResponses(category) {
+    const categoryQuestions = questionsByCategory[category];
+    const categoryResponses = {};
+
+    // Collect all responses for the category (even unanswered)
+    categoryQuestions.forEach(q => {
+        const selected = userResponses.hasOwnProperty(q.id) ? userResponses[q.id] : "0";
+// null if not answered
+        categoryResponses[q.id] = selected;
+    });
+
+    fetch('/submit_category_responses', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+            category: category,
+            responses: categoryResponses
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+  console.log('✅ Backend responded:', data);
+  console.log('👥 Sent payload:', {
+    category: category,
+    responses: categoryResponses
+  });
+  if (!data.success) {
+    alert("Error saving responses: " + data.message);
+  }
+})
+
+    .catch(error => console.error("Error submitting category responses:", error));
+}
+
+
+async function fetchQuestions() {
+    try {
+        // Step 1: Get last attempted category
+        let lastCategory = null;
+        const lastCategoryRes = await fetch('/get_last_category');
+        const lastCategoryData = await lastCategoryRes.json();
+
+        console.log("🟡 Response from /get_last_category:", lastCategoryData);
+
+        if (lastCategoryData.success && lastCategoryData.last_category) {
+            lastCategory = lastCategoryData.last_category;
+            console.log("✅ Last category set to:", lastCategory);
+        }
+
+        // Step 2: Fetch all questions
+        const questionsRes = await fetch('/aptitudegetquestion');
+        const questionsData = await questionsRes.json();
+
+        questionsByCategory = questionsData.questions_by_category;
+        categories = Object.keys(questionsByCategory);
+
+        // Sort categories by your custom order
+        const customOrder = ['spellingmistake', 'ABSTRACT', 'NUMEBERS', 'Verbal', 'arithmetic', 'workingQA', 'SPATIAL'];
+        categories.sort((a, b) => customOrder.indexOf(a) - customOrder.indexOf(b));
+
+        // Step 3: Resume from the next category after last completed
+        if (lastCategory && categories.includes(lastCategory)) {
+            const lastIndex = categories.indexOf(lastCategory);
+            if (lastIndex < categories.length - 1) {
+                currentCategoryIndex = lastIndex + 1; // ✅ Resume from next category
+            } else {
+                currentCategoryIndex = categories.length - 1; // ✅ All done, stay at last
+            }
+        } else {
+            currentCategoryIndex = 0; // 🟢 Start fresh
+        }
+
+        if (categories.length > 0) {
+            showCategorySelection();
+            showCategoryModal();
+            renderQuestionTiles();
+        } else {
+            document.getElementById("question-text").innerText = "No questions available!";
+        }
+
+    } catch (error) {
+        console.error("❌ Error in fetchQuestions:", error);
+    }
+}
+
     </script>
 </body>
 

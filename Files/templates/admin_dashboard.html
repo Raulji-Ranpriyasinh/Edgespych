@@ -340,15 +340,16 @@
 <td style="text-align: center;">
     {% if student.aptitude_test_completed or student.career_test_completed %}
         <form class="career-access-toggle-form" data-student-id="{{ student.id }}">
-    <input type="hidden" name="can_view" value="{{ not student.can_view_career_result }}">
-    <label class="switch">
-        <input type="checkbox" class="career-toggle-checkbox" {% if student.can_view_career_result %}checked{% endif %}>
-        <span class="slider round"></span>
-    </label>
-    <div class="status-indicator">
-        {{ "ON" if student.can_view_career_result else "OFF" }}
-    </div>
-</form>
+            <input type="hidden" name="can_view" value="{{ not student.can_view_career_result }}">
+            <label class="switch">
+                <input type="checkbox" class="career-toggle-checkbox" 
+                       {% if student.can_view_career_result %}checked{% endif %}>
+                <span class="slider round"></span>
+            </label>
+            <div class="status-indicator">
+                {{ "ON" if student.can_view_career_result else "OFF" }}
+            </div>
+        </form>
 
     {% endif %}
 </td>

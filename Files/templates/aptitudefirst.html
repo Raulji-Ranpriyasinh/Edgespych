@@ -20,21 +20,24 @@
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: white;
         }
 
         .page {
             width: 21cm;
             height: 29.7cm;
-            margin: 20px auto;
+            margin: 0 auto;
+            padding: 30px;
             background-color: #fff;
-            padding: 2cm;
             box-sizing: border-box;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             line-height: 1.5;
-            position: relative;
+             overflow: hidden;  /* ✅ ADD THIS LINE */
+  box-sizing: border-box; /* ✅ ENSURE THIS IS INCLUDED */
+   max-height: 297mm;
+   position: relative;
         }
 
         .second-sub-header {
@@ -57,10 +60,45 @@
             width: 100%;
             height: 700px;
         }
+
+       @media print {
+  .print-hide,
+  .button-container {
+    display: none !important;
+  }
+
+  body {
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    page-break-after: always;
+    page-break-inside: avoid;
+    break-after: page;
+    break-inside: avoid;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  hr {
+    break-after: avoid;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
     </style>
 
     <div>
-        <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <div class="print-hide" style="display: flex; justify-content: center; margin-top: 20px;">
             <button onclick="downloadPDF()"
                 style="padding: 10px 20px; background: #4682B4; color: white; border: none; cursor: pointer;">
                 Download PDF
@@ -97,27 +135,37 @@
             <div style="width: 40%; font-weight: bold; color: #1f2d5d; font-size: 16px;">The Contents of <br> your
                 Workbook</div>
             <div style="width: 60%;">
+
+                <a href="#page1" style="text-decoration: none;color: inherit; ">
                 <div
                     style="display: flex; align-items: center; margin-bottom: 8px; background-color: #EFD8DE;padding-right: 12px; ">
                     <span
                         style="background-color: #A31C3E; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">I</span>
-                    Overview of MyAptitude
+                    Overview of Aptitude
                     <span style="margin-left: auto;">1</span>
                 </div>
-                <div
+                </a>
+ <a href="#page2" style="text-decoration: none;color: inherit; ">
+<div
                     style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E4DDFD;padding-right: 12px; ">
                     <span
                         style="background-color: #592BF1; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">II</span>
-                    My Aptitude Grades
+                     Aptitude Grades
                     <span style="margin-left: auto;">2</span>
                 </div>
-                <div
+ </a>
+                
+
+ <a href="#page3" style="text-decoration: none;color: inherit; ">
+      <div
                     style="display: flex; align-items: center; margin-bottom: 8px; background-color: #E5DEE5;padding-right: 12px; ">
                     <span
                         style="background-color: #360335; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">III</span>
-                    My Aptitude Review
+                    Aptitude Review
                     <span style="margin-left: auto;">4</span>
                 </div>
+ </a>
+          
                 <!-- <div style="display: flex; align-items: center; margin-bottom: 8px;background-color: #E2F8F5; padding-right: 12px;">
         <span style="background-color: #0FC8A9; color: white; width: 50px; height: 31px; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 4px; margin-right: 10px;">IV</span>
         Subject Selection Worksheets
@@ -184,7 +232,7 @@
     </div>
 
     <!-- page2 -->
-    <div class="page">
+    <div id="page1" class="page">
         <!-- header -->
         <div style="border-bottom: 2px solid #EFD8DE; padding-bottom: 10px; display: flex; align-items: center;">
             <div
@@ -192,8 +240,8 @@
                     font-size: 30px; font-weight: bold; color: #A31C3E;; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
                 I
             </div>
-            <h2 style="color: #A31C3E;; margin: 0; font-size: 30px; ">I
-                Overview of MyAptitude</h2>
+            <h2 style="color: #A31C3E;; margin: 0; font-size: 30px; ">
+                Overview of Aptitude</h2>
         </div>
 
         <p style="text-align: justify; font-size: 10pt;">
@@ -240,7 +288,7 @@
 
     <!-- page 3 -->
 
-    <div class="page">
+    <div id="page2" class="page">
 
         <div style="border-bottom: 2px solid #E4DDFD; padding-bottom: 10px; display: flex; align-items: center;">
             <div
@@ -248,7 +296,7 @@
                     font-size: 30px; font-weight: bold; color: #592BF1; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
                 II
             </div>
-            <h2 style="color: #592BF1; margin: 0; font-size: 30px; ">My Aptitude Grades</h2>
+            <h2 style="color: #592BF1; margin: 0; font-size: 30px; ">Aptitude Grades</h2>
         </div>
         <p style="text-align: justify; font-size: 10pt;">
             Your Aptitude Test results provide a detailed analysis of your performance across different
@@ -275,7 +323,7 @@
 
     </div>
 
-    <div class="page">
+    <div id="page3" class="page">
 
         <div style="border-bottom: 2px solid #E5DEE5; padding-bottom: 10px; display: flex; align-items: center;">
             <div
@@ -562,37 +610,51 @@
 
                     // Add a slight delay to ensure rendering after visibility
                     setTimeout(() => {
-                        window.scoreChartInstance = new Chart(ctx, {
-                            type: "bar",
-                            data: {
-                                labels: Object.keys(data.scores),
-                                datasets: [{
-                                    label: "Score",
-                                    data: Object.values(data.scores),
-                                    backgroundColor: "rgba(128, 0, 128, 0.5)",
-                                    borderColor: "#800080",
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                indexAxis: 'y',
-                                devicePixelRatio: 4,
-                                responsive: true,
-                                plugins: {
-                                    tooltip: {
-                                        enabled: false // ✅ disables the tooltip popup
-                                    }
-                                },
-                                scales: {
-                                    x: {
-                                        min: 0,
-                                        max: 100,
-                                        ticks: { stepSize: 20 }
-                                    }
-                                }
-                            }
-                        });
-                    }, 300); // Delay to ensure visibility before rendering
+    // Get entries from scores object
+    const scoreEntries = Object.entries(data.scores);
+
+    // ✅ Sort by score value descending
+    const sortedEntries = scoreEntries.sort((a, b) => b[1] - a[1]);
+
+    // Extract labels and values from sorted entries
+    const labels = sortedEntries.map(([category]) => category);
+    const values = sortedEntries.map(([_, score]) => Number(score));
+
+    console.log("✅ Sorted Labels:", labels);
+    console.log("✅ Sorted Values:", values);
+
+    window.scoreChartInstance = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Score",
+                data: values,
+                backgroundColor: "rgba(128, 0, 128, 0.5)",
+                borderColor: "#800080",
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            devicePixelRatio: 4,
+            responsive: true,
+            plugins: {
+                tooltip: {
+                    enabled: false
+                }
+            },
+            scales: {
+                x: {
+                    min: 0,
+                    max: 100,
+                    ticks: { stepSize: 20 }
+                }
+            }
+        }
+    });
+}, 300);
+ // Delay to ensure visibility before rendering
                 })
                 .catch(error => console.error("Error:", error));
         }
@@ -601,58 +663,42 @@
 
 
     </script>
+<script>
+    async function downloadPDF() {
+        // Get student name from the span element
+        const studentNameEl = document.querySelector('.student_name');
+        let studentName = studentNameEl ? studentNameEl.textContent.trim() : 'MYCAREERCHOICES';
 
-    <script>
-        async function downloadPDF() {
-            const { jsPDF } = window.jspdf;
+        // Sanitize filename: remove spaces/special characters
+        studentName = studentName.replace(/[^a-zA-Z0-9-_]/g, '_');
 
-            if (!jsPDF) {
-                console.error("jsPDF is not loaded.");
-                return;
-            }
+        const response = await fetch("http://localhost:3000/generate-pdf", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                url: window.location.href
+            })
+        });
 
-            const pdf = new jsPDF({
-                orientation: "p",
-                unit: "mm",
-                format: "a4",
-                compress: true, // Enable PDF stream compression
-            });
-
-            const pages = ["report_page1", "second_page", "third_page", "four_page"]; // add more pages as needed
-
-            for (let i = 0; i < pages.length; i++) {
-                const element = document.getElementById(pages[i]);
-                if (!element) {
-                    console.error(`Element with ID ${pages[i]} not found.`);
-                    continue;
-                }
-
-                const canvas = await html2canvas(element, {
-                    scale: 3.5, // higher resolution for sharp output
-                    backgroundColor: '#ffffff', // make sure white bg is preserved
-                    useCORS: true, // load external images if any
-                });
-
-                // JPEG gives better compression, adjust quality as needed (0.7–0.95)
-                const imgData = canvas.toDataURL("image/jpeg", 0.85);
-
-                const imgProps = pdf.getImageProperties(imgData);
-                const pdfWidth = 210;
-                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-                if (i > 0) pdf.addPage();
-                pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
-
-                // Optional: Add page number
-                pdf.setFontSize(10);
-                pdf.setTextColor(128, 0, 128); // purple
-                pdf.text(`${i + 1}`, 200, 290); // bottom-right corner
-            }
-
-            pdf.save("Aptitude_Report.pdf");
+        if (!response.ok) {
+            console.error("Failed to generate PDF");
+            return;
         }
 
-    </script>
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${studentName}_Report.pdf`; // ✅ dynamic filename
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+    }
+</script>
+
 </body>
 
 </html>
