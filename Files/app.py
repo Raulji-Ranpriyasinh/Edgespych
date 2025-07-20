@@ -11,8 +11,9 @@ import json
 # Secret key for session management
 app.secret_key = 'your_secret_key'
 #------------------------------------------
-# Database Configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:5525@localhost/EXAM'
+# # Database Configuration
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:Edgespych12345@myappdb.cer0aq8cezxb.us-east-1.rds.amazonaws.com:3306/myappdb'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:5525@localhost/EXAM'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
     "pool_recycle": 280,
